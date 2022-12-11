@@ -5,6 +5,7 @@ from .enums import Role
 
 
 class SystemUser(AbstractUser):
+    USERNAME_FIELD = 'username'
     role = models.IntegerField(choices=Role.choices(), default=Role.PUBLIC)
     email = models.EmailField()
     first_name = models.TextField()

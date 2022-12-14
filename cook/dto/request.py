@@ -18,8 +18,10 @@ class UserRegistrationRequest(BaseRequest):
 class UserUpdateProfileRequest(BaseRequest):
     def __init__(self, json):
         super().__init__(json)
-        self.bio = self.data['bio']
+        self.first_name = self.data['first_name']
+        self.last_name = self.data['last_name']
         self.email = self.data['email']
+        self.bio = self.data['bio']
 
 
 class UserUpgradeRequest(BaseRequest):

@@ -108,3 +108,10 @@ export const Image = styled.img`
   text-align: center;
   margin: 0 auto !important;
 `;
+export const Mbutton = styled(Link)`
+  color: #010606;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+`;

@@ -10,7 +10,34 @@
   padding-bottom: 0.75rem;
   width: 100%;
   height: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 ul {
   list-style-type: none;
+}
+li {
+  padding: 10px 10px;
+  text-align: right;
+  cursor: pointer;
+}
+.div-icon {
+  display: flex;
+  flex-wrap: wrap;
+}
+.m-icon {
+  margin-right: 2px;
+  width: 26px;
+}
+.m2-icon {
+  margin: 0px 2px;
+  width: 26px;
+}
+.avatar {
+  background: black;
+  border-radius: 50%;
+  margin: 0px 10px;
+  width: 37px;
+  height: 37px;
 }

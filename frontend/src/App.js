@@ -4,6 +4,7 @@ import Home from "./pages";
 import Signin from "./pages/signin";
 import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
+import DashEditProfile from "./pages/editProfile";
 function App() {
   return (
     <Router className="App">
@@ -12,6 +13,7 @@ function App() {
         <Route path="/signin" element={<Signin />} exact />
         <Route path="/register" element={<Register />} exact />
         <Route path="/dashboard" element={<Dashboard />} exact />
+        <Route path="/dashboard-edit-profile" element={<DashEditProfile />} exact />
       </Routes>
     </Router>
   );

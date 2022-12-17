@@ -21,18 +21,19 @@ def login_user(request):
 
 @require_http_methods(["GET", "PATCH"])
 def profile(request, username):
-    # TODO Yasaman
+    request_model = UserUpdateProfileRequest(request)
     if request.method == "GET":
         return view_profile(username)
     if request.method == "PATCH":
-        return update_profile(request, username)
+        return update_profile(request_model, username)
 
 
 def view_profile(username):
-    pass
+    return SystemUser.objects.get(username)
 
 
 def update_profile(request, username):
+    SystemUser.objects.update(username)
     pass
 
 

@@ -1,32 +1,71 @@
 import React from "react";
-import { Container, Sidebar, Image,Mbutton } from "./EditProfile";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Logo from "../../images/logo-3.png";
-import ItemAccordion from "../Items";
-import { accordion1 } from "../Items/Data";
-import "./EditProfile.css";
+import { Container } from "./EditProfile";
+import DashboardSidebar from "../Dashboard/Dash-sidebar";
+import DashboardHeader from "../Dashboard/Dash-header";
+import "./edit-profile.css";
+import url_img from "./../../images/1.jpg";
 const EditProfile = () => {
   return (
     <Container>
-      <Sidebar>
-        <Image src={Logo} alt="logo" />
-        <ul>
-          <li>
-            <ItemAccordion {...accordion1} />
-          </li>
-          <li>
-          <Mbutton  to="/dashboard-edit-profile">ویرایش اطلاعات</Mbutton>
-          </li>
-          <li>
-          <Mbutton  to="/Signin">درخواست ارتقا</Mbutton>
-          </li>
-        </ul>
-      </Sidebar>
-      <div class="web-header">Hello word</div>
+      <DashboardSidebar />
+      <DashboardHeader />
+      <div class="content-edit">
+        <p> سلام علی به سایت ما خوش آمدی</p>
+        <div class="form-edit">
+          <img src={url_img} alt="profile-user" class="avatar2"></img>
+          <form>
+            <div class="row">
+              <div class="col1">
+                <label for="fname">نام</label>
+                <br />
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  value="John"
+                  class="f-input"
+                />
+              </div>
+              <div class="col1">
+                <label for="lname">نام خانوادگی</label>
+                <br />
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  value="Doe"
+                  class="f-input"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col1">
+                <label for="fname">نام</label>
+                <br />
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  value="John"
+                  class="f-input"
+                />
+              </div>
+              <div class="col1">
+                <label for="lname">نام خانوادگی</label>
+                <br />
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  value="Doe"
+                  class="f-input"
+                />
+              </div>
+            </div>
+            <input type="submit" value="Submit" class="f-button" />
+          </form>
+        </div>
+      </div>
     </Container>
   );
 };

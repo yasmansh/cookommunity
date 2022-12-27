@@ -11,7 +11,7 @@ const AboutMe = () => {
   return (
     <>
       <AboutContainer>
-        <AboutTitle>About me</AboutTitle>
+        <AboutTitle>درباره ما</AboutTitle>
         <AboutHeading>We Have Cooked Since 2000</AboutHeading>
         <AboutP>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -49,4 +49,10 @@ def update_ticket(request):
     request_model = ModifyTicketRequest(request)
     ticket = Ticket.objects.get(request_model.ticket_id)
     ticket.status = request_model.status
+    ticket.save()
+    category, status = TicketCategory.get_category(ticket.category), TicketStatus.get_status(ticket.status)
+    if status == TicketStatus.DONE and category == TicketCategory.PRO_VERIFICATION:
+        user = SystemUser.objects.get(username=ticket.user)
+        user.role = Role.PRO.value
+        user.save()
     return HttpResponse()

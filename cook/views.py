@@ -19,22 +19,28 @@ def login_user(request):
     pass
 
 
-@require_http_methods(["GET", "PATCH"])
+@require_http_methods(["GET", "PUT"])
 def profile(request, username):
-    request_model = UserUpdateProfileRequest(request)
     if request.method == "GET":
-        user_info = view_profile(username)
-        return ObjectInfoResponse(user_info)
-    if request.method == "PATCH":
+        user_info = view_profile(username).data
+        return HttpResponse(ObjectInfoResponse(user_info).json)
+    if request.method == "PUT":
+        request_model = UserUpdateProfileRequest(request)
+        update_profile(request_model, username)
         return HttpResponse()
 
 
 def view_profile(username):
-    return SystemUser.objects.get(username)
+    return SystemUser.objects.get(username=username)
 
 
-def update_profile(request, username):
-    SystemUser.objects.update(username)
+def update_profile(request_model, username):
+    user = SystemUser.objects.get(username=username)
+    if user is not None:
+        user.first_name = request_model.first_name
+        user.last_name = request_model.last_name
+        user.bio = request_model.bio
+        user.save()
 
 
 @require_http_methods(["POST"])

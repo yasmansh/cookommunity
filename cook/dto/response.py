@@ -10,3 +10,8 @@ class CreationResponse(BaseResponse):
     def __init__(self, object_id):
         self.data = dict(id=object_id)
         super().__init__(self.data)
+
+
+class ObjectInfoResponse(BaseResponse):
+    def __init__(self, object_dict):
+        super().__init__(object_dict)

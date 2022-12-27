@@ -23,9 +23,10 @@ def login_user(request):
 def profile(request, username):
     request_model = UserUpdateProfileRequest(request)
     if request.method == "GET":
-        return view_profile(username)
+        user_info = view_profile(username)
+        return ObjectInfoResponse(user_info)
     if request.method == "PATCH":
-        return update_profile(request_model, username)
+        return HttpResponse()
 
 
 def view_profile(username):
@@ -34,7 +35,6 @@ def view_profile(username):
 
 def update_profile(request, username):
     SystemUser.objects.update(username)
-    pass
 
 
 @require_http_methods(["POST"])

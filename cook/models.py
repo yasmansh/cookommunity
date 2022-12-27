@@ -6,12 +6,42 @@ from .enums import Role
 
 class SystemUser(AbstractUser):
     USERNAME_FIELD = 'username'
-    role = models.IntegerField(choices=Role.choices(), default=Role.PUBLIC)
-    email = models.EmailField()
-    first_name = models.TextField()
-    last_name = models.TextField()
+    role = models.IntegerField(choices=Role.choices(), default=Role.PUBLIC, verbose_name=('نقش'))
+    email = models.EmailField(verbose_name=('ایمیل'))
+    first_name = models.TextField(verbose_name=('نام'))
+    last_name = models.TextField(verbose_name=('نام خانوادگی'))
+    bio = models.CharField(verbose_name=('زندگینامه'), max_length=500, null = True)
 
     objects = SystemUserManager()
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}: {self.role}'
+
+
+class Category(models.Model):
+    """
+    Model for food categories
+    """
+
+    name = models.CharField(verbose_name=('نام دسته'), max_length=100)
+    description = models.TextField(verbose_name=('شرح'), max_length=300)
+    date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name}"
+
+
+class Food(models.Model):
+    """
+    Model for foods
+    """
+
+    name = models.CharField(verbose_name=('نام غذا'), max_length=150)
+    description = models.TextField(verbose_name=('توضیح'), max_length=300)
+    price = models.FloatField(verbose_name=('هزینه'))
+    category = models.ManyToManyField(Category)
+    date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name} / {', '.join(self.category.values_list('name', flat=True))}"
+

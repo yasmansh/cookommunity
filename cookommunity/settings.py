@@ -78,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cookommunity',
         'USER': 'root',
-        'PASSWORD': 'root'
+        'PASSWORD': '725232'
     }
 }
 

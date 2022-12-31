@@ -26,15 +26,20 @@ def profile(request, username):
         user_info = view_profile(username)
         return ObjectInfoResponse(user_info)
     if request.method == "PATCH":
-        return HttpResponse()
+        return update_profile(request_model, username)
 
 
 def view_profile(username):
-    return SystemUser.objects.get(username)
+    return SystemUser.objects.filter(username=username)._meta.get_fields()
 
 
 def update_profile(request, username):
-    SystemUser.objects.update(username)
+    user  =  SystemUser.objects.filter(username=username)
+    user.first_name = request.first_name
+    user.last_name = request.last_name
+    user.bio = request.bio
+    user.email = request.email
+    user.save()
 
 
 @require_http_methods(["POST"])

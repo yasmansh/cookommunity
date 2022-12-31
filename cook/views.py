@@ -23,9 +23,10 @@ def login_user(request):
 def profile(request, username):
     request_model = UserUpdateProfileRequest(request)
     if request.method == "GET":
-        return view_profile(username)
+        user_info = view_profile(username)
+        return ObjectInfoResponse(user_info)
     if request.method == "PATCH":
-        return update_profile(request_model, username)
+        return HttpResponse()
 
 
 def view_profile(username):
@@ -34,16 +35,25 @@ def view_profile(username):
 
 def update_profile(request, username):
     SystemUser.objects.update(username)
-    pass
+
+
+@require_http_methods(["POST"])
+def create_ticket(request):
+    request_model = CreateTicketRequest(request)
+    ticket = Ticket(user=request_model.user, category=request_model.category, status=TicketStatus.NEW.value)
+    ticket.save()
+    return CreationResponse(ticket.id)
 
 
 @require_http_methods(["PATCH"])
-def upgrade_user(request):
-    # TODO Yashar
-    pass
-
-
-@require_http_methods(["PATCH"])
-def approve_user_upgrade(request):
-    # TODO Yashar
-    pass
+def update_ticket(request):
+    request_model = ModifyTicketRequest(request)
+    ticket = Ticket.objects.get(request_model.ticket_id)
+    ticket.status = request_model.status
+    ticket.save()
+    category, status = TicketCategory.get_category(ticket.category), TicketStatus.get_status(ticket.status)
+    if status == TicketStatus.DONE and category == TicketCategory.PRO_VERIFICATION:
+        user = SystemUser.objects.get(username=ticket.user)
+        user.role = Role.PRO.value
+        user.save()
+    return HttpResponse()

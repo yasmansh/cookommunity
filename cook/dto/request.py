@@ -24,12 +24,15 @@ class UserUpdateProfileRequest(BaseRequest):
         self.bio = self.data['bio']
 
 
-class UserUpgradeRequest(BaseRequest):
+class CreateTicketRequest(BaseRequest):
     def __init__(self, json):
         super().__init__(json)
+        self.user = self.data['username']
+        self.category = self.data['category']
 
 
-class AdminApproveUpgradeRequest(BaseRequest):
+class ModifyTicketRequest(BaseRequest):
     def __init__(self, json):
         super().__init__(json)
-        self.username = self.data['username']
+        self.ticket_id = self.data['ticket_id']
+        self.status = self.data['status']

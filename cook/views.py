@@ -9,7 +9,9 @@ from .dto.response import *
 @require_http_methods(["POST"])
 def register_user(request):
     request_model = UserRegistrationRequest(request)
-    SystemUser.objects.create_user(**request_model.data)
+    user = SystemUser.objects.create(username=request_model.username)
+    user.set_password(request_model.password)
+    user.save()
     return HttpResponse()
 
 

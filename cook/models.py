@@ -57,7 +57,24 @@ class Food(models.Model):
     description = models.TextField(verbose_name=('توضیح'), max_length=300)
     price = models.FloatField(verbose_name=('هزینه'))
     category = models.ManyToManyField(Category)
+    preparation_time =  models.IntegerField(verbose_name=('زمان آماده‌شدن'))
+    for_vegetarians = models.BooleanField(verbose_name=('مخصوص گیاهخواران'), default=False)
+    meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=300)
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.name} / {', '.join(self.category.values_list('name', flat=True))}"
+
+
+class Foodstuff (models.Model):
+    """
+    Model for Foodstuffs
+    """
+    Foodstuff_id = models.AutoField(primary_key=True)
+    name = models.CharField(verbose_name=('نام ماده غذایی'), max_length=100)
+    price = models.FloatField(verbose_name=('قیمت'))
+    is_vegan = models.BooleanField(verbose_name=('گیاهی'), default=False)
+    date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name}"

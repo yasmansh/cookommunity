@@ -1,7 +1,24 @@
-import React from "react";
+import { useEffect, useState,React } from 'react'
 import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from "./SigninElements";
 
 const SigninForm = () => {
+  const [courses, setCourses] = useState([])
+
+  const getCourses = () => {
+    fetch('http://localhost:4000/courses')
+      .then((response) => response.json())
+      .then((data) => {
+        setCourses(data)
+        console.log(courses)
+      })
+      .catch((err) => {
+        setCourses([])
+      })
+  }
+
+  useEffect(() => {
+    getCourses()
+  }, [])
   return (
     <Container>
       <FormWrap>

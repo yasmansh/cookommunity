@@ -42,7 +42,7 @@ export const FormContent = styled.div`
     padding: 10px;
   }
 `;
-export const Form = styled.div`
+export const Form = styled.form`
   background: #261236;
   max-width: 400px;
   height: auto;

@@ -9,7 +9,9 @@ from .dto.response import *
 @require_http_methods(["POST"])
 def register_user(request):
     request_model = UserRegistrationRequest(request)
-    SystemUser.objects.create_user(**request_model.data)
+    user = SystemUser.objects.create(username=request_model.username)
+    user.set_password(request_model.password)
+    user.save()
     return HttpResponse()
 
 
@@ -21,6 +23,7 @@ def login_user(request):
 
 @require_http_methods(["GET", "PUT"])
 def profile(request, username):
+    request_model = UserUpdateProfileRequest(request)
     if request.method == "GET":
         user_info = view_profile(username).data
         return HttpResponse(ObjectInfoResponse(user_info).json)
@@ -34,13 +37,13 @@ def view_profile(username):
     return SystemUser.objects.get(username=username)
 
 
-def update_profile(request_model, username):
-    user = SystemUser.objects.get(username=username)
-    if user is not None:
-        user.first_name = request_model.first_name
-        user.last_name = request_model.last_name
-        user.bio = request_model.bio
-        user.save()
+def update_profile(request, username):
+    user  =  SystemUser.objects.filter(username=username)
+    user.first_name = request.first_name
+    user.last_name = request.last_name
+    user.bio = request.bio
+    user.email = request.email
+    user.save()
 
 
 @require_http_methods(["POST"])

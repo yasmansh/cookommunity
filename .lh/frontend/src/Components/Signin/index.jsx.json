@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/Components/Signin/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1672478278592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1672478278592,
+            "name": "Commit-0",
+            "content": "import { useEffect, useState,React } from 'react'\r\nimport { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n\r\nconst SigninForm = () => {\r\n  const [courses, setCourses] = useState([])\r\n\r\n  const getCourses = () => {\r\n    fetch('http://localhost:4000/courses',)\r\n      .then((response) => response.json())\r\n      .then((data) => {\r\n        setCourses(data)\r\n        console.log(courses)\r\n      })\r\n      .catch((err) => {\r\n        setCourses([])\r\n      })\r\n  }\r\n\r\n  useEffect(() => {\r\n    getCourses()\r\n  }, [])\r\n  return (\r\n    <Container>\r\n      <FormWrap>\r\n        <Icon to=\"/\">Return To Home</Icon>\r\n        <FormContent>\r\n          <Form action=\"#\">\r\n            <FormH1>Sign in to your account</FormH1>\r\n            <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n            <FormInput type=\"email\" required />\r\n            <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n            <FormInput type=\"password\" required />\r\n            <FormButton type=\"submit\">Sign in</FormButton>\r\n            <Text>Forget Password?</Text>\r\n          </Form>\r\n        </FormContent>\r\n      </FormWrap>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default SigninForm;\r\n"
+        }
+    ]
+}

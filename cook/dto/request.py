@@ -20,7 +20,7 @@ class UserUpdateProfileRequest(BaseRequest):
         super().__init__(json)
         self.first_name = self.data['first_name']
         self.last_name = self.data['last_name']
-        self.email = self.data['email']
+        # self.email = self.data['email']
         self.bio = self.data['bio']
 
 

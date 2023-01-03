@@ -21,18 +21,20 @@ def login_user(request):
     pass
 
 
-@require_http_methods(["GET", "PATCH"])
+@require_http_methods(["GET", "PUT"])
 def profile(request, username):
     request_model = UserUpdateProfileRequest(request)
     if request.method == "GET":
-        user_info = view_profile(username)
-        return ObjectInfoResponse(user_info)
-    if request.method == "PATCH":
-        return update_profile(request_model, username)
+        user_info = view_profile(username).data
+        return HttpResponse(ObjectInfoResponse(user_info).json)
+    if request.method == "PUT":
+        request_model = UserUpdateProfileRequest(request)
+        update_profile(request_model, username)
+        return HttpResponse()
 
 
 def view_profile(username):
-    return SystemUser.objects.filter(username=username)._meta.get_fields()
+    return SystemUser.objects.get(username=username)
 
 
 def update_profile(request, username):

@@ -1,9 +1,25 @@
+from enum import Enum
+
 from simplejson import dumps as jw
+
+
+class InternalError(Enum):
+    LOGIN_FAILED = (404, "چنین اطلاعات حسابی ثبت نشده‌است.")
+    ACCOUNT_NOT_FOUND = (404, "چنین حسابی وجود ندارد")
+    ACCOUNT_EXISTS = (409, "چنین حسابی همینک وجود دارد")
+    NO_MATCH = (404, "نتیجه‌ای یافت نشد")
 
 
 class BaseResponse:
     def __init__(self, data):
         self.json = jw(data)
+
+
+class ErrorResponse(BaseResponse):
+    def __init__(self, error: InternalError):
+        error_code, error_message = error.value[0], error.value[1]
+        self.data = dict(err_c=error_code, err_msg=error_message)
+        super().__init__(self.data)
 
 
 class CreationResponse(BaseResponse):

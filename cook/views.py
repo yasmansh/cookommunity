@@ -15,10 +15,22 @@ def register_user(request):
     return HttpResponse()
 
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET"])
 def login_user(request):
-    # TODO Yashar
-    pass
+    request_model = UserLoginRequest(request)
+    if SystemUser.objects.filter(username=request_model.username, password=request_model.password).exists():
+        return HttpResponse()
+    else:
+        return HttpResponse(ErrorResponse(InternalError.LOGIN_FAILED))
+
+
+@require_http_methods(["PUT"])
+def logout_user(request):
+    request_model = UserLogoutRequest(request)
+    if SystemUser.objects.filter(username=request_model.username).exists():
+        return HttpResponse()
+    else:
+        return HttpResponse(ErrorResponse(InternalError.LOGIN_FAILED))
 
 
 @require_http_methods(["GET", "PUT"])
@@ -38,7 +50,7 @@ def view_profile(username):
 
 
 def update_profile(request, username):
-    user  =  SystemUser.objects.filter(username=username)
+    user = SystemUser.objects.filter(username=username)
     user.first_name = request.first_name
     user.last_name = request.last_name
     user.bio = request.bio
@@ -54,7 +66,7 @@ def create_ticket(request):
     return CreationResponse(ticket.id)
 
 
-@require_http_methods(["PATCH"])
+@require_http_methods(["PUT"])
 def update_ticket(request):
     request_model = ModifyTicketRequest(request)
     ticket = Ticket.objects.get(request_model.ticket_id)

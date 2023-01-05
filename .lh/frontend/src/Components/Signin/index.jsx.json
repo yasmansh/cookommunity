@@ -3,11 +3,103 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1672478278592,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1672642834340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { useEffect, useState,React } from 'react'\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n-\r\n+import axios from 'axios'\r\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n \r\n   const getCourses = () => {\r\n-    fetch('http://localhost:4000/courses',)\r\n+    fetch('http://localhost:4000/courses')\r\n       .then((response) => response.json())\r\n       .then((data) => {\r\n         setCourses(data)\r\n         console.log(courses)\r\n"
+                },
+                {
+                    "date": 1672642878883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,23 @@\n       .catch((err) => {\r\n         setCourses([])\r\n       })\r\n   }\r\n-\r\n+  const getCourses = () => {\r\n+    axios\r\n+      .get('http://localhost:4000/courses')\r\n+      .then((response) => {\r\n+        // handle success\r\n+        console.log(response.data)\r\n+        setCourses(response.data)\r\n+      })\r\n+      .catch((error) => {\r\n+        // handle error\r\n+      })\r\n+      .then(() => {\r\n+        // always executed\r\n+      })\r\n+  }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n   return (\r\n"
+                },
+                {
+                    "date": 1672642892479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,19 +4,8 @@\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n \r\n   const getCourses = () => {\r\n-    fetch('http://localhost:4000/courses')\r\n-      .then((response) => response.json())\r\n-      .then((data) => {\r\n-        setCourses(data)\r\n-        console.log(courses)\r\n-      })\r\n-      .catch((err) => {\r\n-        setCourses([])\r\n-      })\r\n-  }\r\n-  const getCourses = () => {\r\n     axios\r\n       .get('http://localhost:4000/courses')\r\n       .then((response) => {\r\n         // handle success\r\n"
+                },
+                {
+                    "date": 1672642964659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,22 +3,15 @@\n import axios from 'axios'\r\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n \r\n-  const getCourses = () => {\r\n-    axios\r\n-      .get('http://localhost:4000/courses')\r\n-      .then((response) => {\r\n-        // handle success\r\n-        console.log(response.data)\r\n-        setCourses(response.data)\r\n-      })\r\n-      .catch((error) => {\r\n-        // handle error\r\n-      })\r\n-      .then(() => {\r\n-        // always executed\r\n-      })\r\n+  async function getCourses() {\r\n+    try {\r\n+      const response = await axios.get('http://localhost:4000/courses')\r\n+      console.log(response.data)\r\n+    } catch (error) {\r\n+      console.log(error)\r\n+    }\r\n   }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1672645154986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,14 +5,15 @@\n   const [courses, setCourses] = useState([])\r\n \r\n   async function getCourses() {\r\n     try {\r\n-      const response = await axios.get('http://localhost:4000/courses')\r\n+      const response = await axios.po('http://localhost:4000/courses')\r\n       console.log(response.data)\r\n     } catch (error) {\r\n       console.log(error)\r\n     }\r\n   }\r\n+\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n   return (\r\n"
+                },
+                {
+                    "date": 1672662319401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   const [courses, setCourses] = useState([])\r\n \r\n   async function getCourses() {\r\n     try {\r\n-      const response = await axios.po('http://localhost:4000/courses')\r\n+      const response = await axios.post('http://127.0.0.1:8000//courses')\r\n       console.log(response.data)\r\n     } catch (error) {\r\n       console.log(error)\r\n     }\r\n"
+                },
+                {
+                    "date": 1672662367462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   const [courses, setCourses] = useState([])\r\n \r\n   async function getCourses() {\r\n     try {\r\n-      const response = await axios.post('http://127.0.0.1:8000//courses')\r\n+      const response = await axios.post('http://127.0.0.1:8000')\r\n       console.log(response.data)\r\n     } catch (error) {\r\n       console.log(error)\r\n     }\r\n"
+                },
+                {
+                    "date": 1672663248081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   const [courses, setCourses] = useState([])\r\n \r\n   async function getCourses() {\r\n     try {\r\n-      const response = await axios.post('http://127.0.0.1:8000')\r\n+      const response = await axios.post('http://127.0.0.1:8000',)\r\n       console.log(response.data)\r\n     } catch (error) {\r\n       console.log(error)\r\n     }\r\n@@ -23,9 +23,10 @@\n         <FormContent>\r\n           <Form action=\"#\">\r\n             <FormH1>Sign in to your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n-            <FormInput type=\"email\" required />\r\n+            <FormInput type=\"email\"   name=\"name\"\r\n+        onChange={handleChange} required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n             <FormInput type=\"password\" required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n"
+                },
+                {
+                    "date": 1672663253324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,9 @@\n         <FormContent>\r\n           <Form action=\"#\">\r\n             <FormH1>Sign in to your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n-            <FormInput type=\"email\"   name=\"name\"\r\n-        onChange={handleChange} required />\r\n+            <FormInput type=\"email\"   name=\"name\" onChange={handleChange} required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n             <FormInput type=\"password\" required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n"
+                },
+                {
+                    "date": 1672663261829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,11 @@\n         <FormContent>\r\n           <Form action=\"#\">\r\n             <FormH1>Sign in to your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n-            <FormInput type=\"email\"   name=\"name\" onChange={handleChange} required />\r\n+            <FormInput type=\"email\" name=\"name\" onChange={handleChange} required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n-            <FormInput type=\"password\" required />\r\n+            <FormInput type=\"password\" name=\"name\" onChange={handleChange} required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n           </Form>\r\n         </FormContent>\r\n"
+                },
+                {
+                    "date": 1672663278514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,12 @@\n     } catch (error) {\r\n       console.log(error)\r\n     }\r\n   }\r\n-\r\n+  const handleSubmit = (e) => {\r\n+    e.preventDefault()\r\n+    alert(`نام: ${form.name}   پیام: ${form.message}`)\r\n+  }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n   return (\r\n"
+                },
+                {
+                    "date": 1672663308516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,18 @@\n     } catch (error) {\r\n       console.log(error)\r\n     }\r\n   }\r\n+  const [form, setForm] = useState({\r\n+    name: '',\r\n+    message: '',\r\n+  })\r\n+\r\n+  const handleChange = (e) => {\r\n+    e.preventDefault()\r\n+    const { name, value } = e.target\r\n+    setForm((prevForm) => ({ ...prevForm, [name]: value }))\r\n+  }\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n     alert(`نام: ${form.name}   پیام: ${form.message}`)\r\n   }\r\n"
+                },
+                {
+                    "date": 1672663610524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     getCourses()\r\n   }, [])\r\n   return (\r\n     <Container>\r\n-      <FormWrap>\r\n+      <FormWrap onSubmit={handleSubmit}>\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n         <FormContent>\r\n           <Form action=\"#\">\r\n             <FormH1>Sign in to your account</FormH1>\r\n"
+                },
+                {
+                    "date": 1672663618305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,11 @@\n     getCourses()\r\n   }, [])\r\n   return (\r\n     <Container>\r\n-      <FormWrap onSubmit={handleSubmit}>\r\n+      <FormWrap >\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n-        <FormContent>\r\n+        <FormContent onSubmit={handleSubmit}>\r\n           <Form action=\"#\">\r\n             <FormH1>Sign in to your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n             <FormInput type=\"email\" name=\"name\" onChange={handleChange} required />\r\n"
+                },
+                {
+                    "date": 1672663873512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n             <FormH1>Sign in to your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n             <FormInput type=\"email\" name=\"name\" onChange={handleChange} required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n-            <FormInput type=\"password\" name=\"name\" onChange={handleChange} required />\r\n+            <FormInput type=\"password\" name=\"password\" onChange={handleChange} required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n           </Form>\r\n         </FormContent>\r\n"
+                },
+                {
+                    "date": 1672663894639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       console.log(error)\r\n     }\r\n   }\r\n   const [form, setForm] = useState({\r\n-    name: '',\r\n+    email: '',\r\n     message: '',\r\n   })\r\n \r\n   const handleChange = (e) => {\r\n@@ -36,9 +36,9 @@\n         <FormContent onSubmit={handleSubmit}>\r\n           <Form action=\"#\">\r\n             <FormH1>Sign in to your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n-            <FormInput type=\"email\" name=\"name\" onChange={handleChange} required />\r\n+            <FormInput type=\"email\" name=\"email\" onChange={handleChange} required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n             <FormInput type=\"password\" name=\"password\" onChange={handleChange} required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n"
+                },
+                {
+                    "date": 1672663920558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     }\r\n   }\r\n   const [form, setForm] = useState({\r\n     email: '',\r\n-    message: '',\r\n+    password: '',\r\n   })\r\n \r\n   const handleChange = (e) => {\r\n     e.preventDefault()\r\n@@ -23,9 +23,9 @@\n     setForm((prevForm) => ({ ...prevForm, [name]: value }))\r\n   }\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    alert(`نام: ${form.name}   پیام: ${form.message}`)\r\n+    alert(` ${form.name}   پیام: ${form.message}`)\r\n   }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1672663927071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     setForm((prevForm) => ({ ...prevForm, [name]: value }))\r\n   }\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    alert(` ${form.name}   پیام: ${form.message}`)\r\n+    alert(`email: ${form.}   پیام: ${form.message}`)\r\n   }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1672663933178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     setForm((prevForm) => ({ ...prevForm, [name]: value }))\r\n   }\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    alert(`email: ${form.}   پیام: ${form.message}`)\r\n+    alert(`email: ${form.email}   پیام: ${form.message}`)\r\n   }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1672663941766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     setForm((prevForm) => ({ ...prevForm, [name]: value }))\r\n   }\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    alert(`email: ${form.email}   پیام: ${form.message}`)\r\n+    alert(`email: ${form.email}    ${form.password}`)\r\n   }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1672663947169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     setForm((prevForm) => ({ ...prevForm, [name]: value }))\r\n   }\r\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n-    alert(`email: ${form.email}    ${form.password}`)\r\n+    alert(`email: ${form.email}   password: ${form.password}`)\r\n   }\r\n   useEffect(() => {\r\n     getCourses()\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1672663968251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,11 +25,9 @@\n   const handleSubmit = (e) => {\r\n     e.preventDefault()\r\n     alert(`email: ${form.email}   password: ${form.password}`)\r\n   }\r\n-  useEffect(() => {\r\n-    getCourses()\r\n-  }, [])\r\n+\r\n   return (\r\n     <Container>\r\n       <FormWrap >\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n"
+                },
+                {
+                    "date": 1672663976954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import axios from 'axios'\r\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n \r\n-??\r\n+?\r\n   const [form, setForm] = useState({\r\n     email: '',\r\n     password: '',\r\n   })\r\n"
                 }
             ],
             "date": 1672478278592,

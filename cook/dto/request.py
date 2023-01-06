@@ -15,6 +15,19 @@ class UserRegistrationRequest(BaseRequest):
         self.last_name = self.data['last_name']
 
 
+class UserLoginRequest(BaseRequest):
+    def __init__(self, json):
+        super().__init__(json)
+        self.username = self.data['username']
+        self.password = self.data['password']
+
+
+class UserLogoutRequest(BaseRequest):
+    def __init__(self, json):
+        super().__init__(json)
+        self.username = self.data['username']
+
+
 class UserUpdateProfileRequest(BaseRequest):
     def __init__(self, json):
         super().__init__(json)

@@ -15,7 +15,7 @@ def register_user(request):
     return HttpResponse()
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 def login_user(request):
     request_model = UserLoginRequest(request)
     if SystemUser.objects.filter(username=request_model.username, password=request_model.password).exists():

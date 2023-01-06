@@ -11,21 +11,49 @@ import {
   Icon,
   Text,
 } from "./RegisterElements";
+import { useForm } from "react-hook-form"
+import axios from 'axios'
 
 const RegisterForm = () => {
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = data => {alert(data.email+data.password)
+    const source = { last_name: "ali" };
+    const returnedTarget = Object.assign(data, source);
+  const data2={"username":"ali",
+  "password":"ali",
+  "first_name":"a",
+  "last_name":"a"
+  }
+  console.log(JSON.stringify(returnedTarget))
+  axios
+  .post('http://127.0.0.1:8000/accounts/', JSON.stringify(data),{
+    headers: {
+      'Access-Control-Allow-Origin': 'http://127.0.0.1:8000/accounts/ُ',
+      'Access-Control-Allow-Credentials': 'true'
+    },
+  })
+  .then((response) => {
+    console.log(response.data)
+  })
+  .catch((error) => {})
+
+  }
+
+
   return (
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
         <FormContent>
-          <Form action="#">
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <FormH1>Register your account</FormH1>
             <FormLabel htmlfor="for">Email</FormLabel>
-            <FormInput type="email" required />
+            <FormInput type="email" {...register("email")} required />
             <FormLabel htmlfor="for">Name</FormLabel>
-            <FormInput type="text" required />
+            <FormInput type="text" {...register("first_name")} required />
             <FormLabel htmlfor="for">Password</FormLabel>
-            <FormInput type="password" required />
+            <FormInput type="password" {...register("password")} required />
             <FormButton type="submit">Sign in</FormButton>
             <Text>Forget Password?</Text>
           </Form>

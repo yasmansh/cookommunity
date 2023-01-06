@@ -1,0 +1,98 @@
+{
+    "sourceFile": "frontend/src/Components/Register/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1672909611718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1672909622443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n   FormWrap,\r\n   Icon,\r\n   Text,\r\n } from \"./RegisterElements\";\r\n+import { useForm } from \"react-hook-form\"\r\n \r\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n"
+                },
+                {
+                    "date": 1672909659997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,16 @@\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => alert(data.email+data.password)\r\n+  async function getCourses() {\r\n+    try {\r\n+      const response = await axios.post('http://127.0.0.1:8000',form)\r\n+      console.log(response.data)\r\n+    } catch (error) {\r\n+      console.log(error)\r\n+    }\r\n+  }\r\n   return (\r\n     <Container>\r\n       <FormWrap>\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n"
+                },
+                {
+                    "date": 1672909689836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => alert(data.email+data.password)\r\n+  \r\n   async function getCourses() {\r\n     try {\r\n       const response = await axios.post('http://127.0.0.1:8000',form)\r\n       console.log(response.data)\r\n"
+                },
+                {
+                    "date": 1672910935269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n \r\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n-  const onSubmit = data => alert(data.email+data.password)\r\n-  \r\n+  const onSubmit = data => {alert(data.email+data.password)\r\n+\r\n   async function getCourses() {\r\n     try {\r\n       const response = await axios.post('http://127.0.0.1:8000',form)\r\n       console.log(response.data)\r\n"
+                },
+                {
+                    "date": 1672910945856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,18 +15,11 @@\n \r\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n-  const onSubmit = data => {alert(data.email+data.password)\r\n+  const onSubmit = data => {alert(data.email+data.password)}\r\n \r\n-  async function getCourses() {\r\n-    try {\r\n-      const response = await axios.post('http://127.0.0.1:8000',form)\r\n-      console.log(response.data)\r\n-    } catch (error) {\r\n-      console.log(error)\r\n-    }\r\n-  }\r\n+\r\n   return (\r\n     <Container>\r\n       <FormWrap>\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n"
+                },
+                {
+                    "date": 1672910996160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,13 +11,23 @@\n   Icon,\r\n   Text,\r\n } from \"./RegisterElements\";\r\n import { useForm } from \"react-hook-form\"\r\n+import axios from 'axios'\r\n \r\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n-  const onSubmit = data => {alert(data.email+data.password)}\r\n+  const onSubmit = data => {alert(data.email+data.password)\r\n+    async function getCourses() {\r\n+      try {\r\n+        const response = await axios.post('http://127.0.0.1:8000',form)\r\n+        console.log(response.data)\r\n+      } catch (error) {\r\n+        console.log(error)\r\n+      }\r\n+    }\r\n+  }\r\n \r\n \r\n   return (\r\n     <Container>\r\n"
+                },
+                {
+                    "date": 1672911014957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n     async function getCourses() {\r\n       try {\r\n-        const response = await axios.post('http://127.0.0.1:8000',form)\r\n+        const response = await axios.post('http://127.0.0.1:8000',data)\r\n         console.log(response.data)\r\n       } catch (error) {\r\n         console.log(error)\r\n       }\r\n"
+                },
+                {
+                    "date": 1672911058120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n     async function getCourses() {\r\n       try {\r\n-        const response = await axios.post('http://127.0.0.1:8000',data)\r\n+        const response = await axios.post('http://127.0.0.1:8000',data.s)\r\n         console.log(response.data)\r\n       } catch (error) {\r\n         console.log(error)\r\n       }\r\n"
+                },
+                {
+                    "date": 1672911415731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n     async function getCourses() {\r\n       try {\r\n-        const response = await axios.post('http://127.0.0.1:8000',data.s)\r\n+        const response = await axios.post('http://127.0.0.1:8000',data)\r\n         console.log(response.data)\r\n       } catch (error) {\r\n         console.log(error)\r\n       }\r\n@@ -33,9 +33,9 @@\n     <Container>\r\n       <FormWrap>\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n         <FormContent>\r\n-          <Form action=\"#\">\r\n+          <Form onSubmit={handleSubmit(onSubmit)}>\r\n             <FormH1>Register your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n             <FormInput type=\"email\" required />\r\n             <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n"
+                },
+                {
+                    "date": 1672911433913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         <FormContent>\r\n           <Form onSubmit={handleSubmit(onSubmit)}>\r\n             <FormH1>Register your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n-            <FormInput type=\"email\" required />\r\n+            <FormInput type=\"email\"  required />\r\n             <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n             <FormInput type=\"text\" required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n             <FormInput type=\"password\" required />\r\n"
+                },
+                {
+                    "date": 1672911439999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,11 +36,11 @@\n         <FormContent>\r\n           <Form onSubmit={handleSubmit(onSubmit)}>\r\n             <FormH1>Register your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n-            <FormInput type=\"email\"  required />\r\n+            <FormInput type=\"email\" {...register(\"email\")} required />\r\n             <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n-            <FormInput type=\"text\" required />\r\n+            <FormInput type=\"text\"  required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n             <FormInput type=\"password\" required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n"
+                },
+                {
+                    "date": 1672911469682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n             <FormH1>Register your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n             <FormInput type=\"email\" {...register(\"email\")} required />\r\n             <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n-            <FormInput type=\"text\"  required />\r\n+            <FormInput type=\"text\" {...register(\"password\")} required />\r\n             <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n-            <FormInput type=\"password\" required />\r\n+            <FormInput type=\"password\" {...register(\"password\")} required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n           </Form>\r\n         </FormContent>\r\n"
+                },
+                {
+                    "date": 1672911478058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,10 +38,10 @@\n             <FormH1>Register your account</FormH1>\r\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n             <FormInput type=\"email\" {...register(\"email\")} required />\r\n             <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n-            <FormInput type=\"text\" {...register(\"password\")} required />\r\n-            <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n+            <FormInput type=\"text\" {...register(\"name\")} required />\r\n+            <FormLabel htmlfor=\"for\"></FormLabel>\r\n             <FormInput type=\"password\" {...register(\"password\")} required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n           </Form>\r\n"
+                },
+                {
+                    "date": 1672911485578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n             <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n             <FormInput type=\"email\" {...register(\"email\")} required />\r\n             <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n             <FormInput type=\"text\" {...register(\"name\")} required />\r\n-            <FormLabel htmlfor=\"for\"></FormLabel>\r\n+            <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n             <FormInput type=\"password\" {...register(\"password\")} required />\r\n             <FormButton type=\"submit\">Sign in</FormButton>\r\n             <Text>Forget Password?</Text>\r\n           </Form>\r\n"
+                },
+                {
+                    "date": 1672911579429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n     async function getCourses() {\r\n       try {\r\n-        const response = await axios.post('http://127.0.0.1:8000',data)\r\n+        const response = await axios.post('http://127.0.0.1:8000accounts/',data)\r\n         console.log(response.data)\r\n       } catch (error) {\r\n         console.log(error)\r\n       }\r\n"
+                },
+                {
+                    "date": 1672911633360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n-    async function getCourses() {\r\n+    async  {\r\n       try {\r\n-        const response = await axios.post('http://127.0.0.1:8000accounts/',data)\r\n+        const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n         console.log(response.data)\r\n       } catch (error) {\r\n         console.log(error)\r\n       }\r\n"
+                },
+                {
+                    "date": 1672911648476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,16 +17,17 @@\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n-    async  {\r\n+    async function getCourses() {\r\n       try {\r\n         const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n         console.log(response.data)\r\n       } catch (error) {\r\n         console.log(error)\r\n       }\r\n     }\r\n+    getCourses()\r\n   }\r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1672911702786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,17 +17,17 @@\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n-    async function getCourses() {\r\n-      try {\r\n-        const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n-        console.log(response.data)\r\n-      } catch (error) {\r\n-        console.log(error)\r\n-      }\r\n-    }\r\n-    getCourses()\r\n+    // async function getCourses() {\r\n+    //   try {\r\n+    //     const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n+    //     console.log(response.data)\r\n+    //   } catch (error) {\r\n+    //     console.log(error)\r\n+    //   }\r\n+    // }\r\n+    // getCourses()\r\n   }\r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1672911761324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,17 +17,17 @@\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n-    // async function getCourses() {\r\n-    //   try {\r\n-    //     const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n-    //     console.log(response.data)\r\n-    //   } catch (error) {\r\n-    //     console.log(error)\r\n-    //   }\r\n-    // }\r\n-    // getCourses()\r\n+    async function getCourses() {\r\n+      try {\r\n+        const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n+        console.log(response.data)\r\n+      } catch (error) {\r\n+        console.log(error)\r\n+      }\r\n+    }\r\n+    getCourses()\r\n   }\r\n \r\n \r\n   return (\r\n"
+                },
+                {
+                    "date": 1672912140318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n \r\n-  \r\n+  c\r\n     async function getCourses() {\r\n       try {\r\n         const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n         console.log(response.data)\r\n"
+                }
+            ],
+            "date": 1672909611718,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {\r\n  Container,\r\n  Form,\r\n  FormButton,\r\n  FormContent,\r\n  FormH1,\r\n  FormInput,\r\n  FormLabel,\r\n  FormWrap,\r\n  Icon,\r\n  Text,\r\n} from \"./RegisterElements\";\r\n\r\nconst RegisterForm = () => {\r\n  const { register, handleSubmit } = useForm()\r\n\r\n  const onSubmit = data => alert(data.email+data.password)\r\n  return (\r\n    <Container>\r\n      <FormWrap>\r\n        <Icon to=\"/\">Return To Home</Icon>\r\n        <FormContent>\r\n          <Form action=\"#\">\r\n            <FormH1>Register your account</FormH1>\r\n            <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n            <FormInput type=\"email\" required />\r\n            <FormLabel htmlfor=\"for\">Name</FormLabel>\r\n            <FormInput type=\"text\" required />\r\n            <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n            <FormInput type=\"password\" required />\r\n            <FormButton type=\"submit\">Sign in</FormButton>\r\n            <Text>Forget Password?</Text>\r\n          </Form>\r\n        </FormContent>\r\n      </FormWrap>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default RegisterForm;\r\n"
+        }
+    ]
+}

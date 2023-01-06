@@ -1,0 +1,22 @@
+{
+    "sourceFile": "cook/dto/request.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1673003009886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673003016387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n         super().__init__(json)\r\n         self.username = self.data['username']\r\n         self.first_name = self.data['first_name']\r\n         self.last_name = self.data['last_name']\r\n+        self.password = self.data['password']\r\n \r\n \r\n class UserLoginRequest(BaseRequest):\r\n     def __init__(self, json):\r\n"
+                }
+            ],
+            "date": 1673003009886,
+            "name": "Commit-0",
+            "content": "from simplejson import loads as jr\r\n\r\n\r\nclass BaseRequest:\r\n    def __init__(self, json):\r\n        self.data = jr(json.body)\r\n\r\n\r\nclass UserRegistrationRequest(BaseRequest):\r\n    def __init__(self, json):\r\n        super().__init__(json)\r\n        self.username = self.data['username']\r\n        self.first_name = self.data['first_name']\r\n        self.last_name = self.data['last_name']\r\n\r\n\r\nclass UserLoginRequest(BaseRequest):\r\n    def __init__(self, json):\r\n        super().__init__(json)\r\n        self.username = self.data['username']\r\n        self.password = self.data['password']\r\n\r\n\r\nclass UserLogoutRequest(BaseRequest):\r\n    def __init__(self, json):\r\n        super().__init__(json)\r\n        self.username = self.data['username']\r\n\r\n\r\nclass UserUpdateProfileRequest(BaseRequest):\r\n    def __init__(self, json):\r\n        super().__init__(json)\r\n        self.first_name = self.data['first_name']\r\n        self.last_name = self.data['last_name']\r\n        # self.email = self.data['email']\r\n        self.bio = self.data['bio']\r\n\r\n\r\nclass CreateTicketRequest(BaseRequest):\r\n    def __init__(self, json):\r\n        super().__init__(json)\r\n        self.user = self.data['username']\r\n        self.category = self.data['category']\r\n\r\n\r\nclass ModifyTicketRequest(BaseRequest):\r\n    def __init__(self, json):\r\n        super().__init__(json)\r\n        self.ticket_id = self.data['ticket_id']\r\n        self.status = self.data['status']\r\n"
+        }
+    ]
+}

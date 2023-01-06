@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 21,
             "patches": [
                 {
                     "date": 1672909611718,
@@ -88,6 +88,10 @@
                 {
                     "date": 1672912140318,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const { register, handleSubmit } = useForm()\r\n \r\n   const onSubmit = data => {alert(data.email+data.password)\r\n \r\n-  \r\n+  c\r\n     async function getCourses() {\r\n       try {\r\n         const response = await axios.post('http://127.0.0.1:8000/accounts/',data)\r\n         console.log(response.data)\r\n"
+                },
+                {
+                    "date": 1673023922698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \r\n const RegisterForm = () => {\r\n   const { register, handleSubmit } = useForm()\r\n \r\n-  const onSubmit = data => {alert(data.u)\r\n+  const onSubmit = data => {alert(data.us)\r\n     const source = { last_name: \"ali\" };\r\n     const returnedTarget = Object.assign(data, source);\r\n   const data2={\"username\":\"ali\",\r\n   \"password\":\"ali13\",\r\n"
                 }
             ],
             "date": 1672909611718,

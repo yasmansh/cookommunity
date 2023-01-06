@@ -17,26 +17,25 @@ import axios from 'axios'
 const RegisterForm = () => {
   const { register, handleSubmit } = useForm()
 
-  const onSubmit = data => {alert(data.email+data.password)
+  const onSubmit = data => {alert(data.username)
     const source = { last_name: "ali" };
     const returnedTarget = Object.assign(data, source);
-  const data2={"username":"ali",
-  "password":"ali",
+  const data2={"username":"ali121223",
+  "password":"ali131221",
   "first_name":"a",
   "last_name":"a"
   }
   console.log(JSON.stringify(returnedTarget))
   axios
-  .post('http://127.0.0.1:8000/accounts/', JSON.stringify(data),{
+  .post('http://127.0.0.1:8000/api/accounts/', JSON.stringify(data2),{
     headers: {
-      'Access-Control-Allow-Origin': 'http://127.0.0.1:8000/accounts/ُ',
-      'Access-Control-Allow-Credentials': 'true'
+      "Content-Type": "application/json"
     },
   })
   .then((response) => {
     console.log(response.data)
   })
-  .catch((error) => {})
+  .catch((error) => {console.log(error.toJSON())})
 
   }
 
@@ -49,7 +48,7 @@ const RegisterForm = () => {
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormH1>Register your account</FormH1>
             <FormLabel htmlfor="for">Email</FormLabel>
-            <FormInput type="email" {...register("email")} required />
+            <FormInput type="email" {...register("username")} required />
             <FormLabel htmlfor="for">Name</FormLabel>
             <FormInput type="text" {...register("first_name")} required />
             <FormLabel htmlfor="for">Password</FormLabel>

@@ -10,9 +10,9 @@ class UserRegistrationRequest(BaseRequest):
     def __init__(self, json):
         super().__init__(json)
         self.username = self.data['username']
-        self.password = self.data['password']
         self.first_name = self.data['first_name']
         self.last_name = self.data['last_name']
+        self.password = self.data['password']
 
 
 class UserLoginRequest(BaseRequest):

@@ -3,11 +3,47 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1672911741786,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673083331368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n   top: 0;\r\n   z-index: 0;\r\n   overflow: hidden;\r\n   background: #35334d;\r\n+  align-items: center;\r\n `;\r\n export const FormWrap = styled.div`\r\n   height: 100%;\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1673083340772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n   z-index: 0;\r\n   overflow: hidden;\r\n   background: #35334d;\r\n   align-items: center;\r\n+  text-align: center;\r\n `;\r\n export const FormWrap = styled.div`\r\n   height: 100%;\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1673083361513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n   z-index: 0;\r\n   overflow: hidden;\r\n   background: #35334d;\r\n   align-items: center;\r\n-  text-align: center;\r\n `;\r\n export const FormWrap = styled.div`\r\n   height: 100%;\r\n   display: flex;\r\n"
+                },
+                {
+                    "date": 1673083421109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,4 +91,10 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n+export const Text = styled.div`\r\n+  text-align: center;\r\n+  margin-top: 24px;\r\n+  color: #fff;\r\n+  font-size: 14px;\r\n+`;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673083427044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,9 +91,9 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n-export const Text = styled.div`\r\n+export const eror = styled.div`\r\n   text-align: center;\r\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n"
+                },
+                {
+                    "date": 1673083435491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,8 +93,6 @@\n   font-size: 14px;\r\n `;\r\n export const eror = styled.div`\r\n   text-align: center;\r\n-  margin-top: 24px;\r\n-  color: #fff;\r\n   font-size: 14px;\r\n `;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673083444621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,5 +94,6 @@\n `;\r\n export const eror = styled.div`\r\n   text-align: center;\r\n   font-size: 14px;\r\n+  width: ;\r\n `;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673083510096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,6 +94,7 @@\n `;\r\n export const eror = styled.div`\r\n   text-align: center;\r\n   font-size: 14px;\r\n-  width: ;\r\n+  width: 30px;\r\n+  align-items: center;\r\n `;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673083653248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -96,5 +96,6 @@\n   text-align: center;\r\n   font-size: 14px;\r\n   width: 30px;\r\n   align-items: center;\r\n+  justify-content: ce;\r\n `;\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1672911741786,

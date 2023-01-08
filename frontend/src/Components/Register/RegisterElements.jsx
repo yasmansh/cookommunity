@@ -11,6 +11,7 @@ export const Container = styled.div`
   z-index: 0;
   overflow: hidden;
   background: #35334d;
+  align-items: center;
 `;
 export const FormWrap = styled.div`
   height: 100%;
@@ -90,4 +91,11 @@ export const Text = styled.div`
   margin-top: 24px;
   color: #fff;
   font-size: 14px;
+`;
+export const eror = styled.div`
+  text-align: center;
+  font-size: 14px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
 `;

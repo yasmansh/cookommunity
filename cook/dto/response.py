@@ -4,10 +4,12 @@ from simplejson import dumps as jw
 
 
 class InternalError(Enum):
-    LOGIN_FAILED = (404, "چنین اطلاعات حسابی ثبت نشده‌است.")
-    ACCOUNT_NOT_FOUND = (404, "چنین حسابی وجود ندارد")
-    ACCOUNT_EXISTS = (409, "چنین حسابی همینک وجود دارد")
-    NO_MATCH = (404, "نتیجه‌ای یافت نشد")
+    CREDENTIAL_MISMATCH = (404, "چنین اطلاعات حسابی ثبت نشده‌است.")
+    ACCOUNT_EXISTS = (409, "چنین حسابی همینک وجود دارد.")
+    NO_MATCH = (404, "نتیجه‌ای یافت نشد.")
+
+    def get_code(self):
+        return self.value[0]
 
 
 class BaseResponse:

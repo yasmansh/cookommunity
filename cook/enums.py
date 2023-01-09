@@ -49,3 +49,19 @@ class TicketStatus(IntEnum):
             if key.value == role_id:
                 return key
         return None
+
+class DurationType(IntEnum):
+    Slow = 1
+    Medium = 2
+    Fast = 3
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+
+    @classmethod
+    def get_type(cls, id: int):
+        for key in cls:
+            if key.value == id:
+                return key
+        return None

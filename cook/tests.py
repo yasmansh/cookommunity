@@ -78,3 +78,4 @@ class AccountViewTest(TestCase):
         response = self.client.post('/api/accounts/false_user/profile/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(response, InternalError.CREDENTIAL_MISMATCH)
+

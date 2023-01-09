@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import SystemUserManager
 from .enums import *
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class SystemUser(AbstractUser):
@@ -72,6 +73,8 @@ class Recipe(models.Model):
     categories = models.ManyToManyField(Category)
     description = models.TextField(verbose_name=('توضیحات'), max_length=350)
     price = models.FloatField(verbose_name=('هزینه'))
+    difficulty = models.IntegerField(validators=[MinValueValidator(0),
+                                       MaxValueValidator(5)], default=3)
     preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.Medium, verbose_name=('مدت زمان آماده شدن'))
     for_vegetarians = models.BooleanField(verbose_name=('مخصوص گیاهخواران'), default=False)
     meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)

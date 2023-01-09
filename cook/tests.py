@@ -18,6 +18,7 @@ class AccountViewTest(TestCase):
     def setUpTestData(cls):
         SystemUser.objects.create(username='user1', password='pw1', first_name='fn1', last_name='ln1')
 
+
     def test_url_admin_exists(self):
         response = self.client.get('/admin', follow=True)
         self.assertEqual(response.status_code, 200)
@@ -58,4 +59,22 @@ class AccountViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         check_internal_error(response, InternalError.CREDENTIAL_MISMATCH)
 
+    def test_valid_view_profile(self):
+        response = self.client.get('/api/accounts/user1/profile/',follow=True)
+        self.assertEqual(response.status_code, 200)
 
+    def test_invalid_view_profile(self):
+        response = self.client.get('/api/accounts/false_user/profile/', follow=True)
+        self.assertEqual(response.status_code, 200)
+        check_internal_error(response, InternalError.CREDENTIAL_MISMATCH)
+
+    def test_valid_update_profile(self):
+        request = dict(username='user1', first_name='newFn1', last_name='newLn1', bio='bio1', email='email1')
+        response = self.client.post('/api/accounts/user1/profile/', request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_invalid_update_profile(self):
+        request = dict(username='user1', first_name='newFn1', last_name='newLn1', bio='bio1', email='email1')
+        response = self.client.post('/api/accounts/false_user/profile/', request)
+        self.assertEqual(response.status_code, 200)
+        check_internal_error(response, InternalError.CREDENTIAL_MISMATCH)

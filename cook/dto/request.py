@@ -30,14 +30,13 @@ class UserLogoutRequest(BaseRequest):
         super().__init__(req, is_post=False)
         self.username = self.data['username']
 
-
 class UserUpdateProfileRequest(BaseRequest):
-    def __init__(self, req, is_post=True):
-        super().__init__(req, is_post)
+    def __init__(self, req):
+        super().__init__(req)
         self.first_name = self.data['first_name']
         self.last_name = self.data['last_name']
-        # self.email = self.data['email']
         self.bio = self.data['bio']
+        self.email = self.data['email']
 
 
 class CreateTicketRequest(BaseRequest):

@@ -16,18 +16,18 @@ const RegisterForm = () => {
   return (
     <Container>
       <FormWrap>
-        <Icon to="/">Return To Home</Icon>
+        <Icon to="/"  >Return To Home</Icon>
         <FormContent>
           <Form action="#">
-            <FormH1>Register your account</FormH1>
-            <FormLabel htmlfor="for">Email</FormLabel>
+            <FormH1>ساخت حساب کاربری</FormH1>
+            <FormLabel htmlfor="for">ایمیل</FormLabel>
             <FormInput type="email" required />
-            <FormLabel htmlfor="for">Name</FormLabel>
+            <FormLabel htmlfor="for">نام</FormLabel>
             <FormInput type="text" required />
-            <FormLabel htmlfor="for">Password</FormLabel>
+            <FormLabel htmlfor="for">گذرواژه</FormLabel>
             <FormInput type="password" required />
-            <FormButton type="submit">Sign in</FormButton>
-            <Text>Forget Password?</Text>
+            <FormButton type="submit">ساخت حساب</FormButton>
+           {/* <Text>Forget Password?</Text> */}
           </Form>
         </FormContent>
       </FormWrap>

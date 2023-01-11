@@ -2,7 +2,7 @@ from simplejson import loads as jr
 
 
 class BaseRequest:
-    def __init__(self, req, is_post=True):
+    def __init__(self, req, is_post=False):
         if is_post:
             self.data = req.POST.dict()
         else:

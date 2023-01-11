@@ -10,6 +10,7 @@ import {
   FormWrap,
   Icon,
   Text,
+  LoginLink,
 } from "./RegisterElements";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -31,7 +32,7 @@ const RegisterForm = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        setIsShown(true)
+        setIsShown(true);
       });
   };
 
@@ -39,6 +40,13 @@ const RegisterForm = () => {
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
+        <div class="eror-notif">
+          <Stack sx={{ width: "100%" }} spacing={2} class="eror">
+            <Alert severity="success" sx={{ margin: "20px auto" }}>
+              ثبتنام با موفقیت انجام شد
+            </Alert>
+          </Stack>
+        </div>
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormH1>ساخت حساب کاربری</FormH1>
@@ -51,7 +59,8 @@ const RegisterForm = () => {
             <FormLabel htmlfor="for">گذرواژه</FormLabel>
             <FormInput type="password" {...register("password")} required />
             <FormButton type="submit">ساخت حساب</FormButton>
-           {/* <Text>Forget Password?</Text> */}
+            <LoginLink to="/signin">ورود</LoginLink>
+
           </Form>
         </FormContent>
       </FormWrap>

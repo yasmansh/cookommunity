@@ -99,3 +99,10 @@ export const eror = styled.div`
   align-items: center;
   justify-content: center;
 `;
+export const LoginLink = styled(Link)`
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 24px;
+  text-decoration: none;
+`;

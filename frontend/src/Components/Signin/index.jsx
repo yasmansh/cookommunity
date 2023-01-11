@@ -10,6 +10,7 @@ import {
   FormWrap,
   Icon,
   Text,
+  RegisterLink ,
 } from "./SigninElements";
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -39,11 +40,13 @@ const SigninForm = () => {
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
+        <div class="eror-notif">
         <Stack sx={{ width: "100%" }} spacing={2} class="eror">
           <Alert severity="success" sx={{ margin: "20px auto" }}>
-            Login Success
+            ورود موفقیت آمیز بود
           </Alert>
         </Stack>
+        </div>
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormH1>ورود به حساب کاربری</FormH1>
@@ -63,6 +66,7 @@ const SigninForm = () => {
             />
             <FormButton type="submit">ورود</FormButton>
             <Text> گذرواژه خود را فراموش کردید؟</Text>
+            <RegisterLink to="/register">ثبت نام</RegisterLink>
           </Form>
         </FormContent>
       </FormWrap>

@@ -1,14 +1,16 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from datetime import datetime
 from django.views.decorators.http import require_http_methods
 from .models import *
 from .dto.request import *
 from .dto.response import *
-
+import json
 
 @require_http_methods(["POST"])
 def register_user(request):
     request_model = UserRegistrationRequest(request)
+    if SystemUser.objects.filter(username=request_model.username).exists():
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_EXISTS).json)
     user = SystemUser.objects.create(username=request_model.username)
     user.set_password(request_model.password)
     user.save()
@@ -19,9 +21,12 @@ def register_user(request):
 def login_user(request):
     request_model = UserLoginRequest(request)
     if SystemUser.objects.filter(username=request_model.username, password=request_model.password).exists():
+        user = SystemUser.objects.get(username=request_model.username, password=request_model.password)
+        user.last_login = datetime.now()
+        user.save()
         return HttpResponse()
     else:
-        return HttpResponse(ErrorResponse(InternalError.LOGIN_FAILED))
+        return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
 
 
 @require_http_methods(["PUT"])
@@ -30,27 +35,30 @@ def logout_user(request):
     if SystemUser.objects.filter(username=request_model.username).exists():
         return HttpResponse()
     else:
-        return HttpResponse(ErrorResponse(InternalError.LOGIN_FAILED))
+        return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
 
 
-@require_http_methods(["GET", "PUT"])
+@require_http_methods(["GET", "POST"])
 def profile(request, username):
-    request_model = UserUpdateProfileRequest(request)
-    if request.method == "GET":
-        user_info = view_profile(username).data
-        return HttpResponse(ObjectInfoResponse(user_info).json)
-    if request.method == "PUT":
+    if SystemUser.objects.filter(username=username).exists() is False:  #Invalid user
+        return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
+    user = SystemUser.objects.get(username=username)
+    if request.method == "GET": 
+        to_json = {
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "bio": user.bio,
+            "email": user.email,
+            "role": user.role    
+        }
+        return HttpResponse(json.dumps(to_json), content_type='application/json')
+    if request.method == "POST":
         request_model = UserUpdateProfileRequest(request)
-        update_profile(request_model, username)
+        update_profile(request_model, user)
         return HttpResponse()
 
 
-def view_profile(username):
-    return SystemUser.objects.get(username=username)
-
-
-def update_profile(request, username):
-    user = SystemUser.objects.filter(username=username)
+def update_profile(request, user):
     user.first_name = request.first_name
     user.last_name = request.last_name
     user.bio = request.bio
@@ -60,7 +68,7 @@ def update_profile(request, username):
 
 @require_http_methods(["POST"])
 def create_ticket(request):
-    request_model = CreateTicketRequest(request)
+    request_model = CreateTicketRequest(request.POST)
     ticket = Ticket(user=request_model.user, category=request_model.category, status=TicketStatus.NEW.value)
     ticket.save()
     return CreationResponse(ticket.id)
@@ -68,7 +76,7 @@ def create_ticket(request):
 
 @require_http_methods(["PUT"])
 def update_ticket(request):
-    request_model = ModifyTicketRequest(request)
+    request_model = ModifyTicketRequest(request.POST)
     ticket = Ticket.objects.get(request_model.ticket_id)
     ticket.status = request_model.status
     ticket.save()

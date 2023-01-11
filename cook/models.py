@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import SystemUserManager
-from .enums import Role, TicketCategory, TicketStatus
+from .enums import *
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class SystemUser(AbstractUser):
@@ -48,27 +49,9 @@ class Category(models.Model):
         return f"{self.name}"
 
 
-class Food(models.Model):
-    """
-    Model for foods
-    """
-
-    name = models.CharField(verbose_name=('نام غذا'), max_length=150)
-    description = models.TextField(verbose_name=('توضیح'), max_length=300)
-    price = models.FloatField(verbose_name=('هزینه'))
-    category = models.ManyToManyField(Category)
-    preparation_time =  models.IntegerField(verbose_name=('زمان آماده‌شدن'))
-    for_vegetarians = models.BooleanField(verbose_name=('مخصوص گیاهخواران'), default=False)
-    meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=300)
-    date_created = models.DateTimeField(auto_now=True)
-
-    def __str__(self) -> str:
-        return f"{self.name} / {', '.join(self.category.values_list('name', flat=True))}"
-
-
 class Foodstuff (models.Model):
     """
-    Model for Foodstuffs
+    Model for Foodstuff
     """
     Foodstuff_id = models.AutoField(primary_key=True)
     name = models.CharField(verbose_name=('نام ماده غذایی'), max_length=100)
@@ -78,3 +61,25 @@ class Foodstuff (models.Model):
 
     def __str__(self) -> str:
         return f"{self.name}"
+
+
+class Recipe(models.Model):
+    """
+    Model for Recipe
+    """
+
+    name = models.CharField(verbose_name=('نام'), max_length=100) 
+    ingredients =  models.ManyToManyField(Foodstuff)
+    categories = models.ManyToManyField(Category)
+    description = models.TextField(verbose_name=('توضیحات'), max_length=350)
+    price = models.FloatField(verbose_name=('هزینه'))
+    difficulty = models.IntegerField(validators=[MinValueValidator(0),
+                                       MaxValueValidator(5)], default=3)
+    preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.Medium, verbose_name=('مدت زمان آماده شدن'))
+    for_vegetarians = models.BooleanField(verbose_name=('مخصوص گیاهخواران'), default=False)
+    meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)
+    tools = models.TextField(verbose_name=('ابزار لازم'), max_length=150, null=True)
+    date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name} / {', '.join(self.category.values_list('name', flat=True))}"

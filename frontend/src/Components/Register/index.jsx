@@ -39,28 +39,19 @@ const RegisterForm = () => {
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
-        <Stack sx={{ width: "100%" }} spacing={2} >
-          <div className={`flashcard${isShown ? " contain-notif" : ""}`}>
-          <div className="eror-notif">
-            <Alert severity="error" sx={{ margin: "20px auto" }}>
-            ثبت نام با خطا روبرو شد! 
-          </Alert>
-          </div>
-          </div>
-        </Stack>
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormH1>Register your account</FormH1>
-            <FormLabel htmlfor="for">Email</FormLabel>
+            <FormH1>ساخت حساب کاربری</FormH1>
+            <FormLabel htmlfor="for">ایمیل</FormLabel>
             <FormInput type="email" {...register("username")} required />
             <FormLabel htmlfor="for">First Name</FormLabel>
             <FormInput type="text" {...register("first_name")} required />
-            <FormLabel htmlfor="for">Last Name</FormLabel>
+            <FormLabel htmlfor="for">Last نام</FormLabel>
             <FormInput type="text" {...register("last_name")} required />
-            <FormLabel htmlfor="for">Password</FormLabel>
+            <FormLabel htmlfor="for">گذرواژه</FormLabel>
             <FormInput type="password" {...register("password")} required />
-            <FormButton type="submit">Sign in</FormButton>
-            <Text>Forget Password?</Text>
+            <FormButton type="submit">ساخت حساب</FormButton>
+           {/* <Text>Forget Password?</Text> */}
           </Form>
         </FormContent>
       </FormWrap>

@@ -46,23 +46,23 @@ const SigninForm = () => {
         </Stack>
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <FormH1>Sign in to your account</FormH1>
-            <FormLabel htmlfor="for">Email</FormLabel>
+            <FormH1>ورود به حساب کاربری</FormH1>
+            <FormLabel htmlfor="for">ایمیل</FormLabel>
             <FormInput
               type="email"
               name="email"
               {...register("username")}
               required
             />
-            <FormLabel htmlfor="for">Password</FormLabel>
+            <FormLabel htmlfor="for">گذرواژه</FormLabel>
             <FormInput
               type="password"
               name="password"
               {...register("password")}
               required
             />
-            <FormButton type="submit">Sign in</FormButton>
-            <Text>Forget Password?</Text>
+            <FormButton type="submit">ورود</FormButton>
+            <Text> گذرواژه خود را فراموش کردید؟</Text>
           </Form>
         </FormContent>
       </FormWrap>

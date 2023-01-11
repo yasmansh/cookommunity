@@ -24,11 +24,11 @@ const HeroSection = () => {
         <ImageBg src={Hero}></ImageBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1>Welcome to Cooking Website</HeroH1>
-        <HeroP>For React developers</HeroP>
+        <HeroH1>سرتاسر دستور پخت</HeroH1>
+        <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>
         <HeroBtnWrapper>
           <Button to="/" primary="true" onMouseEnter={onHover} onMouseLeave={onHover} dark="true">
-            Learn More!{hover ? <ArrowForward /> : <ArrowRight />}
+            جستجو{hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>
       </HeroContent>

@@ -37,7 +37,7 @@ const InfoSection = ({
                 <Subtitle LightBg={lightBg}>{description}</Subtitle>
                 <BtnWrap>
                   <Button to="home" primary={!lightBg} dark={!lightBg}>
-                    Button
+                    بیشتر
                   </Button>
                 </BtnWrap>
               </TextWrapper>

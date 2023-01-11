@@ -18,6 +18,12 @@ class AccountViewTest(TestCase):
     def setUpTestData(cls):
         SystemUser.objects.create(username='user1', password='pw1', first_name='fn1', last_name='ln1')
 
+    def test_valid_view_profile(self):
+        response = self.client.get('/api/accounts/user1/profile/')
+        self.assertEqual(response.status_code, 200)
+        check_internal_error(response)
+
+    # def test_non_existing_view_profile(self):
 
     def test_url_admin_exists(self):
         response = self.client.get('/admin', follow=True)
@@ -53,7 +59,7 @@ class AccountViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         check_internal_error(response)
 
-    def test_not_existing_account_logout(self):
+    def test_non_existing_account_logout(self):
         request = dict(username='false_user')
         response = self.client.put('/api/accounts/logout/', request)
         self.assertEqual(response.status_code, 200)

@@ -6,6 +6,7 @@ from .dto.request import *
 from .dto.response import *
 import json
 
+
 @require_http_methods(["POST"])
 def register_user(request):
     request_model = UserRegistrationRequest(request)
@@ -40,16 +41,16 @@ def logout_user(request):
 
 @require_http_methods(["GET", "POST"])
 def profile(request, username):
-    if SystemUser.objects.filter(username=username).exists() is False:  #Invalid user
+    if SystemUser.objects.filter(username=username).exists() is False:  # Invalid user
         return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
     user = SystemUser.objects.get(username=username)
-    if request.method == "GET": 
+    if request.method == "GET":
         to_json = {
             "first_name": user.first_name,
             "last_name": user.last_name,
             "bio": user.bio,
             "email": user.email,
-            "role": user.role    
+            "role": user.role
         }
         return HttpResponse(json.dumps(to_json), content_type='application/json')
     if request.method == "POST":

@@ -21,8 +21,10 @@ def register_user(request):
 @require_http_methods(["POST"])
 def login_user(request):
     request_model = UserLoginRequest(request)
-    if SystemUser.objects.filter(username=request_model.username, password=request_model.password).exists():
-        user = SystemUser.objects.get(username=request_model.username, password=request_model.password)
+    if SystemUser.objects.filter(username=request_model.username).exists():
+        user = SystemUser.objects.get(username=request_model.username)
+        if not user.check_password(request_model.password):
+            return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
         user.last_login = datetime.now()
         user.save()
         return HttpResponse()

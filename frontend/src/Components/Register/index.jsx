@@ -10,24 +10,57 @@ import {
   FormWrap,
   Icon,
   Text,
+  LoginLink,
 } from "./RegisterElements";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import axios from "axios";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 const RegisterForm = () => {
+  const { register, handleSubmit } = useForm();
+  const [isShown, setIsShown] = useState(false);
+  const onSubmit = (data) => {
+    axios
+      .post("http://127.0.0.1:8000/api/accounts/", JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setIsShown(true);
+      });
+  };
+
   return (
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
+        <div class="eror-notif">
+          <Stack sx={{ width: "100%" }} spacing={2} class="eror">
+            <Alert severity="success" sx={{ margin: "20px auto" }}>
+              ثبتنام با موفقیت انجام شد
+            </Alert>
+          </Stack>
+        </div>
         <FormContent>
-          <Form action="#">
-            <FormH1>Register your account</FormH1>
-            <FormLabel htmlfor="for">Email</FormLabel>
-            <FormInput type="email" required />
-            <FormLabel htmlfor="for">Name</FormLabel>
-            <FormInput type="text" required />
-            <FormLabel htmlfor="for">Password</FormLabel>
-            <FormInput type="password" required />
-            <FormButton type="submit">Sign in</FormButton>
-            <Text>Forget Password?</Text>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <FormH1>ساخت حساب کاربری</FormH1>
+            <FormLabel htmlfor="for">ایمیل</FormLabel>
+            <FormInput type="email" {...register("username")} required />
+            <FormLabel htmlfor="for">First Name</FormLabel>
+            <FormInput type="text" {...register("first_name")} required />
+            <FormLabel htmlfor="for">Last نام</FormLabel>
+            <FormInput type="text" {...register("last_name")} required />
+            <FormLabel htmlfor="for">گذرواژه</FormLabel>
+            <FormInput type="password" {...register("password")} required />
+            <FormButton type="submit">ساخت حساب</FormButton>
+            <LoginLink to="/signin">ورود</LoginLink>
+
           </Form>
         </FormContent>
       </FormWrap>

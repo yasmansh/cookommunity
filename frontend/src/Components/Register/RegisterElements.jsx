@@ -11,6 +11,7 @@ export const Container = styled.div`
   z-index: 0;
   overflow: hidden;
   background: #35334d;
+  align-items: center;
 `;
 export const FormWrap = styled.div`
   height: 100%;
@@ -42,7 +43,7 @@ export const FormContent = styled.div`
     padding: 10px;
   }
 `;
-export const Form = styled.div`
+export const Form = styled.form`
   background: #261236;
   max-width: 400px;
   height: auto;
@@ -90,4 +91,18 @@ export const Text = styled.div`
   margin-top: 24px;
   color: #fff;
   font-size: 14px;
+`;
+export const eror = styled.div`
+  text-align: center;
+  font-size: 14px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+`;
+export const LoginLink = styled(Link)`
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 24px;
+  text-decoration: none;
 `;

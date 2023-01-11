@@ -1,0 +1,22 @@
+{
+    "sourceFile": "frontend/package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1673212067934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673212075556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n     \"web-vitals\": \"^2.1.4\"\r\n   },\r\n   \"scripts\": {\r\n     \"start\": \"set PORT=3000 && react-scripts start\",\r\n-    \"build\": \"react-scripts --openssl-legacy-provider build\",\r\n+    \"build\": \"react-scripts build\",\r\n     \"test\": \"react-scripts test\",\r\n     \"eject\": \"react-scripts eject\"\r\n   },\r\n   \"eslintConfig\": {\r\n"
+                }
+            ],
+            "date": 1673212067934,
+            "name": "Commit-0",
+            "content": "{\r\n  \"name\": \"project3\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@emotion/react\": \"^11.10.5\",\r\n    \"@emotion/styled\": \"^11.10.5\",\r\n    \"@mui/icons-material\": \"^5.10.16\",\r\n    \"@mui/material\": \"^5.10.16\",\r\n    \"@svgr/webpack\": \"^6.5.1\",\r\n    \"@testing-library/jest-dom\": \"^5.16.5\",\r\n    \"@testing-library/react\": \"^13.4.0\",\r\n    \"@testing-library/user-event\": \"^13.5.0\",\r\n    \"axios\": \"^1.2.2\",\r\n    \"react\": \"^18.2.0\",\r\n    \"react-dom\": \"^18.2.0\",\r\n    \"react-hook-form\": \"^7.41.5\",\r\n    \"react-icons\": \"^4.4.0\",\r\n    \"react-router\": \"^6.4.0\",\r\n    \"react-router-dom\": \"^6.4.0\",\r\n    \"react-scripts\": \"^5.0.1\",\r\n    \"react-scroll\": \"^1.8.7\",\r\n    \"styled-components\": \"^5.3.5\",\r\n    \"web-vitals\": \"^2.1.4\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"set PORT=3000 && react-scripts start\",\r\n    \"build\": \"react-scripts --openssl-legacy-provider build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  }\r\n}\r\n"
+        }
+    ]
+}

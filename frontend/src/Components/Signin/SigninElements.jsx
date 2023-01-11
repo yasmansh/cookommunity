@@ -91,3 +91,10 @@ export const Text = styled.div`
   color: #fff;
   font-size: 14px;
 `;
+export const RegisterLink = styled(Link)`
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 24px;
+  text-decoration: none;
+`;

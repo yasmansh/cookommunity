@@ -22,11 +22,13 @@ const Footer = () => {
         <FooterLinksContainer>
           <FooterLinksWrapper>
             <FooterLinksItem>
-              <FooterLinksTitle>About us</FooterLinksTitle>
-              <FooterLink to="home">Home</FooterLink>
-              <FooterLink to="courses">Courses</FooterLink>
-              <FooterLink to="blog">Blog</FooterLink>
-              <FooterLink to="rouadmap">Rouadmap</FooterLink>
+            <FooterLinksItem>
+              <FooterLinksTitle>درباره ما</FooterLinksTitle>
+              <FooterLink to="home">خانه</FooterLink>
+              <FooterLink to="courses">استخدام</FooterLink>
+              <FooterLink to="blog">بلاگ</FooterLink>
+              
+            </FooterLinksItem>
             </FooterLinksItem>
             <FooterLinksItem>
               <FooterLinksTitle>About us</FooterLinksTitle>
@@ -45,10 +47,10 @@ const Footer = () => {
               <FooterLink to="rouadmap">Rouadmap</FooterLink>
             </FooterLinksItem>
             <FooterLinksItem>
-              <FooterLinksTitle>About us</FooterLinksTitle>
-              <FooterLink to="home">Home</FooterLink>
+              <FooterLinksTitle>درباره</FooterLinksTitle>
+              <FooterLink to="home">خانه</FooterLink>
               <FooterLink to="courses">Courses</FooterLink>
-              <FooterLink to="blog">Blog</FooterLink>
+              <FooterLink to="blog">بلاگ</FooterLink>
               <FooterLink to="rouadmap">Rouadmap</FooterLink>
             </FooterLinksItem>
           </FooterLinksWrapper>

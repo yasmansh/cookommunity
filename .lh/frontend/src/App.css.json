@@ -1,0 +1,74 @@
+{
+    "sourceFile": "frontend/src/App.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1673212773540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673212780255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,7 @@\n   font-family: \"IranSans\", IranSans;\r\n   box-sizing: border-box;\r\n   direction: rtl;\r\n }\r\n-.success-notif\n\\ No newline at end of file\n+.success-notif{\r\n+  width: 300px;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212787119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,6 @@\n   direction: rtl;\r\n }\r\n .success-notif{\r\n   width: 300px;\r\n+  \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212795354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,6 @@\n   direction: rtl;\r\n }\r\n .success-notif{\r\n   width: 300px;\r\n-  \r\n+  text-align: center;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212804270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,6 @@\n }\r\n .success-notif{\r\n   width: 300px;\r\n   text-align: center;\r\n+  align-items: center;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212810657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,6 @@\n .success-notif{\r\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n+  ma\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212818058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,6 @@\n .success-notif{\r\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n-  ma\r\n+  margin: 20px auto;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212828112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,6 @@\n .success-notif{\r\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n-  margin: 20px auto;\r\n+  margin: 10px auto;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212840652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,11 @@\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n   margin: 10px auto;\r\n+}\r\n+.success-notif{\r\n+  width: 300px;\r\n+  text-align: center;\r\n+  align-items: center;\r\n+  margin: 10px auto;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673212861382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n   text-align: center;\r\n   align-items: center;\r\n   margin: 10px auto;\r\n }\r\n-.success-notif{\r\n+.eror-notif{\r\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n-  margin: 10px auto;\r\n+  margin: 10px auto !important;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673213283004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,6 @@\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n   margin: 10px auto !important;\r\n-}\n\\ No newline at end of file\n+}\r\n+.\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673213288581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,5 @@\n   text-align: center;\r\n   align-items: center;\r\n   margin: 10px auto !important;\r\n }\r\n-.\n\\ No newline at end of file\n+.contain.notif\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673213295318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,7 @@\n   text-align: center;\r\n   align-items: center;\r\n   margin: 10px auto !important;\r\n }\r\n-.contain.notif\n\\ No newline at end of file\n+.contain.eror-notif{\r\n+  \r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673213305586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n   width: 300px;\r\n   text-align: center;\r\n   align-items: center;\r\n   margin: 10px auto !important;\r\n+  display: none;\r\n }\r\n .contain.eror-notif{\r\n-  \r\n+  display: block;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673445795648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,5 +24,5 @@\n   display: none;\r\n }\r\n .contain.eror-notif{\r\n   display: block;\r\n-}\n\\ No newline at end of file\n+}\r\n"
+                }
+            ],
+            "date": 1673212773540,
+            "name": "Commit-0",
+            "content": "@font-face {\r\n  font-family: IranSans;\r\n  src: url(./fonts/IRANSansXMedium.ttf);\r\n}\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n  font-family: \"IranSans\", IranSans;\r\n  box-sizing: border-box;\r\n  direction: rtl;\r\n}\r\n.success-notif"
+        }
+    ]
+}

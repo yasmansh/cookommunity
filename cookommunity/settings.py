@@ -50,7 +50,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-
 ROOT_URLCONF = 'cookommunity.urls'
 
 TEMPLATES = [
@@ -79,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cookommunity',
-        'USER': 'root',
-        'PASSWORD': 'root'
+        'USER': 'Ali',
+        'PASSWORD': 'Ali3544'
     }
 }
 

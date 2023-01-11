@@ -3,11 +3,35 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1672592352659,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1672917060308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n     'django.contrib.contenttypes',\r\n     'django.contrib.sessions',\r\n     'django.contrib.messages',\r\n     'django.contrib.staticfiles',\r\n+    'corsheaders',\r\n ]\r\n \r\n MIDDLEWARE = [\r\n     'django.middleware.security.SecurityMiddleware',\r\n@@ -46,10 +47,10 @@\n     # 'django.middleware.csrf.CsrfViewMiddleware',\r\n     'django.contrib.auth.middleware.AuthenticationMiddleware',\r\n     'django.contrib.messages.middleware.MessageMiddleware',\r\n     'django.middleware.clickjacking.XFrameOptionsMiddleware',\r\n+    'corsheaders.middleware.CorsMiddleware',\r\n ]\r\n-\r\n ROOT_URLCONF = 'cookommunity.urls'\r\n \r\n TEMPLATES = [\r\n     {\r\n"
+                },
+                {
+                    "date": 1673437434908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n \r\n DATABASES = {\r\n     'default': {\r\n         'ENGINE': 'django.db.backends.mysql',\r\n-        'NAME': 'cookommunity',\r\n+        'NAME': 'cookزommunity',\r\n         'USER': 'root',\r\n         'PASSWORD': 'Ali3544'\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1673440219391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n \r\n DATABASES = {\r\n     'default': {\r\n         'ENGINE': 'django.db.backends.mysql',\r\n-        'NAME': 'cookزommunity',\r\n+        'NAME': 'cookommunity',\r\n         'USER': 'root',\r\n         'PASSWORD': 'Ali3544'\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1673447189670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n # https://docs.djangoproject.com/en/4.1/ref/settings/#databases\r\n \r\n DATABASES = {\r\n     'default': {\r\n-        'ENGINE': 'django.db.backends.mysql',\r\n+        'ENGINE': 'USE menagerie',\r\n         'NAME': 'cookommunity',\r\n         'USER': 'root',\r\n         'PASSWORD': 'Ali3544'\r\n     }\r\n"
+                },
+                {
+                    "date": 1673447829598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n # https://docs.djangoproject.com/en/4.1/ref/settings/#databases\r\n \r\n DATABASES = {\r\n     'default': {\r\n-        'ENGINE': 'USE menagerie',\r\n+        'ENGINE': 'django.db.backends.mysql',\r\n         'NAME': 'cookommunity',\r\n         'USER': 'root',\r\n         'PASSWORD': 'Ali3544'\r\n     }\r\n"
+                },
+                {
+                    "date": 1673447837515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n DATABASES = {\r\n     'default': {\r\n         'ENGINE': 'django.db.backends.mysql',\r\n         'NAME': 'cookommunity',\r\n-        'USER': 'root',\r\n+        'USER': 'Ali',\r\n         'PASSWORD': 'Ali3544'\r\n     }\r\n }\r\n \r\n"
                 }
             ],
             "date": 1672592352659,

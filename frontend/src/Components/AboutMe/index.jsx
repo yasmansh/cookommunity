@@ -12,15 +12,15 @@ const AboutMe = () => {
     <>
       <AboutContainer>
         <AboutTitle>درباره ما</AboutTitle>
-        <AboutHeading>We Have Cooked Since 2000</AboutHeading>
+        <AboutHeading>بیش از 2000 دستور غذای مختلف</AboutHeading>
         <AboutP>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo
+          
+        تیم ما در تلاش برای بهبود و توسعه همه جانبه
+         سامانه بخصوص در بخش دستور غذا است و با همکاری با بهترین
+         سرآشپز های های دنیا تا بتوانیم غذایی لذیذ را به سفر های شما بیاوریم.
         </AboutP>
         <AboutBtnWrapper>
-          <Button to="/">Read more</Button>
+          <Button to="/">بیشتر</Button>
         </AboutBtnWrapper>
       </AboutContainer>
     </>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1672663656961,
@@ -16,6 +16,50 @@
                 {
                     "date": 1672664523799,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   @media screen and (max-width: 480px) {\r\n     padding: 10px;\r\n   }\r\n `;\r\n-export const Form = styled.div`\r\n+export const Form = styled.form`\r\n   background: #261236;\r\n   max-width: 400px;\r\n   height: auto;\r\n   width: 100%;\r\n"
+                },
+                {
+                    "date": 1673445970837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,4 +90,5 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n+export const Icon = styled(Link)`\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673445977704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,5 +90,6 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n-export const Icon = styled(Link)`\n\\ No newline at end of file\n+export const Icon = styled(Link)\r\n+``\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673445996782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,5 +91,8 @@\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n export const Icon = styled(Link)\r\n-``\n\\ No newline at end of file\n+`\r\n+color: #fff;\r\n+font-weight: 700;\r\n+font-size: 32px;`;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673446004505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,5 +94,6 @@\n export const Icon = styled(Link)\r\n `\r\n color: #fff;\r\n font-weight: 700;\r\n-font-size: 32px;`;\n\\ No newline at end of file\n+font-size: 32px\r\n+`;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673446010935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,10 +90,9 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n-export const Icon = styled(Link)\r\n-`\r\n-color: #fff;\r\n-font-weight: 700;\r\n-font-size: 32px\r\n-`;\n\\ No newline at end of file\n+export const Icon = styled(Link)`\r\n+  color: #fff;\r\n+  font-weight: 700;\r\n+  font-size: 32px;\r\n+`;\r\n"
+                },
+                {
+                    "date": 1673446021765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n-export const Icon = styled(Link)`\r\n+export const registerLink = styled(Link)`\r\n   color: #fff;\r\n   font-weight: 700;\r\n   font-size: 32px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1673446027684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,7 +92,6 @@\n   font-size: 14px;\r\n `;\r\n export const registerLink = styled(Link)`\r\n   color: #fff;\r\n-  font-weight: 700;\r\n-  font-size: 32px;\r\n+  font-size: 16px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1673446107248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,6 +92,6 @@\n   font-size: 14px;\r\n `;\r\n export const registerLink = styled(Link)`\r\n   color: #fff;\r\n-  font-size: 16px;\r\n+  font-size: 20px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1673446214417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,8 +90,8 @@\n   margin-top: 24px;\r\n   color: #fff;\r\n   font-size: 14px;\r\n `;\r\n-export const registerLink = styled(Link)`\r\n+export const RegisterLink = styled(Link)`\r\n   color: #fff;\r\n   font-size: 20px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1673446233244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,5 +93,7 @@\n `;\r\n export const RegisterLink = styled(Link)`\r\n   color: #fff;\r\n   font-size: 20px;\r\n+  text-align: center;\r\n+  margin-top: 24px;\r\n `;\r\n"
+                },
+                {
+                    "date": 1673446249464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,5 +95,6 @@\n   color: #fff;\r\n   font-size: 20px;\r\n   text-align: center;\r\n   margin-top: 24px;\r\n+  text-decoration: none;\r\n `;\r\n"
                 }
             ],
             "date": 1672663656961,

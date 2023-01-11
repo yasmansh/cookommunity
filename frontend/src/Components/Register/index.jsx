@@ -12,16 +12,15 @@ import {
   Text,
 } from "./RegisterElements";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import axios from "axios";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
 const RegisterForm = () => {
   const { register, handleSubmit } = useForm();
-
+  const [isShown, setIsShown] = useState(false);
   const onSubmit = (data) => {
-    alert(data.username);
-
     axios
       .post("http://127.0.0.1:8000/api/accounts/", JSON.stringify(data), {
         headers: {
@@ -32,7 +31,7 @@ const RegisterForm = () => {
         console.log(response.data);
       })
       .catch((error) => {
-        console.log(error.toJSON());
+        setIsShown(true)
       });
   };
 
@@ -40,10 +39,14 @@ const RegisterForm = () => {
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
-        <Stack sx={{ width: "100%" }} spacing={2} class="eror">
-          <Alert severity="success" sx={{ margin: "20px auto" }}>
-            Register Success
+        <Stack sx={{ width: "100%" }} spacing={2} >
+          <div className={`flashcard${isShown ? " contain-notif" : ""}`}>
+          <div className="eror-notif">
+            <Alert severity="error" sx={{ margin: "20px auto" }}>
+            ثبت نام با خطا روبرو شد! 
           </Alert>
+          </div>
+          </div>
         </Stack>
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>

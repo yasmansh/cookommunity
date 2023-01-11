@@ -10,3 +10,19 @@
   box-sizing: border-box;
   direction: rtl;
 }
+.success-notif{
+  width: 300px;
+  text-align: center;
+  align-items: center;
+  margin: 10px auto;
+}
+.eror-notif{
+  width: 300px;
+  text-align: center;
+  align-items: center;
+  margin: 10px auto !important;
+  display: none;
+}
+.contain.eror-notif{
+  display: block;
+}

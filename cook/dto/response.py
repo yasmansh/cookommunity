@@ -7,6 +7,9 @@ class InternalError(Enum):
     CREDENTIAL_MISMATCH = (404, "چنین اطلاعات حسابی ثبت نشده‌است.")
     ACCOUNT_EXISTS = (409, "چنین حسابی همینک وجود دارد.")
     NO_MATCH = (404, "نتیجه‌ای یافت نشد.")
+    FOODSTUFF_EXISTS = (409, "این قلم خوراکی در حال حاضر وجود دارد.")
+    CATEGORY_EXIST = (409, "این دسته غذایی در حال حاضر وجود دارد.")
+    RECIPE_EXIST = (409, "این دستور غذایی در حال حاضر وجود دارد.")
 
     def get_code(self):
         return self.value[0]

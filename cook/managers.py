@@ -30,4 +30,3 @@ class SystemUserManager(BaseUserManager):
 
         return self._create_user(username, password, role=Role.ADMIN, **kwargs)
 
-

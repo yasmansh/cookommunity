@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/Components/Signin/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1672326150126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1672326157633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,24 @@\n import React from \"react\";\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n+const [courses, setCourses] = useState([])\r\n \r\n+const getCourses = () => {\r\n+  fetch('http://localhost:4000/courses')\r\n+    .then((response) => response.json())\r\n+    .then((data) => {\r\n+      setCourses(data)\r\n+    })\r\n+    .catch((err) => {\r\n+      setCourses([])\r\n+    })\r\n+}\r\n+\r\n+useEffect(() => {\r\n+  getCourses()\r\n+}, [])\r\n const SigninForm = () => {\r\n-  const [courses, setCourses] = useState([])\r\n-\r\n-  const getCourses = () => {\r\n-    fetch('http://localhost:4000/courses')\r\n-      .then((response) => response.json())\r\n-      .then((data) => {\r\n-        setCourses(data)\r\n-      })\r\n-      .catch((err) => {\r\n-        setCourses([])\r\n-      })\r\n-  }\r\n-\r\n-  useEffect(() => {\r\n-    getCourses()\r\n-  }, [])\r\n+  \r\n   return (\r\n     <Container>\r\n       <FormWrap>\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n"
+                },
+                {
+                    "date": 1672326182788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,24 @@\n import React from \"react\";\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n-const [courses, setCourses] = useState([])\r\n \r\n-const getCourses = () => {\r\n-  fetch('http://localhost:4000/courses')\r\n-    .then((response) => response.json())\r\n-    .then((data) => {\r\n-      setCourses(data)\r\n-    })\r\n-    .catch((err) => {\r\n-      setCourses([])\r\n-    })\r\n-}\r\n+const SigninForm = () => {\r\n+  const [courses, setCourses] = useState([])\r\n \r\n-useEffect(() => {\r\n-  getCourses()\r\n-}, [])\r\n-const SigninForm = () => {\r\n-  \r\n+  const getCourses = () => {\r\n+    fetch('http://localhost:4000/courses')\r\n+      .then((response) => response.json())\r\n+      .then((data) => {\r\n+        setCourses(data)\r\n+      })\r\n+      .catch((err) => {\r\n+        setCourses([])\r\n+      })\r\n+  }\r\n+\r\n+  useEffect(() => {\r\n+    getCourses()\r\n+  }, [])\r\n   return (\r\n     <Container>\r\n       <FormWrap>\r\n         <Icon to=\"/\">Return To Home</Icon>\r\n"
+                },
+                {
+                    "date": 1672326206571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from \"react\";\r\n+import { useEffect, useState } from 'react'\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n \r\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n"
+                },
+                {
+                    "date": 1672326212590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import { useEffect, useState } from 'react'\r\n+import { useEffect, useState, } from 'react'\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n \r\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n"
+                },
+                {
+                    "date": 1672326222350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import React from \"react\";\r\n-import { useEffect, useState, } from 'react'\r\n+\r\n+import { useEffect, useState,React } from 'react'\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n \r\n const SigninForm = () => {\r\n   const [courses, setCourses] = useState([])\r\n"
+                },
+                {
+                    "date": 1672326250947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-\r\n import { useEffect, useState,React } from 'react'\r\n import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n \r\n const SigninForm = () => {\r\n@@ -8,9 +7,9 @@\n   const getCourses = () => {\r\n     fetch('http://localhost:4000/courses')\r\n       .then((response) => response.json())\r\n       .then((data) => {\r\n-        setCourses(data)\r\n+        con(data)\r\n       })\r\n       .catch((err) => {\r\n         setCourses([])\r\n       })\r\n"
+                },
+                {
+                    "date": 1672326271914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   const getCourses = () => {\r\n     fetch('http://localhost:4000/courses')\r\n       .then((response) => response.json())\r\n       .then((data) => {\r\n-        con(data)\r\n+        setCourses(data)\r\n       })\r\n       .catch((err) => {\r\n         setCourses([])\r\n       })\r\n"
+                },
+                {
+                    "date": 1672326294603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n     fetch('http://localhost:4000/courses')\r\n       .then((response) => response.json())\r\n       .then((data) => {\r\n         setCourses(data)\r\n+        console.log()\r\n       })\r\n       .catch((err) => {\r\n         setCourses([])\r\n       })\r\n"
+                },
+                {
+                    "date": 1672326302868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     fetch('http://localhost:4000/courses')\r\n       .then((response) => response.json())\r\n       .then((data) => {\r\n         setCourses(data)\r\n-        console.log()\r\n+        console.log(courses)\r\n       })\r\n       .catch((err) => {\r\n         setCourses([])\r\n       })\r\n"
+                }
+            ],
+            "date": 1672326150126,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, Icon, Text } from \"./SigninElements\";\r\n\r\nconst SigninForm = () => {\r\n  const [courses, setCourses] = useState([])\r\n\r\n  const getCourses = () => {\r\n    fetch('http://localhost:4000/courses')\r\n      .then((response) => response.json())\r\n      .then((data) => {\r\n        setCourses(data)\r\n      })\r\n      .catch((err) => {\r\n        setCourses([])\r\n      })\r\n  }\r\n\r\n  useEffect(() => {\r\n    getCourses()\r\n  }, [])\r\n  return (\r\n    <Container>\r\n      <FormWrap>\r\n        <Icon to=\"/\">Return To Home</Icon>\r\n        <FormContent>\r\n          <Form action=\"#\">\r\n            <FormH1>Sign in to your account</FormH1>\r\n            <FormLabel htmlfor=\"for\">Email</FormLabel>\r\n            <FormInput type=\"email\" required />\r\n            <FormLabel htmlfor=\"for\">Password</FormLabel>\r\n            <FormInput type=\"password\" required />\r\n            <FormButton type=\"submit\">Sign in</FormButton>\r\n            <Text>Forget Password?</Text>\r\n          </Form>\r\n        </FormContent>\r\n      </FormWrap>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default SigninForm;\r\n"
+        }
+    ]
+}

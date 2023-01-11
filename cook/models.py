@@ -72,7 +72,7 @@ class Recipe(models.Model):
     ingredients =  models.ManyToManyField(Foodstuff)
     categories = models.ManyToManyField(Category)
     description = models.TextField(verbose_name=('توضیحات'), max_length=350)
-    price = models.FloatField(verbose_name=('هزینه'))
+    price = models.FloatField(verbose_name=('هزینه'), null=True)
     difficulty = models.IntegerField(validators=[MinValueValidator(0),
                                        MaxValueValidator(5)], default=3)
     preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.Medium, verbose_name=('مدت زمان آماده شدن'))

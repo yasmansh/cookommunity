@@ -1,0 +1,26 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1673509871990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673509879375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const DashboardForm = (removeAuth) => {\r\n   return (\r\n     <Container>\r\n       <DashboardSidebar/>\r\n-      <DashboardHeader/>\r\n+      <DashboardHeader removeAuth={removeAuth}/>\r\n     </Container>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1673509888004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Container} from \"./DashboardElements\";\r\n import \"./Dashboard.css\";\r\n import DashboardSidebar from \"./Dash-sidebar\";\r\n import DashboardHeader from \"./Dash-header\";\r\n-const DashboardForm = (removeAuth) => {\r\n+const DashboardForm = ({removeAuth) => {\r\n   return (\r\n     <Container>\r\n       <DashboardSidebar/>\r\n       <DashboardHeader removeAuth={removeAuth}/>\r\n"
+                }
+            ],
+            "date": 1673509871990,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Container} from \"./DashboardElements\";\r\nimport \"./Dashboard.css\";\r\nimport DashboardSidebar from \"./Dash-sidebar\";\r\nimport DashboardHeader from \"./Dash-header\";\r\nconst DashboardForm = (removeAuth) => {\r\n  return (\r\n    <Container>\r\n      <DashboardSidebar/>\r\n      <DashboardHeader/>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default DashboardForm;\r\n"
+        }
+    ]
+}

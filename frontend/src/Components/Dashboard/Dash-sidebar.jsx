@@ -14,11 +14,11 @@ const DashboardSidebar = () => {
             <li>
               <ItemAccordion {...accordion1} />
             </li>
-            <li class="div-icon">
+            <li className="div-icon">
               <EditOutlinedIcon class="m-icon" />
               <Mbutton to="/dashboard/edit-profile">ویرایش اطلاعات</Mbutton>
             </li>
-            <li class="div-icon">
+            <li className="div-icon">
               <NotificationsOutlinedIcon class="m-icon" />
               <Mbutton  to="/dashboard/promotion">درخواست ارتقا</Mbutton>
             </li>

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard/Dash-sidebar.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673506969653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673506969653,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {Sidebar, Image, Mbutton } from \"./DashboardElements\";\r\nimport NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\nimport EditOutlinedIcon from \"@mui/icons-material/EditOutlined\";\r\nimport Logo from \"../../images/logo-3.png\";\r\nimport ItemAccordion from \"../Items\";\r\nimport { accordion1 } from \"../Items/Data\";\r\nimport \"./Dashboard.css\";\r\nconst DashboardSidebar = () => {\r\n    return (\r\n        <Sidebar>\r\n          <Image src={Logo} alt=\"logo\" />\r\n          <ul>\r\n            <li>\r\n              <ItemAccordion {...accordion1} />\r\n            </li>\r\n            <li className=\"div-icon\">\r\n              <EditOutlinedIcon class=\"m-icon\" />\r\n              <Mbutton to=\"/dashboard/edit-profile\">ویرایش اطلاعات</Mbutton>\r\n            </li>\r\n            <li class=\"div-icon\">\r\n              <NotificationsOutlinedIcon class=\"m-icon\" />\r\n              <Mbutton  to=\"/dashboard/promotion\">درخواست ارتقا</Mbutton>\r\n            </li>\r\n          </ul>\r\n        </Sidebar>\r\n    );\r\n  };\r\n  \r\n  export default DashboardSidebar;"
+        }
+    ]
+}

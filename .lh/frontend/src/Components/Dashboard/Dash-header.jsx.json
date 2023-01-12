@@ -1,0 +1,130 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard/Dash-header.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 28,
+            "patches": [
+                {
+                    "date": 1673506819105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673506834063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n         <div class=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n+          <></>\r\n           <img src={url_img} alt=\"profile-user\" class=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1673506852749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         <div class=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-          <></>\r\n+          <LogoutIcon class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" class=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1673506876499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n const DashboardHeader = () => {\r\n     return (\r\n         <div class=\"web-header\">\r\n         <div class=\"element\">\r\n-          <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n+          <NotificationsOutlinedIcon className=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n           <LogoutIcon class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" class=\"avatar\"></img>\r\n"
+                },
+                {
+                    "date": 1673506882125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n     return (\r\n         <div class=\"web-header\">\r\n         <div class=\"element\">\r\n           <NotificationsOutlinedIcon className=\"m2-icon\" />\r\n-          <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n-          <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n+          <ChatBubbleOutlineOutlinedIcon className=\"m2-icon\" />\r\n+          <ShoppingCartOutlinedIcon className=\"m2-icon\" />\r\n           <LogoutIcon class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" class=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1673506887337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,14 @@\n import url_img from\"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n     return (\r\n         <div class=\"web-header\">\r\n-        <div class=\"element\">\r\n+        <div className=\"element\">\r\n           <NotificationsOutlinedIcon className=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon className=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon className=\"m2-icon\" />\r\n-          <LogoutIcon class=\"m2-icon\"/>\r\n-          <img src={url_img} alt=\"profile-user\" class=\"avatar\"></img>\r\n+          <LogoutIcon className=\"m2-icon\"/>\r\n+          <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n   };\r\n"
+                },
+                {
+                    "date": 1673506950233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n import \"./Dashboard.css\";\r\n import url_img from\"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n     return (\r\n-        <div class=\"web-header\">\r\n+        <div className=\"web-header\">\r\n         <div className=\"element\">\r\n-          <NotificationsOutlinedIcon className=\"m2-icon\" />\r\n+          <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon className=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon className=\"m2-icon\" />\r\n           <LogoutIcon className=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n"
+                },
+                {
+                    "date": 1673506957312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n     return (\r\n         <div className=\"web-header\">\r\n         <div className=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n-          <ChatBubbleOutlineOutlinedIcon className=\"m2-icon\" />\r\n-          <ShoppingCartOutlinedIcon className=\"m2-icon\" />\r\n-          <LogoutIcon className=\"m2-icon\"/>\r\n+          <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n+          <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n+          <LogoutIcon class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1673507215461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         <div className=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-          <LogoutIcon class=\"m2-icon\"/>\r\n+          <LogoutIcon on class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1673507221083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         <div className=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-          <LogoutIcon on class=\"m2-icon\"/>\r\n+          <LogoutIcon oncl class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1673507227518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n         <div className=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-          <LogoutIcon oncl class=\"m2-icon\"/>\r\n+          <></>\r\n+          <LogoutIcon class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1673507234056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         <div className=\"element\">\r\n           <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n           <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n           <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-          <></>\r\n+          <div>\r\n           <LogoutIcon class=\"m2-icon\"/>\r\n           <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n         </div>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1673507239693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,24 @@\n import React from \"react\";\r\n import NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\n-import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';\r\n-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';\r\n-import LogoutIcon from '@mui/icons-material/Logout';\r\n+import ChatBubbleOutlineOutlinedIcon from \"@mui/icons-material/ChatBubbleOutlineOutlined\";\r\n+import ShoppingCartOutlinedIcon from \"@mui/icons-material/ShoppingCartOutlined\";\r\n+import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n-import url_img from\"./../../images/1.jpg\";\r\n+import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n-    return (\r\n-        <div className=\"web-header\">\r\n-        <div className=\"element\">\r\n-          <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n-          <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n-          <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-          <div>\r\n-          <LogoutIcon class=\"m2-icon\"/>\r\n-          <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n+  return (\r\n+    <div className=\"web-header\">\r\n\\ No newline at end of file\n+      <div className=\"element\">\r\n+        <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n+        <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n+        <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n+        <div >\r\n+          <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n+        <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n-    );\r\n-  };\r\n-  \r\n-  export default DashboardHeader;\n+    </div>\r\n+  );\r\n+};\r\n+\r\n+export default DashboardHeader;\r\n"
+                },
+                {
+                    "date": 1673507249042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,14 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div >\r\n+        <div onc>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n     </div>\r\n   );\r\n };\r\n \r\n\\ No newline at end of file\n-export default DashboardHeader;\n+export default DashboardHeader;\r\n"
+                },
+                {
+                    "date": 1673507259739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,14 +11,14 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div onc>\r\n+        <div onClick={logout}>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n     </div>\r\n   );\r\n };\r\n \r\n\\ No newline at end of file\n-export default DashboardHeader;\n+export default DashboardHeader;\r\n"
+                },
+                {
+                    "date": 1673507276256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n+  const onSubmit = (data) => {\r\n+  }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n@@ -20,5 +22,5 @@\n     </div>\r\n   );\r\n };\r\n \r\n-export default DashboardHeader;\n\\ No newline at end of file\n+export default DashboardHeader;\r\n"
+                },
+                {
+                    "date": 1673507283329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n-  const onSubmit = (data) => {\r\n+  const logout = (dta) => {\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673507308768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n-  const logout = (dta) => {\r\n+  const logout = () => {\r\n+    localStorage.setItem(data.username, true);\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673507318835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n   const logout = () => {\r\n-    localStorage.setItem(data.username, true);\r\n+    localStorage.\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673509684594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = () => {\r\n   const logout = () => {\r\n-    localStorage.\r\n+    \r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673509930834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import ShoppingCartOutlinedIcon from \"@mui/icons-material/ShoppingCartOutlined\";\r\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n-const DashboardHeader = () => {\r\n+const DashboardHeader = ({}) => {\r\n   const logout = () => {\r\n     \r\n   }\r\n   return (\r\n"
+                },
+                {
+                    "date": 1673509939177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n import ShoppingCartOutlinedIcon from \"@mui/icons-material/ShoppingCartOutlined\";\r\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n-const DashboardHeader = ({}) => {\r\n+const DashboardHeader = ({removeAuth}) => {\r\n   const logout = () => {\r\n-    \r\n+    removeAuth()\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673511172034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth}) => {\r\n   const logout = () => {\r\n-    removeAuth()\r\n+    removeAuth();\r\n+    login\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673511179135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth}) => {\r\n   const logout = () => {\r\n     removeAuth();\r\n-    login\r\n+    navigate('/dashboard');\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673511185848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth}) => {\r\n+  \r\n   const logout = () => {\r\n     removeAuth();\r\n     navigate('/dashboard');\r\n   }\r\n"
+                },
+                {
+                    "date": 1673511191278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,13 @@\n import NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\n import ChatBubbleOutlineOutlinedIcon from \"@mui/icons-material/ChatBubbleOutlineOutlined\";\r\n import ShoppingCartOutlinedIcon from \"@mui/icons-material/ShoppingCartOutlined\";\r\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n+import { Navigate,useNavigate}  from 'react-router-dom';\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth}) => {\r\n-  \r\n+  const navigate = useNavigate();\r\n   const logout = () => {\r\n     removeAuth();\r\n     navigate('/dashboard');\r\n   }\r\n"
+                },
+                {
+                    "date": 1673511199274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,16 @@\n import NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\n import ChatBubbleOutlineOutlinedIcon from \"@mui/icons-material/ChatBubbleOutlineOutlined\";\r\n import ShoppingCartOutlinedIcon from \"@mui/icons-material/ShoppingCartOutlined\";\r\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n-import { Navigate,useNavigate}  from 'react-router-dom';\r\n+import {useNavigate}  from 'react-router-dom';\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth}) => {\r\n   const navigate = useNavigate();\r\n   const logout = () => {\r\n     removeAuth();\r\n-    navigate('/dashboard');\r\n+    navigate('/');\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n"
+                },
+                {
+                    "date": 1673511318932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div onClick={logout}>\r\n+        <div class=\"onClick={logout}>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1673511327089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div class=\"onClick={logout}>\r\n+        <div className=\"logout\"onClick={logout}>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n"
+                }
+            ],
+            "date": 1673506819105,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport NotificationsOutlinedIcon from \"@mui/icons-material/NotificationsOutlined\";\r\nimport ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';\r\nimport ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';\r\nimport LogoutIcon from '@mui/icons-material/Logout';\r\nimport \"./Dashboard.css\";\r\nimport url_img from\"./../../images/1.jpg\";\r\nconst DashboardHeader = () => {\r\n    return (\r\n        <div class=\"web-header\">\r\n        <div class=\"element\">\r\n          <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n          <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n          <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n          <img src={url_img} alt=\"profile-user\" class=\"avatar\"></img>\r\n        </div>\r\n      </div>\r\n    );\r\n  };\r\n  \r\n  export default DashboardHeader;"
+        }
+    ]
+}

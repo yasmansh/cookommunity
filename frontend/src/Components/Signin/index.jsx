@@ -1,4 +1,4 @@
-import { useEffect, useState, React } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   Form,
@@ -10,29 +10,37 @@ import {
   FormWrap,
   Icon,
   Text,
-  RegisterLink ,
+  RegisterLink,
 } from "./SigninElements";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-const SigninForm = () => {
+const SigninForm = ({ setAuth }) => {
   const { register, handleSubmit } = useForm();
-
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    alert(data.username);
-
+    console.log(JSON.stringify(data));
     axios
-      .post("http://127.0.0.1:8000/api/accounts/login", JSON.stringify(data), {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        "http://127.0.0.1:8000/api/accounts/login/",
+        JSON.stringify(data),
+        { timeout: 2 },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
-        console.log(response.data);
+        console.log("#####")
+        setAuth(data.username);
+        localStorage.setItem(data.username, true);
+        navigate("/dashboard");
       })
       .catch((error) => {
-        console.log(error.toJSON());
+        console.log("eror--");
       });
   };
 
@@ -40,12 +48,12 @@ const SigninForm = () => {
     <Container>
       <FormWrap>
         <Icon to="/">Return To Home</Icon>
-        <div class="eror-notif">
-        <Stack sx={{ width: "100%" }} spacing={2} class="eror">
-          <Alert severity="success" sx={{ margin: "20px auto" }}>
-            ورود موفقیت آمیز بود
-          </Alert>
-        </Stack>
+        <div className="eror-notif">
+          <Stack sx={{ width: "100%" }} spacing={2} className="eror">
+            <Alert severity="success" sx={{ margin: "20px auto" }}>
+              ورود موفقیت آمیز بود
+            </Alert>
+          </Stack>
         </div>
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>

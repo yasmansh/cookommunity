@@ -46,3 +46,6 @@ li {
   align-items: center;
   align-content: center;
 }
+.logout{
+  cursor: pointer;
+}

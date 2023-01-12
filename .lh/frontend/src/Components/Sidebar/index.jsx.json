@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/Components/Sidebar/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673511124585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673511124585,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { animateScroll as scroll } from \"react-scroll\";\r\nimport {\r\n  CloseIcon,\r\n  Icon,\r\n  SidebarContainer,\r\n  SidebarLink,\r\n  SidebarMenu,\r\n  SidebarRoute,\r\n  SideBtnWrap,\r\n} from \"./SidebarElements\";\r\n\r\nconst Sidebar = ({ isOpen, toggle }) => {\r\n  const toggleHome = () => {\r\n    scroll.scrollToTop();\r\n\r\n  };\r\n  return (\r\n    <>\r\n      <SidebarContainer isOpen={isOpen} onClick={toggle}>\r\n        <Icon>\r\n          <CloseIcon />\r\n        </Icon>\r\n        <SidebarMenu>\r\n          <SidebarLink onClick={toggleHome} to=\"/\">\r\n            Home\r\n          </SidebarLink>\r\n          <SidebarLink onClick={toggle} to=\"Courses\">\r\n            Courses\r\n          </SidebarLink>\r\n          <SidebarLink onClick={toggle} to=\"About\">\r\n            About\r\n          </SidebarLink>\r\n          <SidebarLink onClick={toggle} to=\"Blog\">\r\n          Blog\r\n          </SidebarLink>\r\n        </SidebarMenu>\r\n        <SideBtnWrap>\r\n          <SidebarRoute to=\"login\">sign in</SidebarRoute>\r\n        </SideBtnWrap>\r\n      </SidebarContainer>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Sidebar;\r\n"
+        }
+    ]
+}

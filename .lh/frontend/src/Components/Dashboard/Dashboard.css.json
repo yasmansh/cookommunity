@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard/Dashboard.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673511334902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673511334902,
+            "name": "Commit-0",
+            "content": ".web-header {\r\n  position: fixed;\r\n  top: 0;\r\n  bottom: 0;\r\n  right: 0;\r\n  padding-right: 270px;\r\n  z-index: 9 !important;\r\n  background: #ffffff;\r\n  padding-top: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  width: 100%;\r\n  height: 74px;\r\n  display: flex;\r\n  flex-direction: row-reverse;\r\n  align-items: center;\r\n}\r\nul {\r\n  list-style-type: none;\r\n}\r\nli {\r\n  padding: 10px 10px;\r\n  text-align: right;\r\n  cursor: pointer;\r\n}\r\n.div-icon {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n}\r\n.m-icon {\r\n  margin-right: 2px;\r\n  width: 26px;\r\n}\r\n.m2-icon {\r\n  width: 26px;\r\n  margin: 10px;\r\n}\r\n.avatar {\r\n  background: black;\r\n  border-radius: 50%;\r\n  margin: 0px 10px;\r\n  width: 50px;\r\n  height: 50px;\r\n}\r\n.element {\r\n  display: flex;\r\n  align-items: center;\r\n  align-content: center;\r\n}\r\n.logout{\r\n  \r\n}"
+        }
+    ]
+}

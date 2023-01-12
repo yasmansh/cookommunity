@@ -25,7 +25,6 @@ const InfoSection = ({
   img,
   alt,
 }) => {
-  console.log(lightBg)
   return (
       <InfoContainer LightBg={lightBg} id={id}>
         <InfoWrapper>

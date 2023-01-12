@@ -3,11 +3,11 @@ import { Container} from "./DashboardElements";
 import "./Dashboard.css";
 import DashboardSidebar from "./Dash-sidebar";
 import DashboardHeader from "./Dash-header";
-const DashboardForm = () => {
+const DashboardForm = ({removeAuth}) => {
   return (
     <Container>
       <DashboardSidebar/>
-      <DashboardHeader/>
+      <DashboardHeader removeAuth={removeAuth}/>
     </Container>
   );
 };

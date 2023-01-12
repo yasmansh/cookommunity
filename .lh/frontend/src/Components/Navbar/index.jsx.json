@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/Components/Navbar/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673511369840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673511369840,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport { animateScroll as scroll } from \"react-scroll\";\r\nimport {\r\n  Nav,\r\n  NavBarContainer,\r\n  NavLogo,\r\n  MobileIcon,\r\n  NavMenu,\r\n  NavItem,\r\n  NavLinks,\r\n  NavBtn,\r\n  NavBtnLink,\r\n} from \"./NavbarElements\";\r\nimport { FaBars } from \"react-icons/fa\";\r\nconst Navbar = ({ toggle }) => {\r\n  const [scrolNav, setScrolNav] = useState(false);\r\n  const changeNav = () => {\r\n    if (window.scrollY >= 80) {\r\n      setScrolNav(true);\r\n    } else {\r\n      setScrolNav(false);\r\n    }\r\n  };\r\n  useEffect(() => {\r\n    window.addEventListener(\"scroll\", changeNav)\r\n  }, []);\r\n  const toggleHome = () => {\r\n    scroll.scrollToTop();\r\n  }\r\n  return (\r\n    <>\r\n      <Nav scrolNav={scrolNav}>\r\n        <NavBarContainer>\r\n          <NavLogo to=\"/\" onClick={toggleHome} smooth={true} duration={1000} spy={true}>Youngman</NavLogo>\r\n          <MobileIcon onClick={toggle}>\r\n            <FaBars />\r\n          </MobileIcon>\r\n          <NavMenu>\r\n            <NavItem>\r\n              <NavLinks to=\"/\" onClick={toggleHome} smooth={true} duration={1000} spy={true}>Home</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"About\" smooth={true} duration={1000} spy={true} offset={-80}>about</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"Courses\" smooth={true} duration={1000} spy={true} offset={-80}>Courses</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"Blog\" smooth={true} duration={1000} spy={true} offset={-80}>Blog</NavLinks>\r\n            </NavItem>\r\n            <NavItem>\r\n              <NavLinks to=\"Experience\" smooth={true} duration={1000} spy={true} offset={-80}>Experience</NavLinks>\r\n            </NavItem>\r\n          </NavMenu>\r\n          <NavBtn>\r\n            <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n          </NavBtn>\r\n        </NavBarContainer>\r\n      </Nav>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Navbar;\r\n"
+        }
+    ]
+}

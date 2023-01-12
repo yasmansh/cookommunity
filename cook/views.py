@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.utils import timezone
 from datetime import datetime
 from django.views.decorators.http import require_http_methods
 from .models import *
@@ -24,7 +25,7 @@ def login_user(request):
         user = SystemUser.objects.get(username=request_model.username)
         if not user.check_password(request_model.password):
             return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
-        user.last_login = datetime.now()
+        user.last_login = timezone.now()
         user.save()
         return HttpResponse()
     else:

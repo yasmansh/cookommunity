@@ -27,7 +27,7 @@ const HeroSection = () => {
         <HeroH1>سرتاسر دستور پخت</HeroH1>
         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>
         <HeroBtnWrapper>
-          <Button to="/" primary="true" onMouseEnter={onHover} onMouseLeave={onHover} dark="true">
+          <Button to="/" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>
             جستجو{hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>

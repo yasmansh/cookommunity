@@ -1,0 +1,22 @@
+{
+    "sourceFile": "frontend/src/pages/signin.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1673961890315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673961896382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import SigninForm from \"../Components/Signin\";\r\n \r\n-const Signin = () => {\r\n+const Signin = ({setAuth}) => {\r\n   return (\r\n       <SigninForm setAuth={setAuth}/>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1673961890315,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport SigninForm from \"../Components/Signin\";\r\n\r\nconst Signin = () => {\r\n  return (\r\n      <SigninForm setAuth={setAuth}/>\r\n  );\r\n};\r\n\r\nexport default Signin;\r\n"
+        }
+    ]
+}

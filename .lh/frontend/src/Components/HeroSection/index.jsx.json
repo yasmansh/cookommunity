@@ -1,0 +1,50 @@
+{
+    "sourceFile": "frontend/src/Components/HeroSection/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1673959622193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673959634437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary=true onMouseEnter={onHover} onMouseLeave={onHover} dark=\"true\">\r\n+          <Button to=\"/\" primary=\"true\" onMouseEnter={onHover} onMouseLeave={onHover} dark=\"true\">\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960003296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary=\"true\" onMouseEnter={onHover} onMouseLeave={onHover} dark=\"true\">\r\n+          <Button to=\"/\" primary={true} onMouseEnter={onHover} onMouseLeave={onHover} dark=\"true\">\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960008592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={true} onMouseEnter={onHover} onMouseLeave={onHover} dark=\"true\">\r\n+          <Button to=\"/\" primary={true} onMouseEnter={onHover} onMouseLeave={onHover} dark={true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960202504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={true} onMouseEnter={onHover} onMouseLeave={onHover} dark={true}>\r\n+          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960223246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={true}>\r\n+          <Button to=\"/\" primary={1} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960574633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={1} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n+          <Button to=\"/\" primary={} onMouseEnter={onHover} onMouseLeave={onHover} dark={1}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960579876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={} onMouseEnter={onHover} onMouseLeave={onHover} dark={1}>\r\n+          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={1}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1673960585292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={1}>\r\n+          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                }
+            ],
+            "date": 1673959622193,
+            "name": "Commit-0",
+            "content": "import React, { useState } from \"react\";\r\n\r\nimport Hero from \"../../images/hero.jpg\";\r\nimport { Button } from \"../ButtonElements\";\r\nimport {\r\n  HeroBg,\r\n  HeroP,\r\n  HeroContainer,\r\n  HeroContent,\r\n  HeroH1,\r\n  ImageBg,\r\n  ArrowForward,\r\n  ArrowRight,\r\n  HeroBtnWrapper,\r\n} from \"./HeroElements\";\r\nconst HeroSection = () => {\r\n  const [hover, setHover] = useState(false);\r\n  const onHover = () => {\r\n    setHover(!hover);\r\n  };\r\n  return (\r\n    <HeroContainer>\r\n      <HeroBg>\r\n        <ImageBg src={Hero}></ImageBg>\r\n      </HeroBg>\r\n      <HeroContent>\r\n        <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n        <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n        <HeroBtnWrapper>\r\n          <Button to=\"/\" primary=true onMouseEnter={onHover} onMouseLeave={onHover} dark=\"true\">\r\n            جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n          </Button>\r\n        </HeroBtnWrapper>\r\n      </HeroContent>\r\n    </HeroContainer>\r\n  );\r\n};\r\n\r\nexport default HeroSection;\r\n"
+        }
+    ]
+}

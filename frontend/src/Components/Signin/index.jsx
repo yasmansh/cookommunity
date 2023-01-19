@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Container,
   Form,
@@ -21,26 +20,18 @@ const SigninForm = ({ setAuth }) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
     axios
-      .post(
-        "http://127.0.0.1:8000/api/accounts/login/",
-        JSON.stringify(data),
-        { timeout: 2 },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      .post("http://127.0.0.1:8000/api/accounts/login/", JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
-        console.log("#####")
-        setAuth(data.username);
-        localStorage.setItem(data.username, true);
-        navigate("/dashboard");
+        setAuth(data.username)
+        navigate('/dashboard');
       })
       .catch((error) => {
-        console.log("eror--");
+        console.log(error);
       });
   };
 

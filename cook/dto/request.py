@@ -4,7 +4,7 @@ from simplejson import loads as jr
 class BaseRequest:
     def __init__(self, req, is_post=False):
         if is_post:
-            self.data = req.POST.dict()
+            self.data = req.dict()
         else:
             self.data = jr(req.body.decode('utf-8').replace("'", "\""))
 
@@ -41,8 +41,8 @@ class UserUpdateProfileRequest(BaseRequest):
 
 class CreateTicketRequest(BaseRequest):
     def __init__(self, req):
-        super().__init__(req)
-        self.user = self.data['username']
+        super().__init__(req, is_post=True)
+        self.username = self.data['username']
         self.category = self.data['category']
 
 
@@ -79,10 +79,8 @@ class RecipeInfoRequest(BaseRequest):
         self.description = self.data['description']
         self.difficulty = self.data['difficulty']
         self.preparation_time = self.data['preparation_time']
-        self.for_vegetarians = self.data['for_vegetarians']
         self.meal_tags = self.data['meal_tags']
-        self.tools = self.data['tools']
-      
+
 
 
 class GetDifficultyRequest(BaseRequest):

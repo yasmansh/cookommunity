@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.utils import timezone
-from datetime import datetime
 from django.views.decorators.http import require_http_methods
 from .models import *
 from .dto.request import *
@@ -73,7 +72,7 @@ def update_profile(request, user):
 @require_http_methods(["POST"])
 def create_ticket(request):
     request_model = CreateTicketRequest(request.POST)
-    ticket = Ticket(user=request_model.user, category=request_model.category, status=TicketStatus.NEW.value)
+    ticket = Ticket(user__username=request_model.username, category=request_model.category, status=TicketStatus.NEW.value)
     ticket.save()
     return CreationResponse(ticket.id)
 
@@ -132,8 +131,7 @@ def create_recipe(request):
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
     recipe = Recipe.objects.create(name=request_model.name, description=request_model.description,
         difficulty=request_model.difficulty, preparation_time=request_model.preparation_time,
-        for_vegetarians=request_model.for_vegetarians, meal_tags=request_model.meal_tags,
-        tools=request_model.tools)
+        meal_tags=request_model.meal_tags)
     recipe.save()
     return HttpResponse()
     

@@ -64,7 +64,7 @@ class Recipe(models.Model):
     """
 
     name = models.CharField(verbose_name=('نام'), max_length=100) 
-    ingredients =  models.ManyToManyField(Ingredient)
+    ingredients = models.ManyToManyField(Ingredient)
     categories = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN , verbose_name=('دسته غذایی'))
     description = models.TextField(verbose_name=('توضیحات'), max_length=350)
     price = models.IntegerField(verbose_name=('هزینه'), null=True)

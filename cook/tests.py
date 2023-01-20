@@ -18,7 +18,7 @@ class AccountViewTest(TestCase):
     def setUpTestData(cls):
         SystemUser.objects.create(username='user1', password='pw1', first_name='fn1', last_name='ln1')
         Foodstuff.objects.create(name='Foodstuff1', price=10, is_vegan=False)
-        Recipe.objects.create(name='Recipe1', description='test', difficulty=4, tools='test', preparation_time=3, for_vegetarians=False, meal_tags='#test')
+        Recipe.objects.create(name='Recipe1', description='test', difficulty=4, preparation_time=3, meal_tags='#test')
 
     def test_url_admin_exists(self):
         response = self.client.get('/admin', follow=True)
@@ -81,8 +81,8 @@ class AccountViewTest(TestCase):
         check_internal_error(response, InternalError.CREDENTIAL_MISMATCH)
 
     def test_valid_create_ticket(self):
-        request = dict(user='user1', category=TicketCategory.PRO_VERIFICATION.value)
-        response = self.client.post('/api/accounts/tickets/', request)
+        request = dict(username='user1', category=TicketCategory.PRO_VERIFICATION.value)
+        response = self.client.post('/api/tickets/', request)
         self.assertEqual(response.status_code, 200)
 
 
@@ -112,14 +112,14 @@ class AccountViewTest(TestCase):
 
 
     def test_valid_recipe_create(self):
-        request = dict(name='پیتزا', description='test', difficulty=4, tools='فر', preparation_time=3, for_vegetarians=False, meal_tags='#فست فود')
+        request = dict(name='پیتزا', description='test', difficulty=4, preparation_time=3, meal_tags='#فست فود')
         response = self.client.post('/api/recipe/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(response)
     
   
     def test_existing_recipe_create(self):
-        request = dict(name='Recipe1',  description='test', difficulty=4,  tools='test', preparation_time=3, for_vegetarians=False, meal_tags='#test')
+        request = dict(name='Recipe1',  description='test', difficulty=4,  preparation_time=3, meal_tags='#test')
         response = self.client.post('/api/recipe/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(response, InternalError.RECIPE_EXIST)

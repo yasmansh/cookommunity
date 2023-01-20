@@ -18,7 +18,6 @@ class AccountViewTest(TestCase):
     def setUpTestData(cls):
         SystemUser.objects.create(username='user1', password='pw1', first_name='fn1', last_name='ln1')
         Foodstuff.objects.create(name='Foodstuff1', price=10, is_vegan=False)
-        Category.objects.create(name='Category1')
         Recipe.objects.create(name='Recipe1', description='test', difficulty=4, tools='test', preparation_time=3, for_vegetarians=False, meal_tags='#test')
 
     def test_url_admin_exists(self):
@@ -105,18 +104,6 @@ class AccountViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         check_internal_error(response, InternalError.NO_MATCH)
 
-    def test_valid_category_create(self):
-        request = dict(name='دریایی', description='test')
-        response = self.client.post('/api/category/create/', request)
-        self.assertEqual(response.status_code, 200)
-        check_internal_error(response)
-    
-  
-    def test_existing_category_create(self):
-        request = dict(name='Category1', description='test')
-        response = self.client.post('/api/category/create/', request)
-        self.assertEqual(response.status_code, 200)
-        check_internal_error(response, InternalError.CATEGORY_EXIST)
 
     def test_valid_recipe_create(self):
         request = dict(name='پیتزا', description='test', difficulty=4, tools='فر', preparation_time=3, for_vegetarians=False, meal_tags='#فست فود')

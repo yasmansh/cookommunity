@@ -36,19 +36,6 @@ class Ticket(models.Model):
                               status=TicketStatus.get_status(self.status))
 
 
-class Category(models.Model):
-    """
-    Model for food categories
-    """
-
-    name = models.CharField(verbose_name=('نام دسته'), max_length=100)
-    description = models.TextField(verbose_name=('شرح'), max_length=300)
-    date_created = models.DateTimeField(auto_now=True)
-
-    def __str__(self) -> str:
-        return f"{self.name}"
-
-
 class Foodstuff (models.Model):
     """
     Model for Foodstuff
@@ -63,22 +50,27 @@ class Foodstuff (models.Model):
         return f"{self.name}"
 
 
+class Ingredient (models.Model):
+    """
+    Model for Ingredient
+    """
+    foodstuff = models.ForeignKey(Foodstuff, on_delete=models.CASCADE)
+    weight =  models.IntegerField()
+
+
 class Recipe(models.Model):
     """
     Model for Recipe
     """
 
     name = models.CharField(verbose_name=('نام'), max_length=100) 
-    ingredients =  models.ManyToManyField(Foodstuff)
-    categories = models.ManyToManyField(Category)
+    ingredients =  models.ManyToManyField(Ingredient)
+    categories = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN , verbose_name=('دسته غذایی'))
     description = models.TextField(verbose_name=('توضیحات'), max_length=350)
-    price = models.FloatField(verbose_name=('هزینه'), null=True)
-    difficulty = models.IntegerField(validators=[MinValueValidator(0),
-                                       MaxValueValidator(5)], default=3)
-    preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.Medium, verbose_name=('مدت زمان آماده شدن'))
-    for_vegetarians = models.BooleanField(verbose_name=('مخصوص گیاهخواران'), default=False)
+    price = models.IntegerField(verbose_name=('هزینه'), null=True)
+    difficulty = models.IntegerField(choices=DifficultyType.choices(), default=DifficultyType.MEDIUM, verbose_name=('درجه سختی'))
+    preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.MEDIUM, verbose_name=('مدت زمان آماده شدن'))
     meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)
-    tools = models.TextField(verbose_name=('ابزار لازم'), max_length=150, null=True)
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:

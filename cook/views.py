@@ -113,7 +113,7 @@ def update_foodstuff(request, name):
     foodstuff.save()
     return HttpResponse()
 
-
+'''
 @require_http_methods(["POST"])
 def create_category(request):
     request_model = CategoryInfoRequest(request)
@@ -123,7 +123,7 @@ def create_category(request):
     category.save()
     return HttpResponse()
 
-
+'''
 
 @require_http_methods(["POST"])
 def create_recipe(request):
@@ -136,7 +136,6 @@ def create_recipe(request):
         tools=request_model.tools)
     recipe.save()
     return HttpResponse()
-
     
 
 @require_http_methods(["POST"])

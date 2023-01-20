@@ -81,6 +81,12 @@ class AccountViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         check_internal_error(response, InternalError.CREDENTIAL_MISMATCH)
 
+    def test_valid_create_ticket(self):
+        request = dict(user='user1', category=TicketCategory.PRO_VERIFICATION.value)
+        response = self.client.post('/api/accounts/tickets/', request)
+        self.assertEqual(response.status_code, 200)
+
+
     def test_valid_foodstuff_create(self):
         request = dict(name='nan', price=20, is_vegan=True)
         response = self.client.post('/api/foodstuff/create/', request)

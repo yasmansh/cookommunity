@@ -12,7 +12,8 @@ def register_user(request):
     request_model = UserRegistrationRequest(request)
     if SystemUser.objects.filter(username=request_model.username).exists():
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_EXISTS).json)
-    user = SystemUser.objects.create(username=request_model.username)
+    user = SystemUser.objects.create(username=request_model.username, first_name=request_model.first_name,
+                                     last_name=request_model.last_name)
     user.set_password(request_model.password)
     user.save()
     return HttpResponse()

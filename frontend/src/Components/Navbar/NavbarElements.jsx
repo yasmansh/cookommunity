@@ -38,8 +38,8 @@ export const MobileIcon = styled.div`
     color: #fff;
     position: absolute;
     top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
+    left: 0;
+    transform: translate(60%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
   }

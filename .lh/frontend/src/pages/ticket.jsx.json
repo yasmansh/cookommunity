@@ -1,0 +1,30 @@
+{
+    "sourceFile": "frontend/src/pages/ticket.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1674150168644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674150181136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import EditProfile from \"../Components/Dashboard-edit-profile\";\r\n \r\n const TicketsPage = () => {\r\n-  return <EditProfile />;\r\n+  return <Tickets />;\r\n };\r\n \r\n-export default DashEditProfile;\r\n+export default TicketsPage;\r\n"
+                },
+                {
+                    "date": 1674150189206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import EditProfile from \"../Components/Dashboard-edit-profile\";\r\n+import Tickets from \"../Components/Dashboard-edit-profile\";\r\n \r\n const TicketsPage = () => {\r\n   return <Tickets />;\r\n };\r\n"
+                },
+                {
+                    "date": 1674150244820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import Tickets from \"../Components/Dashboard-edit-profile\";\r\n+import Tickets from \"../Components/Dashboard-ticket\";\r\n \r\n const TicketsPage = () => {\r\n   return <Tickets />;\r\n };\r\n"
+                }
+            ],
+            "date": 1674150168644,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport EditProfile from \"../Components/Dashboard-edit-profile\";\r\n\r\nconst TicketsPage = () => {\r\n  return <EditProfile />;\r\n};\r\n\r\nexport default DashEditProfile;\r\n"
+        }
+    ]
+}

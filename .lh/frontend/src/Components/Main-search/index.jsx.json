@@ -1,0 +1,98 @@
+{
+    "sourceFile": "frontend/src/Components/Main-search/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1674149305398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674149325057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,29 +16,13 @@\n import { useForm } from \"react-hook-form\";\r\n import Alert from \"@mui/material/Alert\";\r\n import Stack from \"@mui/material/Stack\";\r\n const SigninForm = ({ setAuth }) => {\r\n-  const { register, handleSubmit } = useForm();\r\n-  const navigate = useNavigate();\r\n-  const onSubmit = (data) => {\r\n-    axios\r\n-      .post(\"http://127.0.0.1:8000/api/accounts/login/\", JSON.stringify(data), {\r\n-        headers: {\r\n-          \"Content-Type\": \"application/json\",\r\n-        },\r\n-      })\r\n-      .then((response) => {\r\n-        setAuth(data.username);\r\n-        navigate(\"/dashboard\");\r\n-      })\r\n-      .catch((error) => {\r\n-        console.log(error);\r\n-      });\r\n-  };\r\n+ \r\n \r\n   return (\r\n     <Container>\r\n-   \r\n+   <p>hello</p>\r\n     </Container>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1674149331783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,16 +10,12 @@\n   Icon,\r\n   Text,\r\n   RegisterLink,\r\n } from \"./SigninElements\";\r\n-import axios from \"axios\";\r\n-import { useNavigate } from \"react-router-dom\";\r\n-import { useForm } from \"react-hook-form\";\r\n-import Alert from \"@mui/material/Alert\";\r\n-import Stack from \"@mui/material/Stack\";\r\n-const SigninForm = ({ setAuth }) => {\r\n- \r\n \r\n+const SigninForm = () => {\r\n+\r\n+\r\n   return (\r\n     <Container>\r\n    <p>hello</p>\r\n     </Container>\r\n"
+                },
+                {
+                    "date": 1674149338497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,6 @@\n import {\r\n   Container,\r\n-  Form,\r\n-  FormButton,\r\n-  FormContent,\r\n-  FormH1,\r\n-  FormInput,\r\n-  FormLabel,\r\n-  FormWrap,\r\n-  Icon,\r\n-  Text,\r\n-  RegisterLink,\r\n } from \"./SigninElements\";\r\n \r\n const SigninForm = () => {\r\n \r\n"
+                },
+                {
+                    "date": 1674149347981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import {\r\n   Container,\r\n } from \"./SigninElements\";\r\n \r\n-const SigninForm = () => {\r\n+const SearchFood = () => {\r\n \r\n \r\n   return (\r\n     <Container>\r\n"
+                },
+                {
+                    "date": 1674149384307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,10 @@\n-import {\r\n-  Container,\r\n-} from \"./SigninElements\";\r\n+import { Container } from \"./SigninElements\";\r\n \r\n const SearchFood = () => {\r\n-\r\n-\r\n   return (\r\n     <Container>\r\n-   <p>hello</p>\r\n+      <p>hello</p>\r\n     </Container>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1674149389853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,5 @@\n     </Container>\r\n   );\r\n };\r\n \r\n-export default SigninForm;\r\n+export default SearchFood;\r\n"
+                },
+                {
+                    "date": 1674149450957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Container } from \"./SigninElements\";\r\n+import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n"
+                },
+                {
+                    "date": 1674197607950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,12 @@\n \r\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n-      <p>hello</p>\r\n+          <>\r\n+      <Sidebar toggle={toggle} isOpen={isOpen} />\r\n+      <Navbar toggle={toggle} />\r\n+      <HeroSection />\r\n     </Container>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1674197614502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,13 @@\n \r\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n-          <>\r\n-      <Sidebar toggle={toggle} isOpen={isOpen} />\r\n-      <Navbar toggle={toggle} />\r\n-      <HeroSection />\r\n+      <>\r\n+        <Sidebar toggle={toggle} isOpen={isOpen} />\r\n+        <Navbar toggle={toggle} />\r\n+        <HeroSection />\r\n+      </>\r\n     </Container>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1674197620312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n       <>\r\n-        <Sidebar toggle={toggle} isOpen={isOpen} />\r\n+        <Sideba toggle={toggle} isOpen={isOpen} />\r\n         <Navbar toggle={toggle} />\r\n         <HeroSection />\r\n       </>\r\n     </Container>\r\n"
+                },
+                {
+                    "date": 1674197626088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n+import { Sidebar } from \"../Dashboard/DashboardElements\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n       <>\r\n-        <Sideba toggle={toggle} isOpen={isOpen} />\r\n+        <Sidebar toggle={toggle} isOpen={isOpen} />\r\n         <Navbar toggle={toggle} />\r\n         <HeroSection />\r\n       </>\r\n     </Container>\r\n"
+                },
+                {
+                    "date": 1674197673249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-import { Sidebar } from \"../Dashboard/DashboardElements\";\r\n+import Sidebar from \"../Components/Sidebar\";\r\n+import Navbar from \"../Components/Navbar\";\r\n+import HeroSection from \"../Components/HeroSection\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1674197679201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   return (\r\n     <Container>\r\n       <>\r\n         <Sidebar toggle={toggle} isOpen={isOpen} />\r\n-        <Navbar toggle={toggle} />\r\n+        <Navbar />\r\n         <HeroSection />\r\n       </>\r\n     </Container>\r\n   );\r\n"
+                },
+                {
+                    "date": 1674197699576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n import Sidebar from \"../Components/Sidebar\";\r\n-import Navbar from \"../Components/Navbar\";\r\n+import Navbar from \"./Navbar\";\r\n import HeroSection from \"../Components/HeroSection\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n       <>\r\n-        <Sidebar toggle={toggle} isOpen={isOpen} />\r\n+        <Sidebar/>\r\n         <Navbar />\r\n         <HeroSection />\r\n       </>\r\n     </Container>\r\n"
+                },
+                {
+                    "date": 1674197704814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import Sidebar from \"../Components/Sidebar\";\r\n+import Sidebar from \"./Sidebar\";\r\n import Navbar from \"./Navbar\";\r\n-import HeroSection from \"../Components/HeroSection\";\r\n+import HeroSection from \"./HeroSection\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1674197744802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import Sidebar from \"./Sidebar\";\r\n+import Sidebar from \"../Sidebar\";\r\n import Navbar from \"./Navbar\";\r\n import HeroSection from \"./HeroSection\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n"
+                },
+                {
+                    "date": 1674197751391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Sidebar from \"../Sidebar\";\r\n-import Navbar from \"./Navbar\";\r\n+import Navbar from \"../Navbar\";\r\n import HeroSection from \"./HeroSection\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n"
+                },
+                {
+                    "date": 1674197857641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Sidebar from \"../Sidebar\";\r\n-import Navbar from \"../Navbar\";\r\n-import HeroSection from \"./HeroSection\";\r\n+import Navbar from \"../Navbar-second\";\r\n+import HeroSection from \"../HeroSection\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1674202337435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Sidebar from \"../Sidebar\";\r\n import Navbar from \"../Navbar-second\";\r\n-import HeroSection from \"../HeroSection\";\r\n+import HeroSection from \"../HeroSection-s\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1674202358007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n import Sidebar from \"../Sidebar\";\r\n import Navbar from \"../Navbar-second\";\r\n-import HeroSection from \"../HeroSection-s\";\r\n+import HeroSection from \"../HeroSection-search\";\r\n import { Container } from \"./SearchFood\";\r\n \r\n const SearchFood = () => {\r\n   return (\r\n     <Container>\r\n       <>\r\n         <Sidebar/>\r\n         <Navbar />\r\n-        <HeroSection />\r\n+        <HeroSectionSearch />\r\n       </>\r\n     </Container>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1674149305398,
+            "name": "Commit-0",
+            "content": "import {\r\n  Container,\r\n  Form,\r\n  FormButton,\r\n  FormContent,\r\n  FormH1,\r\n  FormInput,\r\n  FormLabel,\r\n  FormWrap,\r\n  Icon,\r\n  Text,\r\n  RegisterLink,\r\n} from \"./SigninElements\";\r\nimport axios from \"axios\";\r\nimport { useNavigate } from \"react-router-dom\";\r\nimport { useForm } from \"react-hook-form\";\r\nimport Alert from \"@mui/material/Alert\";\r\nimport Stack from \"@mui/material/Stack\";\r\nconst SigninForm = ({ setAuth }) => {\r\n  const { register, handleSubmit } = useForm();\r\n  const navigate = useNavigate();\r\n  const onSubmit = (data) => {\r\n    axios\r\n      .post(\"http://127.0.0.1:8000/api/accounts/login/\", JSON.stringify(data), {\r\n        headers: {\r\n          \"Content-Type\": \"application/json\",\r\n        },\r\n      })\r\n      .then((response) => {\r\n        setAuth(data.username);\r\n        navigate(\"/dashboard\");\r\n      })\r\n      .catch((error) => {\r\n        console.log(error);\r\n      });\r\n  };\r\n\r\n  return (\r\n    <Container>\r\n   \r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default SigninForm;\r\n"
+        }
+    ]
+}

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-import Hero from "../../images/hero.jpg";
+import Hero from "../../images/hero2.jpg";
 import { Button } from "../ButtonElements";
+import {useNavigate}  from 'react-router-dom';
 import {
   HeroBg,
   HeroP,
@@ -18,6 +19,11 @@ const HeroSection = () => {
   const onHover = () => {
     setHover(!hover);
   };
+  const navigate = useNavigate();
+  const search = () => {
+    // removeAuth4();
+    navigate('/search');
+  }
   return (
     <HeroContainer>
       <HeroBg>
@@ -27,7 +33,7 @@ const HeroSection = () => {
         <HeroH1>سرتاسر دستور پخت</HeroH1>
         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>
         <HeroBtnWrapper>
-          <Button to="/" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>
+          <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>
             جستجو{hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>

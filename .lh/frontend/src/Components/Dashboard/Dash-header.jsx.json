@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 28,
+            "activePatchIndex": 34,
             "patches": [
                 {
                     "date": 1673506819105,
@@ -120,6 +120,30 @@
                 {
                     "date": 1673511327089,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div class=\"onClick={logout}>\r\n+        <div className=\"logout\"onClick={logout}>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1674143992159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth}) => {\r\n   const navigate = useNavigate();\r\n   const logout = () => {\r\n-    removeAuth();\r\n+    removeAuth(\"\");\r\n     navigate('/');\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n"
+                },
+                {
+                    "date": 1674144058385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div className=\"logout\"onClick={logout}>\r\n+        <div className=\"logout\"onClick={removeAuth(\"\")}>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1674144064859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div className=\"logout\"onClick={removeAuth(\"\")}>\r\n+        <div className=\"logout\"onClick={removeAuth()}>\r\n           <LogoutIcon class=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1674144195954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import LogoutIcon from \"@mui/icons-material/Logout\";\r\n import {useNavigate}  from 'react-router-dom';\r\n import \"./Dashboard.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n-const DashboardHeader = ({removeAuth}) => {\r\n+const DashboardHeader = ({removeAuth4}) => {\r\n   const navigate = useNavigate();\r\n   const logout = () => {\r\n     removeAuth(\"\");\r\n     navigate('/');\r\n"
+                },
+                {
+                    "date": 1674144338297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,19 +8,19 @@\n import url_img from \"./../../images/1.jpg\";\r\n const DashboardHeader = ({removeAuth4}) => {\r\n   const navigate = useNavigate();\r\n   const logout = () => {\r\n-    removeAuth(\"\");\r\n+    removeAuth4(\"\");\r\n     navigate('/');\r\n   }\r\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n         <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon class=\"m2-icon\" />\r\n-        <div className=\"logout\"onClick={removeAuth()}>\r\n-          <LogoutIcon class=\"m2-icon\" />\r\n+        <div className=\"logout\"onClick={removeAuth4()}>\r\n+          <LogoutIcon className=\"m2-icon\" />\r\n         </div>\r\n         <img src={url_img} alt=\"profile-user\" className=\"avatar\"></img>\r\n       </div>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1674144345927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   return (\r\n     <div className=\"web-header\">\r\n       <div className=\"element\">\r\n         <NotificationsOutlinedIcon class=\"m2-icon\" />\r\n-        <ChatBubbleOutlineOutlinedIcon class=\"m2-icon\" />\r\n+        <ChatBubbleOutlineOutlinedIcon className=\"m2-icon\" />\r\n         <ShoppingCartOutlinedIcon className=\"m2-icon\" />\r\n         <div className=\"logout\"onClick={removeAuth4()}>\r\n           <LogoutIcon className=\"m2-icon\" />\r\n         </div>\r\n"
                 }
             ],
             "date": 1673506819105,

@@ -14,7 +14,7 @@ export const FooterWrap = styled.div`
 `;
 export const FooterLinksContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: right;
   @media screen and (max-width: 820px) {
     padding-top: 32px;
   }
@@ -31,7 +31,7 @@ export const FooterLinksItem = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 16px;
-  text-align: left;
+  text-align: right;
   width: 160px;
   box-sizing: border-box;
   color: #fff;

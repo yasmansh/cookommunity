@@ -6,20 +6,20 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import {useNavigate}  from 'react-router-dom';
 import "./Dashboard.css";
 import url_img from "./../../images/1.jpg";
-const DashboardHeader = ({removeAuth}) => {
+const DashboardHeader = ({removeAuth4}) => {
   const navigate = useNavigate();
   const logout = () => {
-    removeAuth();
+    // removeAuth4();
     navigate('/');
   }
   return (
     <div className="web-header">
       <div className="element">
-        <NotificationsOutlinedIcon class="m2-icon" />
-        <ChatBubbleOutlineOutlinedIcon class="m2-icon" />
-        <ShoppingCartOutlinedIcon class="m2-icon" />
+        <NotificationsOutlinedIcon className="m2-icon" />
+        <ChatBubbleOutlineOutlinedIcon className="m2-icon" />
+        <ShoppingCartOutlinedIcon className="m2-icon" />
         <div className="logout"onClick={logout}>
-          <LogoutIcon class="m2-icon" />
+          <LogoutIcon className="m2-icon" />
         </div>
         <img src={url_img} alt="profile-user" className="avatar"></img>
       </div>

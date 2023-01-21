@@ -1,5 +1,5 @@
 export const homeObject = {
-  id: "About",
+  id: "About1",
   lightBg: 0,
   topLine: "درباره سایت ما",
   heading: "تیم مهندسی نرم افزار",
@@ -27,14 +27,4 @@ export const homeObjectThree = {
   imgStart: 0,
   img: require("../../images/image_(3).svg").default,
   alt: "blog",
-};
-export const homeObjectFour= {
-  id: "Experience",
-   lightBg: 1,
-  topLine: "ایجاد شغل",
-  heading: "کسب در آمد از خانه",
-  description:"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند",
-   imgStart: 1,
-  img: require("../../images/image_(7).svg").default,
-  alt: "Youngman",
 };

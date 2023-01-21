@@ -1,0 +1,74 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard-edit-profile/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1674108458386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674108488652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import \"./edit-profile.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n+\r\n const EditProfile = () => {\r\n   const { register, handleSubmit } = useForm();\r\n   return (\r\n     <Container>\r\n"
+                },
+                {
+                    "date": 1674108494022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n import DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\n import DashboardHeader from \"../Dashboard/Dash-header\";\r\n import \"./edit-profile.css\";\r\n import url_img from \"./../../images/1.jpg\";\r\n-\r\n+import { useForm } from \"react-hook-form\";\r\n+import axios from \"axios\";\r\n const EditProfile = () => {\r\n   const { register, handleSubmit } = useForm();\r\n   return (\r\n     <Container>\r\n"
+                },
+                {
+                    "date": 1674123141947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n       <div class=\"content-edit\">\r\n         <p> سلام علی به سایت ما خوش آمدی</p>\r\n         <div class=\"form-edit\">\r\n           <img src={url_img} alt=\"profile-user\" class=\"avatar2\"></img>\r\n-          <form>\r\n+          <form  onSubmit={handleSubmit(onSubmit)}>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n"
+                },
+                {
+                    "date": 1674123158198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,22 @@\n import { useForm } from \"react-hook-form\";\r\n import axios from \"axios\";\r\n const EditProfile = () => {\r\n   const { register, handleSubmit } = useForm();\r\n+  const onSubmit = (data) => {\r\n+    axios\r\n+      .post(\"http://127.0.0.1:8000/api/accounts/\", JSON.stringify(data), {\r\n+        headers: {\r\n+          \"Content-Type\": \"application/json\",\r\n+        },\r\n+      })\r\n+      .then((response) => {\r\n+        navigate('/login');\r\n+      })\r\n+      .catch((error) => {\r\n+        setIsShown(true);\r\n+      });\r\n+  };\r\n   return (\r\n     <Container>\r\n       <DashboardSidebar />\r\n       <DashboardHeader />\r\n"
+                },
+                {
+                    "date": 1674123186700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n           \"Content-Type\": \"application/json\",\r\n         },\r\n       })\r\n       .then((response) => {\r\n-        navigate('/login');\r\n+        cl\r\n       })\r\n       .catch((error) => {\r\n         setIsShown(true);\r\n       });\r\n@@ -29,9 +29,9 @@\n       <div class=\"content-edit\">\r\n         <p> سلام علی به سایت ما خوش آمدی</p>\r\n         <div class=\"form-edit\">\r\n           <img src={url_img} alt=\"profile-user\" class=\"avatar2\"></img>\r\n-          <form  onSubmit={handleSubmit(onSubmit)}>\r\n+          <form onSubmit={handleSubmit(onSubmit)}>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n"
+                },
+                {
+                    "date": 1674123198121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,12 +15,12 @@\n           \"Content-Type\": \"application/json\",\r\n         },\r\n       })\r\n       .then((response) => {\r\n-        cl\r\n+        console.log(data);\r\n       })\r\n       .catch((error) => {\r\n-        setIsShown(true);\r\n+        console.log(data);\r\n       });\r\n   };\r\n   return (\r\n     <Container>\r\n"
+                },
+                {
+                    "date": 1674123268760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,8 @@\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n                   id=\"fname\"\r\n-                  name=\"fname\"\r\n                   value=\"John\"\r\n                   class=\"f-input\"\r\n                 />\r\n               </div>\r\n"
+                },
+                {
+                    "date": 1674123282232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  id=\"fname\"\r\n                   value=\"John\"\r\n                   class=\"f-input\"\r\n                 />\r\n               </div>\r\n@@ -46,9 +45,9 @@\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  id=\"lname\"\r\n+\r\n                   name=\"lname\"\r\n                   value=\"Doe\"\r\n                   class=\"f-input\"\r\n                 />\r\n"
+                },
+                {
+                    "date": 1674123291695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,8 @@\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-\r\n-                  name=\"lname\"\r\n                   value=\"Doe\"\r\n                   class=\"f-input\"\r\n                 />\r\n               </div>\r\n@@ -58,10 +56,8 @@\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  id=\"fname\"\r\n-                  name=\"fname\"\r\n                   value=\"John\"\r\n                   class=\"f-input\"\r\n                 />\r\n               </div>\r\n"
+                },
+                {
+                    "date": 1674123308169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,41 +34,27 @@\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  value=\"John\"\r\n-                  class=\"f-input\"\r\n-                />\r\n+                <input type=\"text\" value=\"John\" class=\"f-input\" />\r\n               </div>\r\n               <div class=\"col1\">\r\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  value=\"Doe\"\r\n-                  class=\"f-input\"\r\n-                />\r\n+                <input type=\"text\" value=\"Doe\" class=\"f-input\" />\r\n               </div>\r\n             </div>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  value=\"John\"\r\n-                  class=\"f-input\"\r\n-                />\r\n+                <input type=\"text\" value=\"John\" class=\"f-input\" />\r\n               </div>\r\n               <div class=\"col1\">\r\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  id=\"lname\"\r\n-                  name=\"lname\"\r\n                   value=\"Doe\"\r\n                   class=\"f-input\"\r\n                 />\r\n               </div>\r\n"
+                },
+                {
+                    "date": 1674123317141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n                 <input\r\n                   type=\"text\"\r\n                   value=\"Doe\"\r\n                   class=\"f-input\"\r\n+                  \r\n                 />\r\n               </div>\r\n             </div>\r\n             <input type=\"submit\" value=\"Submit\" class=\"f-button\" />\r\n"
+                },
+                {
+                    "date": 1674123327703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,11 +53,10 @@\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  value=\"Doe\"\r\n-                  class=\"f-input\"\r\n-                  \r\n+                  value=\"Doe\" class=\"f-input\"\r\n+                  {...register(\"username\")}\r\n                 />\r\n               </div>\r\n             </div>\r\n             <input type=\"submit\" value=\"Submit\" class=\"f-button\" />\r\n"
+                },
+                {
+                    "date": 1674123334497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n               <div class=\"col1\">\r\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n                 <input\r\n-                  type=\"text\" value=\"Doe\" class=\"f-input\"{...register(\"username\")}\r\n+                  type=\"text\" value=\"Doe\" class=\"f-input\" {...register(\"username\")}\r\n                 />\r\n               </div>\r\n             </div>\r\n             <input type=\"submit\" value=\"Submit\" class=\"f-button\" />\r\n"
+                },
+                {
+                    "date": 1674125506962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n import axios from \"axios\";\r\n const EditProfile = () => {\r\n   const { register, handleSubmit } = useForm();\r\n   const onSubmit = (data) => {\r\n-   console.log(object);\r\n+   console.log();\r\n   };\r\n   return (\r\n     <Container>\r\n       <DashboardSidebar />\r\n"
+                }
+            ],
+            "date": 1674108458386,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Container } from \"./EditProfile\";\r\nimport DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\nimport DashboardHeader from \"../Dashboard/Dash-header\";\r\nimport \"./edit-profile.css\";\r\nimport url_img from \"./../../images/1.jpg\";\r\nconst EditProfile = () => {\r\n  const { register, handleSubmit } = useForm();\r\n  return (\r\n    <Container>\r\n      <DashboardSidebar />\r\n      <DashboardHeader />\r\n      <div class=\"content-edit\">\r\n        <p> سلام علی به سایت ما خوش آمدی</p>\r\n        <div class=\"form-edit\">\r\n          <img src={url_img} alt=\"profile-user\" class=\"avatar2\"></img>\r\n          <form>\r\n            <div class=\"row\">\r\n              <div class=\"col1\">\r\n                <label for=\"fname\">نام</label>\r\n                <br />\r\n                <input\r\n                  type=\"text\"\r\n                  id=\"fname\"\r\n                  name=\"fname\"\r\n                  value=\"John\"\r\n                  class=\"f-input\"\r\n                />\r\n              </div>\r\n              <div class=\"col1\">\r\n                <label for=\"lname\">نام خانوادگی</label>\r\n                <br />\r\n                <input\r\n                  type=\"text\"\r\n                  id=\"lname\"\r\n                  name=\"lname\"\r\n                  value=\"Doe\"\r\n                  class=\"f-input\"\r\n                />\r\n              </div>\r\n            </div>\r\n            <div class=\"row\">\r\n              <div class=\"col1\">\r\n                <label for=\"fname\">نام</label>\r\n                <br />\r\n                <input\r\n                  type=\"text\"\r\n                  id=\"fname\"\r\n                  name=\"fname\"\r\n                  value=\"John\"\r\n                  class=\"f-input\"\r\n                />\r\n              </div>\r\n              <div class=\"col1\">\r\n                <label for=\"lname\">نام خانوادگی</label>\r\n                <br />\r\n                <input\r\n                  type=\"text\"\r\n                  id=\"lname\"\r\n                  name=\"lname\"\r\n                  value=\"Doe\"\r\n                  class=\"f-input\"\r\n                />\r\n              </div>\r\n            </div>\r\n            <input type=\"submit\" value=\"Submit\" class=\"f-button\" />\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default EditProfile;\r\n"
+        }
+    ]
+}

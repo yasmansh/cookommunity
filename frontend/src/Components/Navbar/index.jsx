@@ -37,19 +37,22 @@ const Navbar = ({ toggle }) => {
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="/" onClick={toggleHome} smooth duration={1000} spy>Home</NavLinks>
+              <NavLinks to="/" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="About" smooth duration={1000} spy offset={-80}>about</NavLinks>
+              <NavLinks to="About" smooth duration={1000} spy offset={-80}>درباره ی ما</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Courses" smooth duration={1000} spy offset={-80}>Courses</NavLinks>
+              <NavLinks to="About1" smooth duration={1000} spy offset={-80}>تیم ما</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Blog" smooth duration={1000} spy offset={-80}>Blog</NavLinks>
+              <NavLinks to="Cheif" smooth duration={1000} spy offset={-80}>همکاری با ما</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>Experience</NavLinks>
+              <NavLinks to="Blog" smooth duration={1000} spy offset={-80}>بلاگ</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>شرکت ها</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>

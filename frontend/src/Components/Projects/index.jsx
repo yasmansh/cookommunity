@@ -14,7 +14,7 @@ import image3 from "../../images/image_(6).svg";
 const Projects = () => {
   return (
     <ProjectsContainer>
-      <ProjectsH1> My Projects</ProjectsH1>
+      <ProjectsH1> شرکت های طرف قرار داد</ProjectsH1>
       <ProjectsWrapper>
         <ProjectsCard>
           <ProjectsImage src={image1}></ProjectsImage>

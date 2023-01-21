@@ -1,0 +1,18 @@
+{
+    "sourceFile": "frontend/src/Components/Main-search/SearchFood.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1674149412799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1674149412799,
+            "name": "Commit-0",
+            "content": "import styled from \"styled-components\";\r\nimport { Link } from \"react-router-dom\";\r\n\r\nexport const Container = styled.div`\r\n  min-height: 800px;\r\n  position: flex;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  top: 0;\r\n  z-index: 0;\r\n  overflow: hidden;\r\n  background: #35334d;\r\n`;\r\n"
+        }
+    ]
+}

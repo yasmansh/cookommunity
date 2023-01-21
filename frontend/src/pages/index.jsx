@@ -21,7 +21,6 @@ const Home = () => {
       <InfoSection {...homeObject} />
       <InfoSection {...homeObjectTwo} />
       <InfoSection {...homeObjectThree} />
-      <InfoSection {...homeObjectFour} />
       <Projects></Projects>
       <Footer/>
     </>

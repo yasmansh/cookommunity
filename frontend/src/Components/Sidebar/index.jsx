@@ -23,20 +23,26 @@ const Sidebar = ({ isOpen, toggle }) => {
         </Icon>
         <SidebarMenu>
           <SidebarLink onClick={toggleHome} to="/">
-            Home
-          </SidebarLink>
-          <SidebarLink onClick={toggle} to="Courses">
-            Courses
+            خانه
           </SidebarLink>
           <SidebarLink onClick={toggle} to="About">
-            About
+            درباره ی ما
+          </SidebarLink>
+          <SidebarLink onClick={toggle} to="About1">
+            تیم ما
+          </SidebarLink>
+          <SidebarLink onClick={toggle} to="Cheif">
+          همکاری با ما
           </SidebarLink>
           <SidebarLink onClick={toggle} to="Blog">
-          Blog
+           بلاگ
+          </SidebarLink>
+          <SidebarLink onClick={toggle} to="Experience">
+           شرکت ها
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/login">sign in</SidebarRoute>
+          <SidebarRoute to="/login">ورود</SidebarRoute>
         </SideBtnWrap>
       </SidebarContainer>
     </>

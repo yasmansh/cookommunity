@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 15,
             "patches": [
                 {
                     "date": 1673959622193,
@@ -40,6 +40,34 @@
                 {
                     "date": 1673960585292,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={1}>\r\n+          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674145741727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useState } from \"react\";\r\n \r\n-import Hero from \"../../images/hero.jpg\";\r\n+import Hero from \"../../images/hero2.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n import {\r\n   HeroBg,\r\n   HeroP,\r\n"
+                },
+                {
+                    "date": 1674149658131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n+          <Button to=\"/search\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674149880215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button to=\"/search\" primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n+          <Button onClick={logout} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674149885767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,13 @@\n   const [hover, setHover] = useState(false);\r\n   const onHover = () => {\r\n     setHover(!hover);\r\n   };\r\n+  const navigate = useNavigate();\r\n+  const logout = () => {\r\n+    // removeAuth4();\r\n+    navigate('/');\r\n+  }\r\n   return (\r\n     <HeroContainer>\r\n       <HeroBg>\r\n         <ImageBg src={Hero}></ImageBg>\r\n"
+                },
+                {
+                    "date": 1674149922037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React, { useState } from \"react\";\r\n \r\n import Hero from \"../../images/hero2.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n+import {useNavigate}  from 'react-router-dom';\r\n import {\r\n   HeroBg,\r\n   HeroP,\r\n   HeroContainer,\r\n"
+                },
+                {
+                    "date": 1674149935315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   };\r\n   const navigate = useNavigate();\r\n   const logout = () => {\r\n     // removeAuth4();\r\n-    navigate('/');\r\n+    navigate('/search');\r\n   }\r\n   return (\r\n     <HeroContainer>\r\n       <HeroBg>\r\n"
+                },
+                {
+                    "date": 1674149944043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n   const onHover = () => {\r\n     setHover(!hover);\r\n   };\r\n   const navigate = useNavigate();\r\n-  const logout = () => {\r\n+  const search = () => {\r\n     // removeAuth4();\r\n     navigate('/search');\r\n   }\r\n   return (\r\n@@ -32,9 +32,9 @@\n       <HeroContent>\r\n         <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n-          <Button onClick={logout} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n+          <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n         </HeroBtnWrapper>\r\n       </HeroContent>\r\n"
                 }
             ],
             "date": 1673959622193,

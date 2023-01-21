@@ -53,7 +53,7 @@ const RegisterForm = () => {
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormH1>ساخت حساب کاربری</FormH1>
             <FormLabel htmlfor="for">ایمیل</FormLabel>
-            <FormInput type="email" {...register("username")} required />
+            <FormInput type="text" {...register("username")} required />
             <FormLabel htmlfor="for">First Name</FormLabel>
             <FormInput type="text" {...register("first_name")} required />
             <FormLabel htmlfor="for">Last نام</FormLabel>

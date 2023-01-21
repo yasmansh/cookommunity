@@ -10,7 +10,7 @@ import { Button } from "../ButtonElements";
 const AboutMe = () => {
   return (
     <>
-      <AboutContainer>
+      <AboutContainer id="About">
         <AboutTitle>درباره ما</AboutTitle>
         <AboutHeading>بیش از 2000 دستور غذای مختلف</AboutHeading>
         <AboutP>

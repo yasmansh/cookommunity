@@ -1,6 +1,7 @@
 import React from "react";
 import {Sidebar, Image, Mbutton } from "./DashboardElements";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import Logo from "../../images/logo-3.png";
 import ItemAccordion from "../Items";
@@ -21,6 +22,10 @@ const DashboardSidebar = () => {
             <li className="div-icon">
               <NotificationsOutlinedIcon class="m-icon" />
               <Mbutton  to="/dashboard/promotion">درخواست ارتقا</Mbutton>
+            </li>
+            <li className="div-icon">
+              <ConfirmationNumberOutlinedIcon class="m-icon" />
+              <Mbutton  to="/dashboard/tickets"> تیکت های پشتیبانی  </Mbutton>
             </li>
           </ul>
         </Sidebar>

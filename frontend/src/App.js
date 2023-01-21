@@ -6,28 +6,67 @@ import Register from "./pages/register";
 import Dashboard from "./pages/dashboard";
 import DashEditProfile from "./pages/editProfile";
 import DashPromotion from "./pages/dashPromotion";
-import { useEffect, useState } from "react";
+import SearchPage from "./pages/search";
+import TicketsPage from "./pages/ticket";
+import { useState } from "react";
 function App() {
+  let isLogin = localStorage.getItem("isLogin") === "true";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const setAuth = (value) => {
     // console.log(value);
     localStorage.setItem("username", value);
     localStorage.setItem("isLogin", true);
+    isLogin = true;
   };
-  const removeAuth = (value) => {
-    console.log("@@##@");
+
+  const removeAuth1 = () => {
+    localStorage.setItem("isLogin", false);
+    console.log(typeof isLogin);
   };
   //atom globally
-  const isLogin=localStorage.getItem("isLogin");
+
   return (
     <Router className="App">
       <Routes>
         <Route path="/" element={<Home />} exact />
-        <Route path="/login" element={<Signin setAuth={setAuth}/>} exact />
+        <Route path="/search" element={<SearchPage />} exact />
+        {/* <Route
+          path="/login"
+          element={<Dashboard removeAuth2={removeAuth1} />}
+          exact
+        />
+        <Route
+          path="/register"
+          element={<Dashboard removeAuth2={removeAuth1} />}
+          exact
+        /> */}
+        {/* {!isLogin && (
+          <>
+            
+          </>
+        )} */}
+        <Route path="/login" element={<Signin setAuth={setAuth} />} exact />
         <Route path="/register" element={<Register />} exact />
-        {isLogin && <><Route path="/dashboard" element={<Dashboard removeAuth={removeAuth}/>} exact />
-        <Route path="/dashboard/edit-profile" element={<DashEditProfile />} exact />
-        <Route path="/dashboard/promotion" element={<DashPromotion />} exact /></>}
+        {isLogin && (
+          <>
+            <Route
+              path="/dashboard"
+              element={<Dashboard removeAuth2={removeAuth1} />}
+              exact
+            />
+            <Route
+              path="/dashboard/edit-profile"
+              element={<DashEditProfile />}
+              exact
+            />
+            <Route
+              path="/dashboard/promotion"
+              element={<DashPromotion />}
+              exact
+            />
+            <Route path="/dashboard/tickets" element={<TicketsPage />} exact />
+          </>
+        )}
         <Route path="*" element={<p>404</p>} exact />
       </Routes>
     </Router>

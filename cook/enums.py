@@ -51,9 +51,9 @@ class TicketStatus(IntEnum):
         return None
 
 class DurationType(IntEnum):
-    Slow = 1
-    Medium = 2
-    Fast = 3
+    SLOW = 1
+    MEDIUM = 2
+    FAST = 3
 
     @classmethod
     def choices(cls):
@@ -65,3 +65,42 @@ class DurationType(IntEnum):
             if key.value == id:
                 return key
         return None
+
+class FoodCategory(IntEnum):
+    ASIAN = 1
+    SEA_FOOD = 2
+    VEGETARIAN = 3
+    KEBAB = 4
+    IRANIAN = 5
+    FAST_FOOD = 6
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+
+    @classmethod
+    def get_type(cls, id: int):
+        for key in cls:
+            if key.value == id:
+                return key
+        return None
+
+
+class DifficultyType(IntEnum):
+    EASY = 1
+    MEDIUM = 2
+    HARD = 3
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+
+    @classmethod
+    def get_type(cls, id: int):
+        for key in cls:
+            if key.value == id:
+                return key
+        return None
+
+
+

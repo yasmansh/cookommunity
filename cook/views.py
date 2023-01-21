@@ -1,18 +1,20 @@
 from django.http import HttpResponse
 from django.utils import timezone
-from datetime import datetime
 from django.views.decorators.http import require_http_methods
 from .models import *
 from .dto.request import *
 from .dto.response import *
 import json
 
+
 @require_http_methods(["POST"])
 def register_user(request):
     request_model = UserRegistrationRequest(request)
-    if SystemUser.objects.filter(username=request_model.username).exists():
+    if SystemUser.objects.filter(username=request_model.username).exists() or \
+            SystemUser.objects.filter(email=request_model.email).exists():
         return HttpResponse(ErrorResponse(InternalError.ACCOUNT_EXISTS).json)
-    user = SystemUser.objects.create(username=request_model.username)
+    user = SystemUser.objects.create(username=request_model.username, first_name=request_model.first_name,
+                                     last_name=request_model.last_name, email=request_model.email)
     user.set_password(request_model.password)
     user.save()
     return HttpResponse()
@@ -43,16 +45,16 @@ def logout_user(request):
 
 @require_http_methods(["GET", "POST"])
 def profile(request, username):
-    if SystemUser.objects.filter(username=username).exists() is False:  #Invalid user
+    if SystemUser.objects.filter(username=username).exists() is False:  # Invalid user
         return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
     user = SystemUser.objects.get(username=username)
-    if request.method == "GET": 
+    if request.method == "GET":
         to_json = {
             "first_name": user.first_name,
             "last_name": user.last_name,
             "bio": user.bio,
             "email": user.email,
-            "role": user.role    
+            "role": user.role
         }
         return HttpResponse(json.dumps(to_json), content_type='application/json')
     if request.method == "POST":
@@ -71,17 +73,32 @@ def update_profile(request, user):
 
 @require_http_methods(["POST"])
 def create_ticket(request):
-    request_model = CreateTicketRequest(request.POST)
-    ticket = Ticket(user=request_model.user, category=request_model.category, status=TicketStatus.NEW.value)
+    request_model = CreateTicketRequest(request)
+    if not SystemUser.objects.filter(username=request_model.username).exists():
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND))
+    user = SystemUser.objects.get(username=request_model.username)
+    ticket = Ticket(user=user, category=request_model.category, status=TicketStatus.NEW.value)
     ticket.save()
-    return CreationResponse(ticket.id)
+    return HttpResponse(CreationResponse(ticket.ticket_id).json)
+
+
+@require_http_methods(["GET"])
+def view_ticket(ticket_id):
+    if not Ticket.objects.filter(ticket_id=ticket_id).exists():
+        return HttpResponse(ErrorResponse(InternalError.TICKET_NOT_FOUND).json)
+    ticket = Ticket.objects.get(ticket_id=ticket_id)
+    return HttpResponse(ObjectInfoResponse(ticket))
 
 
 @require_http_methods(["PUT"])
-def update_ticket(request):
-    request_model = ModifyTicketRequest(request.POST)
-    ticket = Ticket.objects.get(request_model.ticket_id)
-    ticket.status = request_model.status
+def update_ticket(request, ticket_id):
+    status = int(request.GET.get('status'))
+    if not Ticket.objects.filter(ticket_id=ticket_id).exists():
+        return HttpResponse(ErrorResponse(InternalError.TICKET_NOT_FOUND).json)
+    ticket = Ticket.objects.get(ticket_id=ticket_id)
+    if status - ticket.status != 1 and (status != TicketStatus.PENDING or ticket.status != TicketStatus.RESPONSE):
+        return HttpResponse(ErrorResponse(InternalError.NOT_ALLOWED).json)
+    ticket.status = status
     ticket.save()
     category, status = TicketCategory.get_category(ticket.category), TicketStatus.get_status(ticket.status)
     if status == TicketStatus.DONE and category == TicketCategory.PRO_VERIFICATION:
@@ -96,14 +113,15 @@ def create_foodstuff(request):
     request_model = FoodstuffInfoRequest(request)
     if Foodstuff.objects.filter(name=request_model.name).exists():
         return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_EXISTS).json)
-    foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price, is_vegan=request_model.is_vegan)
+    foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price,
+                                         is_vegan=request_model.is_vegan)
     foodstuff.save()
     return HttpResponse()
 
 
 @require_http_methods(["POST"])
 def update_foodstuff(request, name):
-    if Foodstuff.objects.filter(name=name).exists() is False:  #Invalid Foodstuff
+    if Foodstuff.objects.filter(name=name).exists() is False:  # Invalid Foodstuff
         return HttpResponse(ErrorResponse(InternalError.NO_MATCH).json)
     foodstuff = Foodstuff.objects.get(name=name)
     request_model = FoodstuffInfoRequest(request)
@@ -113,6 +131,7 @@ def update_foodstuff(request, name):
     return HttpResponse()
 
 
+'''
 @require_http_methods(["POST"])
 def create_category(request):
     request_model = CategoryInfoRequest(request)
@@ -122,6 +141,7 @@ def create_category(request):
     category.save()
     return HttpResponse()
 
+'''
 
 
 @require_http_methods(["POST"])
@@ -130,13 +150,11 @@ def create_recipe(request):
     if Recipe.objects.filter(name=request_model.name).exists():
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
     recipe = Recipe.objects.create(name=request_model.name, description=request_model.description,
-        difficulty=request_model.difficulty, preparation_time=request_model.preparation_time,
-        for_vegetarians=request_model.for_vegetarians, meal_tags=request_model.meal_tags,
-        tools=request_model.tools)
+                                   difficulty=request_model.difficulty, preparation_time=request_model.preparation_time,
+                                   meal_tags=request_model.meal_tags)
     recipe.save()
     return HttpResponse()
 
-    
 
 @require_http_methods(["POST"])
 def search_recipe_by_difficulty(request):
@@ -152,4 +170,3 @@ def search_recipe_by_preparation_time(request):
     result_set = Recipe.objects.filter(preparation_time=request_model.preparation_time)
     results = [ob.as_json() for ob in result_set]
     return HttpResponse(json.dumps(results), content_type="application/json")
-

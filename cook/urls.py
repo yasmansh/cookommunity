@@ -12,5 +12,5 @@ urlpatterns = [
     path('recipe/searchByDifficulty', search_recipe_by_difficulty, name='Search Recipe By Difficulty'),
     path('recipe/search_By_Preparation_Time', search_recipe_by_preparation_time, name='Search Recipe By Preparation Time'),
     path('tickets/', create_ticket, name='Create a ticket'),
-    path('tickets/<int:id>/update/', update_ticket, name='Modify a ticket')
+    path('tickets/<int:ticket_id>/update/', update_ticket, name='Modify a ticket')
 ]

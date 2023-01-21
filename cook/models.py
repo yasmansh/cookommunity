@@ -8,7 +8,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class SystemUser(AbstractUser):
     USERNAME_FIELD = 'username'
     role = models.IntegerField(choices=Role.choices(), default=Role.PUBLIC, verbose_name=('نقش'))
-    email = models.EmailField(verbose_name=('ایمیل'))
+    email = models.EmailField(verbose_name=('ایمیل'), unique=True)
     first_name = models.TextField(verbose_name=('نام'))
     last_name = models.TextField(verbose_name=('نام خانوادگی'))
     bio = models.CharField(verbose_name=('زندگینامه'), max_length=500, null=True)

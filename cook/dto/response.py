@@ -10,6 +10,10 @@ class InternalError(Enum):
     FOODSTUFF_EXISTS = (409, "این قلم خوراکی در حال حاضر وجود دارد.")
     CATEGORY_EXIST = (409, "این دسته غذایی در حال حاضر وجود دارد.")
     RECIPE_EXIST = (409, "این دستور غذایی در حال حاضر وجود دارد.")
+    ACCOUNT_NOT_FOUND = (404, "چنین حسابی وجود ندارد.")
+    TICKET_NOT_FOUND = (404, "چنین تیکتی ثبت نشده است.")
+    ROLE_MISMATCH = (401, "بررسی‌کننده‌ی تیکت ادمین نیست.")
+    NOT_ALLOWED = (405, "عملیات مجاز نیست.")
 
     def get_code(self):
         return self.value[0]

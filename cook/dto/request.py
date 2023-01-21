@@ -60,7 +60,6 @@ class FoodstuffInfoRequest(BaseRequest):
         super().__init__(req)
         self.name = self.data['name']
         self.price = self.data['price']
-        self.is_vegan = self.data['is_vegan']
 
 
 class CategoryInfoRequest(BaseRequest):
@@ -75,6 +74,7 @@ class RecipeInfoRequest(BaseRequest):
         super().__init__(req)
         self.name = self.data['name']
         self.description = self.data['description']
+        self.category = self.data['category']
         self.difficulty = self.data['difficulty']
         self.preparation_time = self.data['preparation_time']
         self.meal_tags = self.data['meal_tags']

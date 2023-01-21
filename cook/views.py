@@ -113,35 +113,9 @@ def create_foodstuff(request):
     request_model = FoodstuffInfoRequest(request)
     if Foodstuff.objects.filter(name=request_model.name).exists():
         return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_EXISTS).json)
-    foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price,
-                                         is_vegan=request_model.is_vegan)
+    foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price)
     foodstuff.save()
     return HttpResponse()
-
-
-@require_http_methods(["POST"])
-def update_foodstuff(request, name):
-    if Foodstuff.objects.filter(name=name).exists() is False:  # Invalid Foodstuff
-        return HttpResponse(ErrorResponse(InternalError.NO_MATCH).json)
-    foodstuff = Foodstuff.objects.get(name=name)
-    request_model = FoodstuffInfoRequest(request)
-    foodstuff.price = request_model.price
-    foodstuff.is_vegan = request_model.is_vegan
-    foodstuff.save()
-    return HttpResponse()
-
-
-'''
-@require_http_methods(["POST"])
-def create_category(request):
-    request_model = CategoryInfoRequest(request)
-    if Category.objects.filter(name=request_model.name).exists():
-        return HttpResponse(ErrorResponse(InternalError.CATEGORY_EXIST).json)
-    category = Category.objects.create(name=request_model.name, description=request_model.description)
-    category.save()
-    return HttpResponse()
-
-'''
 
 
 @require_http_methods(["POST"])
@@ -149,9 +123,9 @@ def create_recipe(request):
     request_model = RecipeInfoRequest(request)
     if Recipe.objects.filter(name=request_model.name).exists():
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
-    recipe = Recipe.objects.create(name=request_model.name, description=request_model.description,
-                                   difficulty=request_model.difficulty, preparation_time=request_model.preparation_time,
-                                   meal_tags=request_model.meal_tags)
+    recipe = Recipe.objects.create(name=request_model.name, description=request_model.description, 
+        category=request_model.category, difficulty=request_model.difficulty,
+        preparation_time=request_model.preparation_time, meal_tags=request_model.meal_tags)
     recipe.save()
     return HttpResponse()
 

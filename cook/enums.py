@@ -50,6 +50,25 @@ class TicketStatus(IntEnum):
                 return key
         return None
 
+class UnitType(IntEnum):
+    GRAM = 1
+    MILLILITERS = 2
+    CUP = 3
+    SPOON = 4
+    SLICE = 5
+    PIECE = 6
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+
+    @classmethod
+    def get_type(cls, id: int):
+        for key in cls:
+            if key.value == id:
+                return key
+        return None
+
 class DurationType(IntEnum):
     SLOW = 1
     MEDIUM = 2
@@ -101,6 +120,8 @@ class DifficultyType(IntEnum):
             if key.value == id:
                 return key
         return None
+
+
 
 
 

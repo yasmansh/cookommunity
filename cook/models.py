@@ -40,22 +40,26 @@ class Foodstuff (models.Model):
     """
     Model for Foodstuff
     """
-    Foodstuff_id = models.AutoField(primary_key=True)
-    name = models.CharField(verbose_name=('نام ماده غذایی'), max_length=100)
+    name = models.CharField(verbose_name=('نام ماده غذایی'), max_length=100, primary_key=True)
     price = models.FloatField(verbose_name=('قیمت'))
-    is_vegan = models.BooleanField(verbose_name=('گیاهی'), default=False)
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.name}"
 
 
+# Beef, 250, gram
 class Ingredient (models.Model):
     """
     Model for Ingredient
     """
     foodstuff = models.ForeignKey(Foodstuff, on_delete=models.CASCADE)
-    weight =  models.IntegerField()
+    number =  models.IntegerField()
+    unit = models.IntegerField(choices=UnitType.choices(), default=UnitType.GRAM)
+    date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.number} {self.unit}'
 
 
 class Recipe(models.Model):
@@ -63,15 +67,15 @@ class Recipe(models.Model):
     Model for Recipe
     """
 
-    name = models.CharField(verbose_name=('نام'), max_length=100) 
-    ingredients = models.ManyToManyField(Ingredient)
-    categories = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN , verbose_name=('دسته غذایی'))
+    name = models.CharField(verbose_name=('نام'), max_length=100, primary_key=True) 
     description = models.TextField(verbose_name=('توضیحات'), max_length=350)
-    price = models.IntegerField(verbose_name=('هزینه'), null=True)
-    difficulty = models.IntegerField(choices=DifficultyType.choices(), default=DifficultyType.MEDIUM, verbose_name=('درجه سختی'))
-    preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.MEDIUM, verbose_name=('مدت زمان آماده شدن'))
+    ingredients = models.ManyToManyField(Ingredient)
+    category = models.IntegerField(verbose_name=('دسته غذایی'), choices=FoodCategory.choices(), default=FoodCategory.IRANIAN)
+    price = models.IntegerField(verbose_name=('قیمت'), null=True)
+    difficulty = models.IntegerField(verbose_name=('درجه سختی'), choices=DifficultyType.choices(), default=DifficultyType.MEDIUM)
+    preparation_time = models.IntegerField(verbose_name=('زمان تهیه'), choices=DurationType.choices(), default=DurationType.MEDIUM)
     meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return f"{self.name} / {', '.join(self.category.values_list('name', flat=True))}"
+        return f"{self.name}"

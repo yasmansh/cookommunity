@@ -8,6 +8,7 @@ class InternalError(Enum):
     ACCOUNT_EXISTS = (409, "چنین حسابی همینک وجود دارد.")
     NO_MATCH = (404, "نتیجه‌ای یافت نشد.")
     FOODSTUFF_EXISTS = (409, "این قلم خوراکی در حال حاضر وجود دارد.")
+    FOODSTUFF_NOT_FOUND = (409, "این قلم خوراکی یافت نشد.")
     CATEGORY_EXIST = (409, "این دسته غذایی در حال حاضر وجود دارد.")
     RECIPE_EXIST = (409, "این دستور غذایی در حال حاضر وجود دارد.")
     ACCOUNT_NOT_FOUND = (404, "چنین حسابی وجود ندارد.")

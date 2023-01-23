@@ -9,6 +9,7 @@ urlpatterns = [
     path('foodstuff/create/', create_foodstuff, name='Foodstuff Create'),
     path('ingredient/create/', create_ingredient, name='Ingredient Create'),
     path('recipe/create/', create_recipe, name='Recipe Create'),
+    path('recipe/<str:name>/add_photo/', add_recipe_photo, name='Add photo to recipe by name'),
     path('recipe/search_by_name/', search_recipe_by_name, name='Search Recipe By Name'),
     path('recipe/advanced_search/', advanced_search_recipe, name='Advanced Search Recipe'),
    # path('recipe/searchByDifficulty/', search_recipe_by_difficulty, name='Search Recipe By Difficulty'),

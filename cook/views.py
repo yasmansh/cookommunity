@@ -155,6 +155,18 @@ def create_recipe(request):
     return HttpResponse()
 
 @require_http_methods(["POST"])
+def add_recipe_photo(request, name):
+
+    if Recipe.objects.filter(name=name).exists() is False:
+        return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
+    
+    recipe = Recipe.objects.get(name=name)
+    recipe.photo = request.FILES['photo']
+    recipe.save()
+    return HttpResponse()
+
+
+@require_http_methods(["POST"])
 def search_recipe_by_name(request):
     request_model = SearchRecipeByNameRequest(request)
     result_set = Recipe.objects.all().filter(name__contains=request_model.name)
@@ -167,8 +179,8 @@ def search_recipe_by_name(request):
                                     'ingredients': [ {'foodstuff': i.ingredient_key.split('-')[0], 
                                                     'number': i.number,
                                                     'unit': i.unit
-                                                      } for i in Ingredient.objects.filter(recipe__name=r.name)]
-                                  
+                                                      } for i in Ingredient.objects.filter(recipe__name=r.name)],
+                                    'photo' : r.photo.url
                                     }) for r in result_set]
     return HttpResponse(serializedData, content_type="application/json")
 

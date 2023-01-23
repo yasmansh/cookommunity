@@ -89,7 +89,7 @@ class Recipe(models.Model):
     difficulty = models.IntegerField(verbose_name=('درجه سختی'), choices=DifficultyType.choices(), default=DifficultyType.MEDIUM)
     preparation_time = models.IntegerField(verbose_name=('زمان تهیه'), choices=DurationType.choices(), default=DurationType.MEDIUM)
     meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)
-    photo = models.FileField(verbose_name=("عکس غذا"), null=True, upload_to = PathRename('recipes/'))
+    photo = models.FileField(verbose_name=("عکس غذا"), null=True, upload_to = PathRename('recipes/'), default='settings.MEDIA_ROOT/default_recipe.jpg')
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:

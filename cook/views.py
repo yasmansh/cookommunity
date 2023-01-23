@@ -118,6 +118,18 @@ def create_foodstuff(request):
     return HttpResponse()
 
 
+
+@require_http_methods(["POST"])
+def create_ingredient(request):
+    request_model = IngredientInfoRequest(request)
+    if Foodstuff.objects.filter(name=request_model.foodstuff_name).exists() is False:
+        return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
+    foodstuff = Foodstuff.objects.get(name=request_model.foodstuff_name)
+    ingredient = Ingredient.objects.create(foodstuff=foodstuff, number=request_model.number, unit=request_model.unit)
+    ingredient.save()
+    return HttpResponse()
+
+
 @require_http_methods(["POST"])
 def create_recipe(request):
     request_model = RecipeInfoRequest(request)

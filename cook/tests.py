@@ -124,6 +124,19 @@ class AccountViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.FOODSTUFF_EXISTS)
 
+    def test_valid_ingredient_create(self):
+        request = dict(name='Foodstuff1', number=100, unit=UnitType.GRAM.value)
+        response = self.client.post('/api/ingredient/create/', request)
+        self.assertEqual(response.status_code, 200)
+        check_internal_error(self, response)
+
+    def test_invalid_ingredient_create(self):
+        request = dict(name='False_Foodstuff', number=100, unit=UnitType.GRAM.value)
+        response = self.client.post('/api/ingredient/create/', request)
+        self.assertEqual(response.status_code, 200)
+        check_internal_error(self, response, InternalError.FOODSTUFF_NOT_FOUND)
+
+
     def test_valid_recipe_create(self):
         request = dict(name='پیتزا', description='test', category=FoodCategory.FAST_FOOD.value, difficulty=DifficultyType.EASY.value, preparation_time=DurationType.FAST.value, meal_tags='#شام')
         response = self.client.post('/api/recipe/create/', request)

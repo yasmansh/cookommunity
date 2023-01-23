@@ -1,11 +1,11 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods
 from .models import *
 from .dto.request import *
 from .dto.response import *
 import json
-
+from django.core import serializers
 
 @require_http_methods(["POST"])
 def register_user(request):
@@ -118,7 +118,6 @@ def create_foodstuff(request):
     return HttpResponse()
 
 
-
 @require_http_methods(["POST"])
 def create_ingredient(request):
     request_model = IngredientInfoRequest(request)
@@ -154,6 +153,35 @@ def create_recipe(request):
         recipe.ingredients.add(Ingredient.objects.get(ingredient_key=ingredient_key))
     recipe.save()  
     return HttpResponse()
+
+
+@require_http_methods(["POST"])
+def advanced_search_recipe(request):
+    request_model = SearchRecipeInfoRequest(request)
+    ingredients = request_model.ingredients.split(",")
+    for ingredient_key in ingredients:
+        if Ingredient.objects.filter(ingredient_key=ingredient_key).exists() is False:
+            return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
+   
+    result_set = Recipe.objects.all()
+    if (request_model.category != ''):
+        result_set = result_set.filter(category=request_model.category)
+    if (request_model.difficulty != ''):
+        result_set = result_set.filter(difficulty=request_model.difficulty)
+    if (request_model.preparation_time != ''):
+        result_set = result_set.filter(preparation_time=request_model.preparation_time)
+    if (request_model.meal_tags != ''):
+        result_set = result_set.filter(meal_tags__contains=request_model.meal_tags)
+    for ingredient_key in ingredients:
+        result_set = result_set.filter(ingredients__ingredient_key=ingredient_key)
+    serializedData = [ json.dumps({'name': r.name, 
+                                    'description': r.description,
+                                    'category': r.category,
+                                    'difficulty': r.difficulty,
+                                    'preparation_time': r.preparation_time,
+                                    'meal_tags': r.meal_tags
+                                    }) for r in result_set]
+    return HttpResponse(serializedData, content_type="application/json")
 
 
 @require_http_methods(["POST"])

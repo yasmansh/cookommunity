@@ -81,6 +81,15 @@ class RecipeInfoRequest(BaseRequest):
         self.meal_tags = self.data['meal_tags']
         self.ingredients = self.data['ingredients']
 
+class SearchRecipeInfoRequest(BaseRequest):
+    def __init__(self, req):
+        super().__init__(req, is_post=True)
+        self.category = self.data['category']
+        self.difficulty = self.data['difficulty']
+        self.preparation_time = self.data['preparation_time']
+        self.meal_tags = self.data['meal_tags']
+        self.ingredients = self.data['ingredients']
+
 
 class GetDifficultyRequest(BaseRequest):
     def __init__(self, req):

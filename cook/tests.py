@@ -98,14 +98,14 @@ class AccountViewTest(TestCase):
         check_internal_error(self, response, InternalError.CREDENTIAL_MISMATCH)
 
     def test_valid_create_ticket(self):
-        request = dict(username='user1', category=TicketCategory.PRO_VERIFICATION.value)
+        request = dict(username='user1', category=TicketCategory.CHIEF_VERIFY.value)
         expected = dict(id=1)
         response = self.client.post('/api/tickets/', request)
         self.assertEqual(response.status_code, 200)
         check_response_body(self, response, expected)
 
     def test_invalid_create_ticket(self):
-        request = dict(username='user2', category=TicketCategory.PRO_VERIFICATION.value)
+        request = dict(username='user2', category=TicketCategory.CHIEF_VERIFY.value)
         response = self.client.post('/api/tickets/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.ACCOUNT_NOT_FOUND)

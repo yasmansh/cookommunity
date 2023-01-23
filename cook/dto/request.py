@@ -81,6 +81,12 @@ class RecipeInfoRequest(BaseRequest):
         self.meal_tags = self.data['meal_tags']
         self.ingredients = self.data['ingredients']
 
+class SearchRecipeByNameRequest(BaseRequest):
+    def __init__(self, req):
+        super().__init__(req, is_post=True)
+        self.name = self.data['name']
+        
+
 class SearchRecipeInfoRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req, is_post=True)

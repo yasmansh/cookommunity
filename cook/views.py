@@ -154,6 +154,24 @@ def create_recipe(request):
     recipe.save()  
     return HttpResponse()
 
+@require_http_methods(["POST"])
+def search_recipe_by_name(request):
+    request_model = SearchRecipeByNameRequest(request)
+    result_set = Recipe.objects.all().filter(name__contains=request_model.name)
+    serializedData = [ json.dumps({'name': r.name, 
+                                    'description': r.description,
+                                    'category': r.category,
+                                    'difficulty': r.difficulty,
+                                    'preparation_time': r.preparation_time,
+                                    'meal_tags': r.meal_tags,
+                                    'ingredients': [ {'foodstuff': i.ingredient_key.split('-')[0], 
+                                                    'number': i.number,
+                                                    'unit': i.unit
+                                                      } for i in Ingredient.objects.filter(recipe__name=r.name)]
+                                  
+                                    }) for r in result_set]
+    return HttpResponse(serializedData, content_type="application/json")
+
 
 @require_http_methods(["POST"])
 def advanced_search_recipe(request):

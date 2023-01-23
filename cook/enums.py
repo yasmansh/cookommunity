@@ -3,7 +3,7 @@ from enum import IntEnum
 
 class Role(IntEnum):
     PUBLIC = 1
-    PRO = 2
+    CHIEF = 2
     ADMIN = 3
 
     @classmethod
@@ -19,16 +19,16 @@ class Role(IntEnum):
 
 
 class TicketCategory(IntEnum):
-    PRO_VERIFICATION = 1
+    CHIEF_VERIFY = 1
 
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
 
     @classmethod
-    def get_category(cls, role_id: int):
+    def get_category(cls, category_id: int):
         for key in cls:
-            if key.value == role_id:
+            if key.value == category_id:
                 return key
         return None
 
@@ -36,19 +36,31 @@ class TicketCategory(IntEnum):
 class TicketStatus(IntEnum):
     NEW = 1
     PENDING = 2
-    RESPONSE = 3
+    RESPOND = 3
     DONE = 4
+
+    @classmethod
+    def check_next_status_validity(cls, current_status, next_status, role_id):
+        next_status: TicketStatus = cls.get_status(next_status)
+        current_status = cls.get_status(current_status)
+        role = Role.get_role(role_id)
+        if role == Role.ADMIN:
+            return current_status in (TicketStatus.NEW, TicketStatus.RESPOND) and next_status in \
+                   (TicketStatus.DONE, TicketStatus.PENDING)
+        else:
+            return current_status == TicketStatus.PENDING and next_status == TicketStatus.RESPOND
 
     @classmethod
     def choices(cls):
         return [(key.value, key.name) for key in cls]
 
     @classmethod
-    def get_status(cls, role_id: int):
+    def get_status(cls, status_id: int):
         for key in cls:
-            if key.value == role_id:
+            if key.value == status_id:
                 return key
         return None
+
 
 class DurationType(IntEnum):
     SLOW = 1
@@ -65,6 +77,7 @@ class DurationType(IntEnum):
             if key.value == id:
                 return key
         return None
+
 
 class FoodCategory(IntEnum):
     ASIAN = 1
@@ -101,6 +114,3 @@ class DifficultyType(IntEnum):
             if key.value == id:
                 return key
         return None
-
-
-

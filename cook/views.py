@@ -124,21 +124,35 @@ def create_ingredient(request):
     request_model = IngredientInfoRequest(request)
     if Foodstuff.objects.filter(name=request_model.foodstuff_name).exists() is False:
         return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
+    key = request_model.foodstuff_name + '-' + request_model.number + '-' + request_model.unit
+    if Ingredient.objects.filter(ingredient_key=key).exists():
+        return HttpResponse(ErrorResponse(InternalError.INGREDIENT_EXISTS).json)
     foodstuff = Foodstuff.objects.get(name=request_model.foodstuff_name)
-    ingredient = Ingredient.objects.create(foodstuff=foodstuff, number=request_model.number, unit=request_model.unit)
+    ingredient = Ingredient.objects.create(ingredient_key=key, foodstuff=foodstuff, number=request_model.number, unit=request_model.unit)
     ingredient.save()
     return HttpResponse()
 
 
 @require_http_methods(["POST"])
 def create_recipe(request):
-    request_model = RecipeInfoRequest(request)
+    request_model = RecipeInfoRequest(request)   
+
     if Recipe.objects.filter(name=request_model.name).exists():
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
+    
+    ingredients = request_model.ingredients.split(",")
+    for ingredient_key in ingredients:
+        if Ingredient.objects.filter(ingredient_key=ingredient_key).exists() is False:
+            return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
+    
     recipe = Recipe.objects.create(name=request_model.name, description=request_model.description, 
         category=request_model.category, difficulty=request_model.difficulty,
         preparation_time=request_model.preparation_time, meal_tags=request_model.meal_tags)
     recipe.save()
+    
+    for ingredient_key in ingredients:
+        recipe.ingredients.add(Ingredient.objects.get(ingredient_key=ingredient_key))
+    recipe.save()  
     return HttpResponse()
 
 

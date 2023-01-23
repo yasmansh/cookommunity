@@ -40,7 +40,7 @@ class Foodstuff (models.Model):
     """
     Model for Foodstuff
     """
-    name = models.CharField(verbose_name=('نام ماده غذایی'), max_length=100, primary_key=True)
+    name = models.CharField(verbose_name=('نام قلم خوراکی'), max_length=100, primary_key=True)
     price = models.FloatField(verbose_name=('قیمت'))
     date_created = models.DateTimeField(auto_now=True)
 
@@ -53,6 +53,7 @@ class Ingredient (models.Model):
     """
     Model for Ingredient
     """
+    ingredient_key = models.CharField(verbose_name=('نام کلیدی ماده غذایی'), max_length=150, unique=True)
     foodstuff = models.ForeignKey(Foodstuff, on_delete=models.CASCADE)
     number =  models.IntegerField()
     unit = models.IntegerField(choices=UnitType.choices(), default=UnitType.GRAM)

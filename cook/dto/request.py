@@ -46,12 +46,13 @@ class CreateTicketRequest(BaseRequest):
         super().__init__(req, is_post=True)
         self.username = self.data['username']
         self.category = self.data['category']
+        self.text = self.data['text']
 
 
 class ModifyTicketRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req, is_post=False)
-        self.ticket_id = self.data['ticket_id']
+        self.text = self.data['text']
         self.status = self.data['status']
 
 
@@ -86,7 +87,23 @@ class GetDifficultyRequest(BaseRequest):
         self.difficulty = self.data['difficulty']
 
 
-class GetPreprationTimeRequest(BaseRequest):
+class GetPreparationTimeRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req)
         self.preparation_time = self.data['preparation_time']
+
+
+class CreateForumRequest(BaseRequest):
+    def __init__(self, req):
+        super().__init__(req, is_post=True)
+        self.name = self.data['name']
+        self.owner = self.data['owner']
+
+
+class PostOnForumRequest(BaseRequest):
+    def __init__(self, req):
+        super().__init__(req, is_post=True)
+        self.sender = self.data['sender']
+        self.text = self.data['text']
+
+

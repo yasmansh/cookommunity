@@ -26,3 +26,23 @@
 .contain.eror-notif{
   display: block;
 }
+.home-div{
+  color: aliceblue;
+  width: 100%;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.home-icon{
+  height: 2em;
+}
+.reg-col {
+  margin: 0 5px;
+}
+.reg-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+}

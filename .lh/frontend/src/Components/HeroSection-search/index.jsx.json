@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 35,
+            "activePatchIndex": 53,
             "patches": [
                 {
                     "date": 1674202350794,
@@ -148,6 +148,78 @@
                 {
                     "date": 1674212778414,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   HeroContainer,\r\n   HeroContent,\r\n   HeroH1,\r\n   ImageBg,\r\n-  searchcontainer,\r\n+  Searchcontainer,\r\n } from \"./HeroElements\";\r\n const HeroSectionSearch = () => {\r\n   const [hover, setHover] = useState(false);\r\n   const onHover = () => {\r\n@@ -42,8 +42,38 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n+              <div>\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n+              <div>\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n+              <div>\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n             </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478128547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  placeholder=\"علی\"\r\n+                  placeholder=\"اسم غذا\"\r\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n"
+                },
+                {
+                    "date": 1674478147101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         <Searchcontainer>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div>\r\n               <div>\r\n-                <label for=\"fname\">نام</label>\r\n+                <label for=\"fname\">اسم </label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n                   placeholder=\"اسم غذا\"\r\n"
+                },
+                {
+                    "date": 1674478155160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,38 +42,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-              <div>\r\n-                <label for=\"fname\">نام</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"علی\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"first_name\")}\r\n-                />\r\n-              </div>\r\n-              <div>\r\n-                <label for=\"fname\">نام</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"علی\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"first_name\")}\r\n-                />\r\n-              </div>\r\n-              <div>\r\n-                <label for=\"fname\">نام</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"علی\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"first_name\")}\r\n-                />\r\n-              </div>\r\n+         \r\n             </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478200193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" />\r\n+            <input type=\"submit\" class=\"f-button\" >\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478207329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" >\r\n+            <input type=\"submit\" class=\"f-button\" ><in/>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478215228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" ><in/>\r\n+            <input type=\"submit\" class=\"f-button\" >سرچ<input/>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478224911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" >سرچ<input/>\r\n+            <input type=\"submit\" class=\"f-button\" >سرچ<input>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478241027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" >سرچ<input>\r\n+            <input type=\"submit\" class=\"f-button\" ><input/>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478248068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" ><input/>\r\n+            <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478282665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,10 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" />\r\n+            <div className=\"d-button\"><button type=\"button\" className=\"f-button\">ثبت نام</button></div>\r\n+        </div>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478296949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,12 +42,14 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-         \r\n             </div>\r\n-            <div className=\"d-button\"><button type=\"button\" className=\"f-button\">ثبت نام</button></div>\r\n-        </div>\r\n+            <div className=\"d-button\">\r\n+              <button type=\"button\" className=\"f-button\">\r\n+              ثبت نام\r\n+              </button>\r\n+            </div>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478304704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n               </div>\r\n             </div>\r\n             <div className=\"d-button\">\r\n               <button type=\"button\" className=\"f-button\">\r\n-              ثبت نام\r\n+              سرچ\r\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478316737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n               </div>\r\n             </div>\r\n             <div className=\"d-button\">\r\n               <button type=\"button\" className=\"f-button\">\r\n-              سرچ\r\n+              \r\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478338389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,8 @@\n         <Searchcontainer>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div>\r\n               <div>\r\n-                <label for=\"fname\">اسم </label>\r\n-                <br />\r\n                 <input\r\n                   type=\"text\"\r\n                   placeholder=\"اسم غذا\"\r\n                   class=\"f-input\"\r\n@@ -45,9 +43,9 @@\n               </div>\r\n             </div>\r\n             <div className=\"d-button\">\r\n               <button type=\"button\" className=\"f-button\">\r\n-              \r\n+              جست وجو\r\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478377000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n+        \r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674478383303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n-        \r\n+        <div></ی>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674478389269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n-        <div></ی>\r\n+        <div><>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674478394700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,11 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n-        <div><>\r\n+        <div>\r\n+          \r\n+        </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
                 }
             ],
             "date": 1674202350794,

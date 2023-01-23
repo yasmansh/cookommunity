@@ -34,49 +34,24 @@ const HeroSectionSearch = () => {
           <form onSubmit={console.log("A")}>
             <div>
               <div>
-                <label for="fname">نام</label>
-                <br />
                 <input
                   type="text"
-                  placeholder="علی"
-                  class="f-input"
-                  {...register("first_name")}
-                />
-              </div>
-              <div>
-                <label for="fname">نام</label>
-                <br />
-                <input
-                  type="text"
-                  placeholder="علی"
-                  class="f-input"
-                  {...register("first_name")}
-                />
-              </div>
-              <div>
-                <label for="fname">نام</label>
-                <br />
-                <input
-                  type="text"
-                  placeholder="علی"
-                  class="f-input"
-                  {...register("first_name")}
-                />
-              </div>
-              <div>
-                <label for="fname">نام</label>
-                <br />
-                <input
-                  type="text"
-                  placeholder="علی"
+                  placeholder="اسم غذا"
                   class="f-input"
                   {...register("first_name")}
                 />
               </div>
             </div>
-            <input type="submit" class="f-button" />
+            <div className="d-button">
+              <button type="button" className="f-button">
+              جست وجو
+              </button>
+            </div>
           </form>
         </Searchcontainer>
+        <div>
+          
+        </div>
       </HeroContent>
     </HeroContainer>
   );

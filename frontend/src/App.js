@@ -9,6 +9,7 @@ import DashPromotion from "./pages/dashPromotion";
 import SearchPage from "./pages/search";
 import TicketsPage from "./pages/ticket";
 import { useState } from "react";
+import axios from "axios";
 function App() {
   let isLogin = localStorage.getItem("isLogin") === "true";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,9 +20,21 @@ function App() {
     isLogin = true;
   };
 
-  const removeAuth1 = () => {
-    localStorage.setItem("isLogin", false);
-    console.log(typeof isLogin);
+  const removeAuth = () => {
+    let username = localStorage.getItem("username")
+    let useObject={"username":username};
+    axios
+    .put("http://127.0.0.1:8000/api/accounts/logout/", JSON.stringify(useObject), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((response) => {
+      console.log("removeAuth");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
   //atom globally
 
@@ -51,7 +64,7 @@ function App() {
           <>
             <Route
               path="/dashboard"
-              element={<Dashboard removeAuth2={removeAuth1} />}
+              element={<Dashboard removeAuth={removeAuth} />}
               exact
             />
             <Route

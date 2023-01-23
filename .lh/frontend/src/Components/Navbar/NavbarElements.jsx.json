@@ -3,11 +3,31 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1674198219983,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674473966962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,15 +32,15 @@\n   z-index: 10;\r\n `;\r\n export const MobileIcon = styled.div`\r\n   display: none;\r\n-  @media screen and (max-width: 768px) {\r\n+  @media screen and (max-width: 800px) {\r\n     display: block;\r\n     color: #fff;\r\n     position: absolute;\r\n     top: 0;\r\n     left: 0;\r\n-    transform: translate(-100%, 60%);\r\n+    transform: translate(60%, 60%);\r\n     font-size: 1.8rem;\r\n     cursor: pointer;\r\n   }\r\n `;\r\n"
+                },
+                {
+                    "date": 1674473975646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n   z-index: 10;\r\n `;\r\n export const MobileIcon = styled.div`\r\n   display: none;\r\n-  @media screen and (max-width: 800px) {\r\n+  @media screen and (max-width: 768px) {\r\n     display: block;\r\n     color: #fff;\r\n     position: absolute;\r\n     top: 0;\r\n"
+                },
+                {
+                    "date": 1674474001717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n   align-items: center;\r\n   list-style: none;\r\n   text-align: center;\r\n   margin-right: -22px;\r\n-  @media screen and (max-width: 768px) {\r\n+  @media screen and (max-width: 800px) {\r\n     display: none;\r\n   }\r\n `;\r\n export const NavItem = styled.li`\r\n"
+                },
+                {
+                    "date": 1674474010873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,9 +71,9 @@\n `;\r\n export const NavBtn = styled.div`\r\n   display: flex;\r\n   align-items: center;\r\n-  @media screen and (max-width: 768px) {\r\n+  @media screen and (max-width: 800px) {\r\n     display: none;\r\n   }\r\n `;\r\n export const NavBtnLink = styled(LinkR)`\r\n"
+                },
+                {
+                    "date": 1674474017116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n   z-index: 10;\r\n `;\r\n export const MobileIcon = styled.div`\r\n   display: none;\r\n-  @media screen and (max-width: 768px) {\r\n+  @media screen and (max-width: 800px) {\r\n     display: block;\r\n     color: #fff;\r\n     position: absolute;\r\n     top: 0;\r\n"
                 }
             ],
             "date": 1674198219983,

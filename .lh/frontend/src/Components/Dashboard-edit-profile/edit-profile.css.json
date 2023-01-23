@@ -1,0 +1,22 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard-edit-profile/edit-profile.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1674461260418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674461275690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n   width: 541px;\r\n   margin: 10px auto;\r\n }\r\n .col1 {\r\n-\r\n+  margin: 0 31px;\r\n }\r\n .f-input,.f-button {\r\n   padding: 13px 20px;\r\n   border-radius: 10px;\r\n"
+                }
+            ],
+            "date": 1674461260418,
+            "name": "Commit-0",
+            "content": ".content-edit {\r\n  padding-right: 270px;\r\n  width: 82%;\r\n  background: rgb(218, 217, 216);\r\n  border-radius: 28px;\r\n  margin-top: 101px;\r\n  margin-right: 270px;\r\n  margin-bottom: 0px;\r\n  padding: 20px;\r\n}\r\n.form-edit {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n.avatar2 {\r\n  border-radius: 50%;\r\n  width: 160px;\r\n}\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n.row {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  align-content: space-between;\r\n  width: 541px;\r\n  margin: 10px auto;\r\n}\r\n.col1 {\r\n\r\n}\r\n.f-input,.f-button {\r\n  padding: 13px 20px;\r\n  border-radius: 10px;\r\n  border: 1px;\r\n  border-color: white;\r\n}\r\n.f-button{\r\n  margin-top: 10px;\r\n}"
+        }
+    ]
+}

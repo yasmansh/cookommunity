@@ -1,14 +1,11 @@
-import operator
-from functools import reduce
-
-from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods
 from .models import *
 from .dto.request import *
 from .dto.response import *
 import json
+from django.core import serializers
 from django.db import models
 
 
@@ -141,35 +138,23 @@ def create_foodstuff(request):
     request_model = FoodstuffInfoRequest(request)
     if get_object_else('name', request_model.name, Foodstuff, True):
         return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_EXISTS).json)
-    foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price,
-                                         is_vegan=request_model.is_vegan)
+    foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price)
     foodstuff.save()
     return HttpResponse()
 
 
-@require_http_methods(["PUT"])
-def update_foodstuff(request, name):
-    foodstuff: Foodstuff = get_object_else('name', name, Foodstuff)
-    if not foodstuff:
-        return HttpResponse(ErrorResponse(InternalError.NO_MATCH).json)
-    request_model = FoodstuffInfoRequest(request)
-    foodstuff.price = request_model.price
-    foodstuff.is_vegan = request_model.is_vegan
-    foodstuff.save()
-    return HttpResponse()
-
-
-'''
 @require_http_methods(["POST"])
-def create_category(request):
-    request_model = CategoryInfoRequest(request)
-    if Category.objects.filter(name=request_model.name).exists():
-        return HttpResponse(ErrorResponse(InternalError.CATEGORY_EXIST).json)
-    category = Category.objects.create(name=request_model.name, description=request_model.description)
-    category.save()
+def create_ingredient(request):
+    request_model = IngredientInfoRequest(request)
+    if Foodstuff.objects.filter(name=request_model.foodstuff_name).exists() is False:
+        return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
+    key = request_model.foodstuff_name + '-' + request_model.number + '-' + request_model.unit
+    if Ingredient.objects.filter(ingredient_key=key).exists():
+        return HttpResponse(ErrorResponse(InternalError.INGREDIENT_EXISTS).json)
+    foodstuff = Foodstuff.objects.get(name=request_model.foodstuff_name)
+    ingredient = Ingredient.objects.create(ingredient_key=key, foodstuff=foodstuff, number=request_model.number, unit=request_model.unit)
+    ingredient.save()
     return HttpResponse()
-
-'''
 
 
 @require_http_methods(["POST"])
@@ -177,11 +162,80 @@ def create_recipe(request):
     request_model = RecipeInfoRequest(request)
     if get_object_else('name', request_model.name, Recipe, True):
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
+
+    ingredients = request_model.ingredients.split(",")
+    for ingredient_key in ingredients:
+        if Ingredient.objects.filter(ingredient_key=ingredient_key).exists() is False:
+            return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
+
     recipe = Recipe.objects.create(name=request_model.name, description=request_model.description,
-                                   difficulty=request_model.difficulty, preparation_time=request_model.preparation_time,
-                                   meal_tags=request_model.meal_tags)
+        category=request_model.category, difficulty=request_model.difficulty,
+        preparation_time=request_model.preparation_time, meal_tags=request_model.meal_tags)
+    recipe.save()
+
+    for ingredient_key in ingredients:
+        recipe.ingredients.add(Ingredient.objects.get(ingredient_key=ingredient_key))
     recipe.save()
     return HttpResponse()
+
+@require_http_methods(["POST"])
+def add_recipe_photo(request, name):
+
+    if Recipe.objects.filter(name=name).exists() is False:
+        return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
+
+    recipe = Recipe.objects.get(name=name)
+    recipe.photo = request.FILES['photo']
+    recipe.save()
+    return HttpResponse()
+
+
+@require_http_methods(["POST"])
+def search_recipe_by_name(request):
+    request_model = SearchRecipeByNameRequest(request)
+    result_set = Recipe.objects.all().filter(name__contains=request_model.name)
+    serializedData = [ json.dumps({'name': r.name,
+                                    'description': r.description,
+                                    'category': r.category,
+                                    'difficulty': r.difficulty,
+                                    'preparation_time': r.preparation_time,
+                                    'meal_tags': r.meal_tags,
+                                    'ingredients': [ {'foodstuff': i.ingredient_key.split('-')[0],
+                                                    'number': i.number,
+                                                    'unit': i.unit
+                                                      } for i in Ingredient.objects.filter(recipe__name=r.name)],
+                                    'photo' : r.photo.url
+                                    }) for r in result_set]
+    return HttpResponse(serializedData, content_type="application/json")
+
+
+@require_http_methods(["POST"])
+def advanced_search_recipe(request):
+    request_model = SearchRecipeInfoRequest(request)
+    ingredients = request_model.ingredients.split(",")
+    for ingredient_key in ingredients:
+        if Ingredient.objects.filter(ingredient_key=ingredient_key).exists() is False:
+            return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
+
+    result_set = Recipe.objects.all()
+    if (request_model.category != ''):
+        result_set = result_set.filter(category=request_model.category)
+    if (request_model.difficulty != ''):
+        result_set = result_set.filter(difficulty=request_model.difficulty)
+    if (request_model.preparation_time != ''):
+        result_set = result_set.filter(preparation_time=request_model.preparation_time)
+    if (request_model.meal_tags != ''):
+        result_set = result_set.filter(meal_tags__contains=request_model.meal_tags)
+    for ingredient_key in ingredients:
+        result_set = result_set.filter(ingredients__ingredient_key=ingredient_key)
+    serializedData = [ json.dumps({'name': r.name,
+                                    'description': r.description,
+                                    'category': r.category,
+                                    'difficulty': r.difficulty,
+                                    'preparation_time': r.preparation_time,
+                                    'meal_tags': r.meal_tags
+                                    }) for r in result_set]
+    return HttpResponse(serializedData, content_type="application/json")
 
 
 @require_http_methods(["POST"])

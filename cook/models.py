@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import SystemUserManager
 from .enums import *
-from django.core.validators import MinValueValidator, MaxValueValidator
-
+import os
+from django.utils.deconstruct import deconstructible
 
 class SystemUser(AbstractUser):
     USERNAME_FIELD = 'username'
@@ -11,6 +11,7 @@ class SystemUser(AbstractUser):
     email = models.EmailField(verbose_name=('ایمیل'), unique=True)
     first_name = models.TextField(verbose_name=('نام'))
     last_name = models.TextField(verbose_name=('نام خانوادگی'))
+    bio = models.CharField(verbose_name=('زندگینامه'), max_length=500, null=True)
     objects = SystemUserManager()
 
     def __init__(self, *args, **kwargs):
@@ -67,10 +68,8 @@ class Foodstuff(models.Model):
     """
     Model for Foodstuff
     """
-    Foodstuff_id = models.AutoField(primary_key=True)
-    name = models.CharField(verbose_name=('نام ماده غذایی'), max_length=100)
+    name = models.CharField(verbose_name=('نام قلم خوراکی'), max_length=100, primary_key=True)
     price = models.FloatField(verbose_name=('قیمت'))
-    is_vegan = models.BooleanField(verbose_name=('گیاهی'), default=False)
     date_created = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
@@ -81,9 +80,28 @@ class Ingredient(models.Model):
     """
     Model for Ingredient
     """
+    ingredient_key = models.CharField(verbose_name=('نام کلیدی ماده غذایی'), max_length=150, unique=True)
     foodstuff = models.ForeignKey(Foodstuff, on_delete=models.CASCADE)
-    weight = models.IntegerField()
+    number =  models.IntegerField()
+    unit = models.IntegerField(choices=UnitType.choices(), default=UnitType.GRAM)
+    date_created = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f'{self.number} {self.unit}'
+
+
+
+@deconstructible
+class PathRename(object):
+
+    def __init__(self, sub_path):
+        self.path = sub_path
+
+    def __call__(self, instance, filename):
+        ext = filename.split('.')[-1]
+        filename = f'Recipe_{instance.name}.{ext}'
+
+        return os.path.join(self.path, filename)
 
 class Recipe(models.Model):
     """
@@ -92,6 +110,9 @@ class Recipe(models.Model):
     recipe_id = models.AutoField(primary_key=True)
     chief = models.ForeignKey(Chief, on_delete=models.CASCADE, verbose_name='آشپز')
     name = models.CharField(verbose_name='نام', max_length=100)
+
+    name = models.CharField(verbose_name=('نام'), max_length=100, primary_key=True)
+    description = models.TextField(verbose_name=('توضیحات'), max_length=350)
     ingredients = models.ManyToManyField(Ingredient)
     categories = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN,
                                      verbose_name='دسته غذایی')
@@ -102,6 +123,12 @@ class Recipe(models.Model):
     preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.MEDIUM,
                                            verbose_name='مدت زمان آماده شدن')
     meal_tags = models.TextField(verbose_name='وعده‌های غذایی', max_length=150)
+    category = models.IntegerField(verbose_name=('دسته غذایی'), choices=FoodCategory.choices(), default=FoodCategory.IRANIAN)
+    price = models.IntegerField(verbose_name=('قیمت'), null=True)
+    difficulty = models.IntegerField(verbose_name=('درجه سختی'), choices=DifficultyType.choices(), default=DifficultyType.MEDIUM)
+    preparation_time = models.IntegerField(verbose_name=('زمان تهیه'), choices=DurationType.choices(), default=DurationType.MEDIUM)
+    meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)
+    photo = models.FileField(verbose_name=("عکس غذا"), null=True, upload_to = PathRename('recipes/'), default='settings.MEDIA_ROOT/default_recipe.jpg')
     date_created = models.DateTimeField(auto_now=True)
     score = models.FloatField(verbose_name='امتیاز', default=0)
     rate = models.IntegerField(verbose_name='تعداد کاربران امتیاز دهنده', default=0)

@@ -2,7 +2,7 @@ from django.test import TestCase
 from cook.models import *
 from simplejson import loads as jr, dumps as jw
 from .dto.response import *
-
+from .enums import *
 
 def check_internal_error(test_model: TestCase, response, error=None):
     response_str = response.content.decode("utf-8")
@@ -24,8 +24,10 @@ class AccountViewTest(TestCase):
                                   email='user1@gmail.com')
         sys_user.set_password('pw1')
         sys_user.save()
-        Foodstuff.objects.create(name='Foodstuff1', price=10, is_vegan=False)
-        Recipe.objects.create(name='Recipe1', description='test', difficulty=4, preparation_time=3, meal_tags='#test')
+        foodstuff1 = Foodstuff.objects.create(name='Foodstuff1', price=10)
+        foodstuff1.save()
+        recipe = Recipe.objects.create(name='Recipe1', description='test', category=FoodCategory.KEBAB, difficulty=DifficultyType.MEDIUM, preparation_time=DurationType.MEDIUM, meal_tags='#test')
+        recipe.save()
 
     def test_url_admin_exists(self):
         response = self.client.get('/admin', follow=True)
@@ -111,46 +113,32 @@ class AccountViewTest(TestCase):
         check_internal_error(self, response, InternalError.ACCOUNT_NOT_FOUND)
 
     def test_valid_foodstuff_create(self):
-        request = dict(name='nan', price=20, is_vegan=True)
+        request = dict(name='beef', price=20)
         response = self.client.post('/api/foodstuff/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response)
 
     def test_existing_foodstuff_create(self):
-        request = dict(name='Foodstuff1', price=10, is_vegan=False)
+        request = dict(name='Foodstuff1', price=20)
         response = self.client.post('/api/foodstuff/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.FOODSTUFF_EXISTS)
 
-    def test_valid_update_foodstuff(self):
-        request = dict(name='Foodstuff1', price=25, is_vegan=True)
-        response = self.client.post('/api/foodstuff/Foodstuff1/update', request)
-        self.assertEqual(self, response.status_code, 200)
-
-    def test_invalid_update_foodstuff(self):
-        request = dict(username='false_foodstuff', price=100, is_vegan=True)
-        response = self.client.post('/api/accounts/false_foodstuff/profile/', request)
-        self.assertEqual(response.status_code, 200)
-        check_internal_error(self, response, InternalError.NO_MATCH)
-
-    def test_valid_recipe_create(self):
-        request = dict(name='پیتزا', description='test', difficulty=4, preparation_time=3, meal_tags='#فست فود')
-        response = self.client.post('/api/recipe/create/', request)
+    def test_valid_ingredient_create(self):
+        request = dict(name='Foodstuff1', number=100, unit=UnitType.GRAM.value)
+        response = self.client.post('/api/ingredient/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response)
 
+    def test_invalid_ingredient_create(self):
+        request = dict(name='False_Foodstuff', number=100, unit=UnitType.GRAM.value)
+        response = self.client.post('/api/ingredient/create/', request)
+        self.assertEqual(response.status_code, 200)
+        check_internal_error(self, response, InternalError.FOODSTUFF_NOT_FOUND)
+
+
     def test_existing_recipe_create(self):
-        request = dict(name='Recipe1', description='test', difficulty=4, preparation_time=3, meal_tags='#test')
+        request = dict(name='Recipe1', description='test', category=FoodCategory.FAST_FOOD.value, difficulty=DifficultyType.HARD.value, preparation_time=DurationType.FAST.value, meal_tags='#test', ingredients='beef1-200-1,beef2-100-1')
         response = self.client.post('/api/recipe/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.RECIPE_EXIST)
-
-    def test_search_recipe_by_difficulty(self):
-        request = dict(difficulty=3)
-        response = self.client.post('/api/recipe/searchByDifficulty', request)
-        self.assertEqual(self, response.status_code, 200)
-
-    def test_search_recipe_by_prepration_time(self):
-        request = dict(preparation_time=2)
-        response = self.client.post('/api/recipe/search_By_Preparation_Time', request)
-        self.assertEqual(self, response.status_code, 200)

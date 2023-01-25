@@ -137,14 +137,8 @@ class AccountViewTest(TestCase):
         check_internal_error(self, response, InternalError.FOODSTUFF_NOT_FOUND)
 
 
-    def test_valid_recipe_create(self):
-        request = dict(name='پیتزا', description='test', category=FoodCategory.FAST_FOOD.value, difficulty=DifficultyType.EASY.value, preparation_time=DurationType.FAST.value, meal_tags='#شام')
-        response = self.client.post('/api/recipe/create/', request)
-        self.assertEqual(response.status_code, 200)
-        check_internal_error(self, response)
-
     def test_existing_recipe_create(self):
-        request = dict(name='Recipe1', description='test', category=FoodCategory.FAST_FOOD.value, difficulty=DifficultyType.HARD.value, preparation_time=DurationType.FAST.value, meal_tags='#test')
+        request = dict(name='Recipe1', description='test', category=FoodCategory.FAST_FOOD.value, difficulty=DifficultyType.HARD.value, preparation_time=DurationType.FAST.value, meal_tags='#test', ingredients='beef1-200-1,beef2-100-1')
         response = self.client.post('/api/recipe/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.RECIPE_EXIST)

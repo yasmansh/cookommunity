@@ -20,6 +20,7 @@
 .f-button{
   margin-top: 10px;
   display: flex;
+  cursor: pointer;
 }
 .d-button{
   display: flex;

@@ -12,6 +12,8 @@ import {
   ImageBg,
   Searchcontainer,
 } from "./HeroElements";
+import axios from "axios";
+
 const HeroSectionSearch = () => {
   const [hover, setHover] = useState(false);
   const onHover = () => {
@@ -22,7 +24,29 @@ const HeroSectionSearch = () => {
     // removeAuth4();
     navigate("/search");
   };
+
   const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    axios
+      .post(
+        //api/recipes/filter/?criterion=name__contains&name__contains=کباب
+        `http://127.0.0.1:8000/api/recipes/filter/?criterion=name__contains&name__contains=${data.name__contains}`,
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data); //results
+      })
+      .catch((error) => {
+        console.log("error in filter by name");
+      });
+  };
+
   return (
     <HeroContainer>
       <HeroBg>
@@ -31,19 +55,19 @@ const HeroSectionSearch = () => {
       <HeroContent>
         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>
         <Searchcontainer>
-          <form onSubmit={console.log("A")}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <div>
                 <input
                   type="text"
                   placeholder="اسم غذا"
                   class="f-input"
-                  {...register("first_name")}
+                  {...register("name__contains")}
                 />
               </div>
             </div>
             <div className="d-button">
-              <button type="button" className="f-button">
+              <button type="submit" className="f-button">
               جست وجو
               </button>
             </div>

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Container,
   Form,
@@ -12,42 +11,37 @@ import {
   Text,
   RegisterLink,
 } from "./SigninElements";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import HomeIcon from '@mui/icons-material/Home';
+import { Link } from "react-router-dom";
 const SigninForm = ({ setAuth }) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
     axios
-      .post(
-        "http://127.0.0.1:8000/api/accounts/login/",
-        JSON.stringify(data),
-        { timeout: 2 },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      .post("http://127.0.0.1:8000/api/accounts/login/", JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
-        console.log("#####")
         setAuth(data.username);
-        localStorage.setItem(data.username, true);
         navigate("/dashboard");
       })
       .catch((error) => {
-        console.log("eror--");
+        console.log(error);
       });
   };
 
   return (
     <Container>
       <FormWrap>
-        <Icon to="/">Return To Home</Icon>
+        <Link className="home-div" to="/"><HomeIcon sx={{ height: "2em",width:"2em" }}/></Link>
         <div className="eror-notif">
           <Stack sx={{ width: "100%" }} spacing={2} className="eror">
             <Alert severity="success" sx={{ margin: "20px auto" }}>
@@ -58,10 +52,10 @@ const SigninForm = ({ setAuth }) => {
         <FormContent>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <FormH1>ورود به حساب کاربری</FormH1>
-            <FormLabel htmlfor="for">ایمیل</FormLabel>
+            <FormLabel htmlfor="for">نام کاربری</FormLabel>
             <FormInput
-              type="email"
-              name="email"
+              type="text"
+              name="username"
               {...register("username")}
               required
             />

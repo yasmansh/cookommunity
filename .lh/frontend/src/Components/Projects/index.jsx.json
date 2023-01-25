@@ -1,0 +1,26 @@
+{
+    "sourceFile": "frontend/src/Components/Projects/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1674106021997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674106028199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n import image3 from \"../../images/image_(6).svg\";\r\n const Projects = () => {\r\n   return (\r\n     <ProjectsContainer>\r\n-      <ProjectsH1>       <InfoSection {...homeObjectFour} /></ProjectsH1>\r\n+      <ProjectsH1> شرک</ProjectsH1>\r\n       <ProjectsWrapper>\r\n         <ProjectsCard>\r\n           <ProjectsImage src={image1}></ProjectsImage>\r\n           <ProjectsH2>Project 1</ProjectsH2>\r\n"
+                },
+                {
+                    "date": 1674106033755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n import image3 from \"../../images/image_(6).svg\";\r\n const Projects = () => {\r\n   return (\r\n     <ProjectsContainer>\r\n-      <ProjectsH1> شرک</ProjectsH1>\r\n+      <ProjectsH1> شرکت های طرف قرار داد</ProjectsH1>\r\n       <ProjectsWrapper>\r\n         <ProjectsCard>\r\n           <ProjectsImage src={image1}></ProjectsImage>\r\n           <ProjectsH2>Project 1</ProjectsH2>\r\n"
+                }
+            ],
+            "date": 1674106021997,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {\r\n  ProjectsCard,\r\n  ProjectsContainer,\r\n  ProjectsH1,\r\n  ProjectsH2,\r\n  ProjectsImage,\r\n  ProjectsP,\r\n  ProjectsWrapper,\r\n} from \"./ProjectsElements\";\r\nimport image1 from \"../../images/image_(4).svg\";\r\nimport image2 from \"../../images/image_(5).svg\";\r\nimport image3 from \"../../images/image_(6).svg\";\r\nconst Projects = () => {\r\n  return (\r\n    <ProjectsContainer>\r\n      <ProjectsH1>       <InfoSection {...homeObjectFour} /></ProjectsH1>\r\n      <ProjectsWrapper>\r\n        <ProjectsCard>\r\n          <ProjectsImage src={image1}></ProjectsImage>\r\n          <ProjectsH2>Project 1</ProjectsH2>\r\n          <ProjectsP>\r\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit\r\n          </ProjectsP>\r\n        </ProjectsCard>\r\n        <ProjectsCard>\r\n          <ProjectsImage src={image2}></ProjectsImage>\r\n          <ProjectsH2>Project 2</ProjectsH2>\r\n          <ProjectsP>\r\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit\r\n          </ProjectsP>\r\n        </ProjectsCard>\r\n        <ProjectsCard>\r\n          <ProjectsImage src={image3}></ProjectsImage>\r\n          <ProjectsH2>Project 3</ProjectsH2>\r\n          <ProjectsP>\r\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit\r\n          </ProjectsP>\r\n        </ProjectsCard>\r\n      </ProjectsWrapper>\r\n    </ProjectsContainer>\r\n  );\r\n};\r\n\r\nexport default Projects;\r\n"
+        }
+    ]
+}

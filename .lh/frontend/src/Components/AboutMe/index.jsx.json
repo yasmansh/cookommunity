@@ -1,0 +1,26 @@
+{
+    "sourceFile": "frontend/src/Components/AboutMe/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1674106180066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674106187036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import { Button } from \"../ButtonElements\";\r\n const AboutMe = () => {\r\n   return (\r\n     <>\r\n-      <AboutContainer id=>\r\n+      <AboutContainer id=\"to=\"Abou>\r\n         <AboutTitle>درباره ما</AboutTitle>\r\n         <AboutHeading>بیش از 2000 دستور غذای مختلف</AboutHeading>\r\n         <AboutP>\r\n           \r\n"
+                },
+                {
+                    "date": 1674106192778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import { Button } from \"../ButtonElements\";\r\n const AboutMe = () => {\r\n   return (\r\n     <>\r\n-      <AboutContainer id=\"to=\"Abou>\r\n+      <AboutContainer id=\"to=About\">\r\n         <AboutTitle>درباره ما</AboutTitle>\r\n         <AboutHeading>بیش از 2000 دستور غذای مختلف</AboutHeading>\r\n         <AboutP>\r\n           \r\n"
+                }
+            ],
+            "date": 1674106180066,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport {\r\n  AboutBtnWrapper,\r\n  AboutContainer,\r\n  AboutHeading,\r\n  AboutP,\r\n  AboutTitle,\r\n} from \"./AboutMeElements\";\r\nimport { Button } from \"../ButtonElements\";\r\nconst AboutMe = () => {\r\n  return (\r\n    <>\r\n      <AboutContainer id=>\r\n        <AboutTitle>درباره ما</AboutTitle>\r\n        <AboutHeading>بیش از 2000 دستور غذای مختلف</AboutHeading>\r\n        <AboutP>\r\n          \r\n        تیم ما در تلاش برای بهبود و توسعه همه جانبه\r\n         سامانه بخصوص در بخش دستور غذا است و با همکاری با بهترین\r\n         سرآشپز های های دنیا تا بتوانیم غذایی لذیذ را به سفر های شما بیاوریم.\r\n        </AboutP>\r\n        <AboutBtnWrapper>\r\n          <Button to=\"/\">بیشتر</Button>\r\n        </AboutBtnWrapper>\r\n      </AboutContainer>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default AboutMe;\r\n"
+        }
+    ]
+}

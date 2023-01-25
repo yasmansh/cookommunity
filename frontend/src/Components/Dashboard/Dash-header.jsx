@@ -15,11 +15,11 @@ const DashboardHeader = ({removeAuth}) => {
   return (
     <div className="web-header">
       <div className="element">
-        <NotificationsOutlinedIcon class="m2-icon" />
-        <ChatBubbleOutlineOutlinedIcon class="m2-icon" />
-        <ShoppingCartOutlinedIcon class="m2-icon" />
-        <div className="logout"onClick={logout}>
-          <LogoutIcon class="m2-icon" />
+        <NotificationsOutlinedIcon className="m2-icon" />
+        <ChatBubbleOutlineOutlinedIcon className="m2-icon" />
+        <ShoppingCartOutlinedIcon className="m2-icon" />
+        <div className="logout" onClick={logout}>
+          <LogoutIcon className="m2-icon" />
         </div>
         <img src={url_img} alt="profile-user" className="avatar"></img>
       </div>

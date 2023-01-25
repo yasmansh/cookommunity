@@ -16,7 +16,7 @@ const Navbar = ({ toggle }) => {
   const [scrolNav, setScrolNav] = useState(false);
   const changeNav = () => {
     if (window.scrollY >= 80) {
-      setScrolNav(true);
+      setScrolNav(+true);
     } else {
       setScrolNav(false);
     }
@@ -31,25 +31,28 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav scrolNav={scrolNav}>
         <NavBarContainer>
-          <NavLogo to="/" onClick={toggleHome} smooth={true} duration={1000} spy={true}>Youngman</NavLogo>
+          <NavLogo to="/" onClick={toggleHome} smooth duration={1000} spy>Youngman</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="/" onClick={toggleHome} smooth={true} duration={1000} spy={true}>Home</NavLinks>
+              <NavLinks to="/" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="About" smooth={true} duration={1000} spy={true} offset={-80}>about</NavLinks>
+              <NavLinks to="About" smooth duration={1000} spy offset={-80}>درباره ی ما</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Courses" smooth={true} duration={1000} spy={true} offset={-80}>Courses</NavLinks>
+              <NavLinks to="About1" smooth duration={1000} spy offset={-80}>تیم ما</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Blog" smooth={true} duration={1000} spy={true} offset={-80}>Blog</NavLinks>
+              <NavLinks to="Cheif" smooth duration={1000} spy offset={-80}>همکاری با ما</NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="Experience" smooth={true} duration={1000} spy={true} offset={-80}>Experience</NavLinks>
+              <NavLinks to="Blog" smooth duration={1000} spy offset={-80}>بلاگ</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="Experience" smooth duration={1000} spy offset={-80}>شرکت ها</NavLinks>
             </NavItem>
           </NavMenu>
           <NavBtn>

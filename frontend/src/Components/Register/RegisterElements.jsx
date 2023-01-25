@@ -45,13 +45,13 @@ export const FormContent = styled.div`
 `;
 export const Form = styled.form`
   background: #261236;
-  max-width: 400px;
   height: auto;
-  width: 100%;
+  width: auto;
   z-index: 1;
-  display: grid;
+  display: flex;
   margin: 0 auto;
-  padding: 80px 32px;
+  overflow: hidden;
+  padding: 32px 32px;
   border-radius: 29px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   @media screen and (max-width: 480px) {
@@ -79,7 +79,7 @@ export const FormInput = styled.input`
 `;
 export const FormButton = styled.button`
   background: #fab209;
-  padding: 16px 0;
+  padding: 16px 16px;
   border: none;
   border-radius: 4px;
   color: #fff;

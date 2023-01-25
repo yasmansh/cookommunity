@@ -1,0 +1,230 @@
+{
+    "sourceFile": "frontend/src/Components/HeroSection-search/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 53,
+            "patches": [
+                {
+                    "date": 1674202350794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674202408762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useState } from \"react\";\r\n \r\n-import Hero from \"../../images/hero2.jpg\";\r\n+import Hero from \"../../images/hero-search.jpg.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n import {useNavigate}  from 'react-router-dom';\r\n import {\r\n   HeroBg,\r\n@@ -41,5 +41,5 @@\n     </HeroContainer>\r\n   );\r\n };\r\n \r\n-export default HeroSection;\r\n+export default HeroSectionSearch;\r\n"
+                },
+                {
+                    "date": 1674202422732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useState } from \"react\";\r\n \r\n-import Hero from \"../../images/hero-search.jpg.jpg\";\r\n+import Hero from \"../../images/hero-search.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n import {useNavigate}  from 'react-router-dom';\r\n import {\r\n   HeroBg,\r\n"
+                },
+                {
+                    "date": 1674202456948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       <HeroBg>\r\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n-        <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n+        <HeroH1>س</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n           <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n"
+                },
+                {
+                    "date": 1674202473290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       <HeroBg>\r\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n-        <HeroH1>س</HeroH1>\r\n+        <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n           <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n"
+                },
+                {
+                    "date": 1674202503803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,8 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n         <HeroBtnWrapper>\r\n           <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n             جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n           </Button>\r\n"
+                },
+                {
+                    "date": 1674203335580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,13 +30,14 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <HeroBtnWrapper>\r\n-          <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n-            جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n-          </Button>\r\n-        </HeroBtnWrapper>\r\n+        <div class=\"content-edit\">\r\n+      <p class=\"content-promotion\"> سلام علی به سایت ما خوش آمدی</p>\r\n+      <h2 class=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n+      <p class=\"content-promotion\"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>\r\n+        <div class=\"d-button\"><button type=\"button\" class=\"f-button\">ثبت نام</button></div>\r\n+        </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674203841075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState } from \"react\";\r\n \r\n import Hero from \"../../images/hero-search.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n-import {useNavigate}  from 'react-router-dom';\r\n+import { useNavigate } from \"react-router-dom\";\r\n import {\r\n   HeroBg,\r\n   HeroP,\r\n   HeroContainer,\r\n@@ -21,22 +21,30 @@\n   };\r\n   const navigate = useNavigate();\r\n   const search = () => {\r\n     // removeAuth4();\r\n-    navigate('/search');\r\n-  }\r\n+    navigate(\"/search\");\r\n+  };\r\n   return (\r\n     <HeroContainer>\r\n       <HeroBg>\r\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-      <p class=\"content-promotion\"> سلام علی به سایت ما خوش آمدی</p>\r\n-      <h2 class=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n-      <p class=\"content-promotion\"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>\r\n-        <div class=\"d-button\"><button type=\"button\" class=\"f-button\">ثبت نام</button></div>\r\n+          <p class=\"content-promotion\"> سلام علی به سایت ما خوش آمدی</p>\r\n+          <h2 class=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n+          <p class=\"content-promotion\">\r\n+            {\" \"}\r\n+            در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای\r\n+            ویژه ی سایت قرار خواهید گرفت\r\n+          </p>\r\n+          <div class=\"d-button\">\r\n+            <button type=\"button\" class=\"f-button\">\r\n+              ثبت نام\r\n+            </button>\r\n+          </div>\r\n         </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n"
+                },
+                {
+                    "date": 1674211542641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,19 +31,9 @@\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-          <p class=\"content-promotion\"> سلام علی به سایت ما خوش آمدی</p>\r\n-          <h2 class=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n-          <p class=\"content-promotion\">\r\n-            {\" \"}\r\n-            در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای\r\n-            ویژه ی سایت قرار خواهید گرفت\r\n-          </p>\r\n-          <div class=\"d-button\">\r\n-            <button type=\"button\" class=\"f-button\">\r\n-              ثبت نام\r\n-            </button>\r\n+        \r\n           </div>\r\n         </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674211629510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,8 @@\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n         \r\n           </div>\r\n-        </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674211659452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,8 @@\n   HeroContainer,\r\n   HeroContent,\r\n   HeroH1,\r\n   ImageBg,\r\n-  ArrowForward,\r\n-  ArrowRight,\r\n-  HeroBtnWrapper,\r\n } from \"./HeroElements\";\r\n const HeroSectionSearch = () => {\r\n   const [hover, setHover] = useState(false);\r\n   const onHover = () => {\r\n@@ -31,10 +28,66 @@\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-        \r\n-          </div>\r\n+          <form onSubmit={handleSubmit(onSubmit)}>\r\n+            <div class=\"row\">\r\n+              <div class=\"col1\">\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n+              <div class=\"col1\">\r\n+                <label for=\"lname\">نام خانوادگی</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"جوان\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"last_name\")}\r\n+                />\r\n+              </div>\r\n+            </div>\r\n+            <div class=\"row\">\r\n+              <div class=\"col1\">\r\n+                <label for=\"fname\">بایو</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"yourbio\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"bio\")}\r\n+                />\r\n+              </div>\r\n+              <div class=\"col1\">\r\n+                <label for=\"lname\">ایمیل</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"email\"\r\n+                  placeholder=\"yourmail@gmail.com\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"email\")}\r\n+                />\r\n+              </div>\r\n+            </div>\r\n+            <div class=\"col1\">\r\n+              <label for=\"lname\">نقش کاربری</label>\r\n+              <br />\r\n+              <input\r\n+                type=\"text\"\r\n+                placeholder=\"user\"\r\n+                class=\"f-input\"\r\n+                {...register(\"role\")}\r\n+              />\r\n+            </div>\r\n+            <input type=\"submit\" class=\"f-button\" />\r\n+          </form>\r\n+        </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674211702374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n import { Button } from \"../ButtonElements\";\r\n import { useNavigate } from \"react-router-dom\";\r\n import {\r\n   HeroBg,\r\n-  HeroP,\r\n   HeroContainer,\r\n   HeroContent,\r\n   HeroH1,\r\n   ImageBg,\r\n@@ -20,8 +19,9 @@\n   const search = () => {\r\n     // removeAuth4();\r\n     navigate(\"/search\");\r\n   };\r\n+  \r\n   return (\r\n     <HeroContainer>\r\n       <HeroBg>\r\n         <ImageBg src={Hero}></ImageBg>\r\n"
+                },
+                {
+                    "date": 1674211709379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n   const search = () => {\r\n     // removeAuth4();\r\n     navigate(\"/search\");\r\n   };\r\n-  \r\n+  const { register, handleSubmit } = useForm();\r\n   return (\r\n     <HeroContainer>\r\n       <HeroBg>\r\n         <ImageBg src={Hero}></ImageBg>\r\n"
+                },
+                {
+                    "date": 1674211716892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n import Hero from \"../../images/hero-search.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n import { useNavigate } from \"react-router-dom\";\r\n+\r\n import {\r\n   HeroBg,\r\n   HeroContainer,\r\n   HeroContent,\r\n"
+                },
+                {
+                    "date": 1674211722129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n import Hero from \"../../images/hero-search.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n import { useNavigate } from \"react-router-dom\";\r\n-\r\n+import { useForm } from \"react-hook-form\"\r\n import {\r\n   HeroBg,\r\n   HeroContainer,\r\n   HeroContent,\r\n"
+                },
+                {
+                    "date": 1674211772884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n import Hero from \"../../images/hero-search.jpg\";\r\n import { Button } from \"../ButtonElements\";\r\n import { useNavigate } from \"react-router-dom\";\r\n-import { useForm } from \"react-hook-form\"\r\n+import { useForm } from \"react-hook-form\";\r\n import {\r\n   HeroBg,\r\n   HeroContainer,\r\n   HeroContent,\r\n@@ -29,9 +29,9 @@\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-          <form onSubmit={handleSubmit(onSubmit)}>\r\n+          <form onSubmit={}>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n"
+                },
+                {
+                    "date": 1674211778965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-          <form onSubmit={}>\r\n+          <form onSubmit={c}>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n"
+                },
+                {
+                    "date": 1674211786776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-          <form onSubmit={c}>\r\n+          <form onSubmit={console.log(\"A\");}>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n"
+                },
+                {
+                    "date": 1674211802520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n-          <form onSubmit={console.log(\"A\");}>\r\n+          <form onSubmit={console.log(\"A\")}>\r\n             <div class=\"row\">\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n"
+                },
+                {
+                    "date": 1674211943874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-              <div class=\"col1\">\r\n+              <div class=\"col2\">\r\n                 <label for=\"lname\">نام خانوادگی</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n"
+                },
+                {
+                    "date": 1674211956721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"last_name\")}\r\n                 />\r\n               </div>\r\n-            </div>\r\n-            <div class=\"row\">\r\n+            </div>>\r\n               <div class=\"col1\">\r\n                 <label for=\"fname\">بایو</label>\r\n                 <br />\r\n                 <input\r\n"
+                },
+                {
+                    "date": 1674211962102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,8 @@\n                   class=\"f-input\"\r\n                   {...register(\"email\")}\r\n                 />\r\n               </div>\r\n-            </div>\r\n             <div class=\"col1\">\r\n               <label for=\"lname\">نقش کاربری</label>\r\n               <br />\r\n               <input\r\n"
+                },
+                {
+                    "date": 1674212032368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,49 +41,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-              <div class=\"col2\">\r\n-                <label for=\"lname\">نام خانوادگی</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"جوان\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"last_name\")}\r\n-                />\r\n-              </div>\r\n-            </div>>\r\n-              <div class=\"col1\">\r\n-                <label for=\"fname\">بایو</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"yourbio\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"bio\")}\r\n-                />\r\n-              </div>\r\n-              <div class=\"col1\">\r\n-                <label for=\"lname\">ایمیل</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"email\"\r\n-                  placeholder=\"yourmail@gmail.com\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"email\")}\r\n-                />\r\n-              </div>\r\n-            <div class=\"col1\">\r\n-              <label for=\"lname\">نقش کاربری</label>\r\n-              <br />\r\n-              <input\r\n-                type=\"text\"\r\n-                placeholder=\"user\"\r\n-                class=\"f-input\"\r\n-                {...register(\"role\")}\r\n-              />\r\n-            </div>\r\n+        \r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </div>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674212043483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-        \r\n+        ``\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </div>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674212048583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-        ``\r\n+            </>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </div>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674212053919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-            </>\r\n+            <di/>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </div>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674212092661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div class=\"content-edit\">\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div class=\"row\">\r\n-              <div class=\"col1\">\r\n+              <div >\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n@@ -41,9 +41,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-            <di/>\r\n+            </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </div>\r\n       </HeroContent>\r\n"
+                },
+                {
+                    "date": 1674212148894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,11 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <div class=\"content-edit\">\r\n+        <div >\r\n           <form onSubmit={console.log(\"A\")}>\r\n-            <div class=\"row\">\r\n+            <div >\r\n               <div >\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n"
+                },
+                {
+                    "date": 1674212333189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <div >\r\n+        <div class>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div >\r\n               <div >\r\n                 <label for=\"fname\">نام</label>\r\n"
+                },
+                {
+                    "date": 1674212339021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <div class>\r\n+        <div className=\"search\">\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div >\r\n               <div >\r\n                 <label for=\"fname\">نام</label>\r\n"
+                },
+                {
+                    "date": 1674212346274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <div className=\"search\">\r\n+        <div className=\"search_container\">\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div >\r\n               <div >\r\n                 <label for=\"fname\">نام</label>\r\n"
+                },
+                {
+                    "date": 1674212610405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,10 @@\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n         <div className=\"search_container\">\r\n           <form onSubmit={console.log(\"A\")}>\r\n-            <div >\r\n-              <div >\r\n+            <div>\r\n+              <div>\r\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n"
+                },
+                {
+                    "date": 1674212629853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <div className=\"search_container\">\r\n+        <searchcontainer>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div>\r\n               <div>\r\n                 <label for=\"fname\">نام</label>\r\n@@ -44,9 +44,9 @@\n               </div>\r\n             </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n-        </div>\r\n+        </searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674212641662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n   HeroContainer,\r\n   HeroContent,\r\n   HeroH1,\r\n   ImageBg,\r\n+  searchcontainer\r\n } from \"./HeroElements\";\r\n const HeroSectionSearch = () => {\r\n   const [hover, setHover] = useState(false);\r\n   const onHover = () => {\r\n"
+                },
+                {
+                    "date": 1674212698916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   HeroContainer,\r\n   HeroContent,\r\n   HeroH1,\r\n   ImageBg,\r\n-  searchcontainer\r\n+  searchcontainer,\r\n } from \"./HeroElements\";\r\n const HeroSectionSearch = () => {\r\n   const [hover, setHover] = useState(false);\r\n   const onHover = () => {\r\n@@ -29,9 +29,9 @@\n         <ImageBg src={Hero}></ImageBg>\r\n       </HeroBg>\r\n       <HeroContent>\r\n         <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>\r\n-        <searchcontainer>\r\n+        <Searchcontainer>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div>\r\n               <div>\r\n                 <label for=\"fname\">نام</label>\r\n@@ -45,9 +45,9 @@\n               </div>\r\n             </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n-        </searchcontainer>\r\n+        </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674212778414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   HeroContainer,\r\n   HeroContent,\r\n   HeroH1,\r\n   ImageBg,\r\n-  searchcontainer,\r\n+  Searchcontainer,\r\n } from \"./HeroElements\";\r\n const HeroSectionSearch = () => {\r\n   const [hover, setHover] = useState(false);\r\n   const onHover = () => {\r\n@@ -42,8 +42,38 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n+              <div>\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n+              <div>\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n+              <div>\r\n+                <label for=\"fname\">نام</label>\r\n+                <br />\r\n+                <input\r\n+                  type=\"text\"\r\n+                  placeholder=\"علی\"\r\n+                  class=\"f-input\"\r\n+                  {...register(\"first_name\")}\r\n+                />\r\n+              </div>\r\n             </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478128547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n                 <label for=\"fname\">نام</label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n-                  placeholder=\"علی\"\r\n+                  placeholder=\"اسم غذا\"\r\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n"
+                },
+                {
+                    "date": 1674478147101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         <Searchcontainer>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div>\r\n               <div>\r\n-                <label for=\"fname\">نام</label>\r\n+                <label for=\"fname\">اسم </label>\r\n                 <br />\r\n                 <input\r\n                   type=\"text\"\r\n                   placeholder=\"اسم غذا\"\r\n"
+                },
+                {
+                    "date": 1674478155160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,38 +42,9 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-              <div>\r\n-                <label for=\"fname\">نام</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"علی\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"first_name\")}\r\n-                />\r\n-              </div>\r\n-              <div>\r\n-                <label for=\"fname\">نام</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"علی\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"first_name\")}\r\n-                />\r\n-              </div>\r\n-              <div>\r\n-                <label for=\"fname\">نام</label>\r\n-                <br />\r\n-                <input\r\n-                  type=\"text\"\r\n-                  placeholder=\"علی\"\r\n-                  class=\"f-input\"\r\n-                  {...register(\"first_name\")}\r\n-                />\r\n-              </div>\r\n+         \r\n             </div>\r\n             <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478200193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" />\r\n+            <input type=\"submit\" class=\"f-button\" >\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478207329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" >\r\n+            <input type=\"submit\" class=\"f-button\" ><in/>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478215228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" ><in/>\r\n+            <input type=\"submit\" class=\"f-button\" >سرچ<input/>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478224911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" >سرچ<input/>\r\n+            <input type=\"submit\" class=\"f-button\" >سرچ<input>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478241027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" >سرچ<input>\r\n+            <input type=\"submit\" class=\"f-button\" ><input/>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478248068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" ><input/>\r\n+            <input type=\"submit\" class=\"f-button\" />\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478282665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,10 @@\n                 />\r\n               </div>\r\n          \r\n             </div>\r\n-            <input type=\"submit\" class=\"f-button\" />\r\n+            <div className=\"d-button\"><button type=\"button\" className=\"f-button\">ثبت نام</button></div>\r\n+        </div>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478296949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,12 +42,14 @@\n                   class=\"f-input\"\r\n                   {...register(\"first_name\")}\r\n                 />\r\n               </div>\r\n-         \r\n             </div>\r\n-            <div className=\"d-button\"><button type=\"button\" className=\"f-button\">ثبت نام</button></div>\r\n-        </div>\r\n+            <div className=\"d-button\">\r\n+              <button type=\"button\" className=\"f-button\">\r\n+              ثبت نام\r\n+              </button>\r\n+            </div>\r\n           </form>\r\n         </Searchcontainer>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n"
+                },
+                {
+                    "date": 1674478304704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n               </div>\r\n             </div>\r\n             <div className=\"d-button\">\r\n               <button type=\"button\" className=\"f-button\">\r\n-              ثبت نام\r\n+              سرچ\r\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478316737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n               </div>\r\n             </div>\r\n             <div className=\"d-button\">\r\n               <button type=\"button\" className=\"f-button\">\r\n-              سرچ\r\n+              \r\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478338389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,8 @@\n         <Searchcontainer>\r\n           <form onSubmit={console.log(\"A\")}>\r\n             <div>\r\n               <div>\r\n-                <label for=\"fname\">اسم </label>\r\n-                <br />\r\n                 <input\r\n                   type=\"text\"\r\n                   placeholder=\"اسم غذا\"\r\n                   class=\"f-input\"\r\n@@ -45,9 +43,9 @@\n               </div>\r\n             </div>\r\n             <div className=\"d-button\">\r\n               <button type=\"button\" className=\"f-button\">\r\n-              \r\n+              جست وجو\r\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n"
+                },
+                {
+                    "date": 1674478377000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n+        \r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674478383303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n-        \r\n+        <div></ی>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674478389269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n-        <div></ی>\r\n+        <div><>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674478394700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,11 @@\n               </button>\r\n             </div>\r\n           </form>\r\n         </Searchcontainer>\r\n-        <div><>\r\n+        <div>\r\n+          \r\n+        </div>\r\n       </HeroContent>\r\n     </HeroContainer>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1674202350794,
+            "name": "Commit-0",
+            "content": "import React, { useState } from \"react\";\r\n\r\nimport Hero from \"../../images/hero2.jpg\";\r\nimport { Button } from \"../ButtonElements\";\r\nimport {useNavigate}  from 'react-router-dom';\r\nimport {\r\n  HeroBg,\r\n  HeroP,\r\n  HeroContainer,\r\n  HeroContent,\r\n  HeroH1,\r\n  ImageBg,\r\n  ArrowForward,\r\n  ArrowRight,\r\n  HeroBtnWrapper,\r\n} from \"./HeroElements\";\r\nconst HeroSectionSearch = () => {\r\n  const [hover, setHover] = useState(false);\r\n  const onHover = () => {\r\n    setHover(!hover);\r\n  };\r\n  const navigate = useNavigate();\r\n  const search = () => {\r\n    // removeAuth4();\r\n    navigate('/search');\r\n  }\r\n  return (\r\n    <HeroContainer>\r\n      <HeroBg>\r\n        <ImageBg src={Hero}></ImageBg>\r\n      </HeroBg>\r\n      <HeroContent>\r\n        <HeroH1>سرتاسر دستور پخت</HeroH1>\r\n        <HeroP>غذا مورد علاقت رو جستجو کن و  طرز تهیه‌اش رو یاد بگیر!!!!!</HeroP>\r\n        <HeroBtnWrapper>\r\n          <Button onClick={search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>\r\n            جستجو{hover ? <ArrowForward /> : <ArrowRight />}\r\n          </Button>\r\n        </HeroBtnWrapper>\r\n      </HeroContent>\r\n    </HeroContainer>\r\n  );\r\n};\r\n\r\nexport default HeroSection;\r\n"
+        }
+    ]
+}

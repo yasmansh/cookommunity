@@ -1,0 +1,26 @@
+{
+    "sourceFile": "frontend/src/pages/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1674105913400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674105931726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n       <InfoSection {...homeObjectThree} />\r\n-\r\n+      <InfoSection {...homeObjectFour} />\r\n       <Projects></Projects>\r\n       <Footer/>\r\n     </>\r\n   );\r\n"
+                },
+                {
+                    "date": 1674106013830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,8 @@\n       <AboutMe />\r\n       <InfoSection {...homeObject} />\r\n       <InfoSection {...homeObjectTwo} />\r\n       <InfoSection {...homeObjectThree} />\r\n-      <InfoSection {...homeObjectFour} />\r\n       <Projects></Projects>\r\n       <Footer/>\r\n     </>\r\n   );\r\n"
+                }
+            ],
+            "date": 1674105913400,
+            "name": "Commit-0",
+            "content": "import React, { useState } from \"react\";\r\nimport Sidebar from \"../Components/Sidebar\";\r\nimport Navbar from \"../Components/Navbar\";\r\nimport HeroSection from \"../Components/HeroSection\";\r\nimport AboutMe from \"../Components/AboutMe\";\r\nimport InfoSection from \"../Components/InfoSection\";\r\nimport { homeObject, homeObjectFour, homeObjectThree, homeObjectTwo } from \"../Components/InfoSection/Data\";\r\nimport Projects from \"../Components/Projects\";\r\nimport Footer from \"../Components/Footer\";\r\nconst Home = () => {\r\n  const [isOpen, setIsOpen] = useState(false);\r\n  const toggle = () => {\r\n    setIsOpen(!isOpen);\r\n  };\r\n  return (\r\n    <>\r\n      <Sidebar toggle={toggle} isOpen={isOpen} />\r\n      <Navbar toggle={toggle} />\r\n      <HeroSection />\r\n      <AboutMe />\r\n      <InfoSection {...homeObject} />\r\n      <InfoSection {...homeObjectTwo} />\r\n      <InfoSection {...homeObjectThree} />\r\n\r\n      <Projects></Projects>\r\n      <Footer/>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Home;\r\n"
+        }
+    ]
+}

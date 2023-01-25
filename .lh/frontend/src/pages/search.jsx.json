@@ -1,0 +1,30 @@
+{
+    "sourceFile": "frontend/src/pages/search.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1674149215877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674149224329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import EditProfile from \"../Components/Dashboard-edit-profile\";\r\n \r\n-const DashEditProfile = () => {\r\n+const SearchPage = () => {\r\n   return <SearchFood />;\r\n };\r\n \r\n export default DashEditProfile;\r\n"
+                },
+                {
+                    "date": 1674149234717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n-import EditProfile from \"../Components/Dashboard-edit-profile\";\r\n+import SearchFood from \"../Components/Dashboard-edit-profile\";\r\n \r\n const SearchPage = () => {\r\n   return <SearchFood />;\r\n };\r\n \r\n-export default DashEditProfile;\r\n+export default SearchPage;\r\n"
+                },
+                {
+                    "date": 1674149478878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import SearchFood from \"../Components/Dashboard-edit-profile\";\r\n+import SearchFood from \"../Components/Main-search\";\r\n \r\n const SearchPage = () => {\r\n   return <SearchFood />;\r\n };\r\n"
+                }
+            ],
+            "date": 1674149215877,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport EditProfile from \"../Components/Dashboard-edit-profile\";\r\n\r\nconst DashEditProfile = () => {\r\n  return <SearchFood />;\r\n};\r\n\r\nexport default DashEditProfile;\r\n"
+        }
+    ]
+}

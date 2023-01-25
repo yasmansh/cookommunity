@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1673212773540,
@@ -64,6 +64,58 @@
                 {
                     "date": 1673445795648,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,5 +24,5 @@\n   display: none;\r\n }\r\n .contain.eror-notif{\r\n   display: block;\r\n-}\n\\ No newline at end of file\n+}\r\n"
+                },
+                {
+                    "date": 1674456004529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,4 +25,8 @@\n }\r\n .contain.eror-notif{\r\n   display: block;\r\n }\r\n+.m2-icon {\r\n+  width: 26px;\r\n+  margin: 10px;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674456011826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n }\r\n .contain.eror-notif{\r\n   display: block;\r\n }\r\n-.m2-icon {\r\n+.home-icon{\r\n+  color: ;\r\n   width: 26px;\r\n   margin: 10px;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674456034134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n .contain.eror-notif{\r\n   display: block;\r\n }\r\n .home-icon{\r\n-  color: ;\r\n+  color: aliceblue;\r\n   width: 26px;\r\n   margin: 10px;\r\n+  \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674456040198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,7 @@\n .home-icon{\r\n   color: aliceblue;\r\n   width: 26px;\r\n   margin: 10px;\r\n-  \r\n+  justify-content: center;\r\n+  al\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674456129488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,10 @@\n   display: block;\r\n }\r\n .home-icon{\r\n   color: aliceblue;\r\n-  width: 26px;\r\n+  width: 100%;\r\n   margin: 10px;\r\n   justify-content: center;\r\n-  al\r\n+  align-items: center;\r\n+  display: flex;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674456342712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n }\r\n .contain.eror-notif{\r\n   display: block;\r\n }\r\n-.home-icon{\r\n+.home-div{\r\n   color: aliceblue;\r\n   width: 100%;\r\n   margin: 10px;\r\n   justify-content: center;\r\n"
+                },
+                {
+                    "date": 1674456357985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,5 +32,8 @@\n   margin: 10px;\r\n   justify-content: center;\r\n   align-items: center;\r\n   display: flex;\r\n+}\r\n+.home-icon{\r\n+  height: ;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674456366239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,6 +34,6 @@\n   align-items: center;\r\n   display: flex;\r\n }\r\n .home-icon{\r\n-  height: ;\r\n+  height: 2em;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674461290473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,5 +35,5 @@\n   display: flex;\r\n }\r\n .home-icon{\r\n   height: 2em;\r\n-}\n\\ No newline at end of file\n+}\r\n"
+                },
+                {
+                    "date": 1674461297707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,4 +36,7 @@\n }\r\n .home-icon{\r\n   height: 2em;\r\n }\r\n+.reg-col {\r\n+  margin: 0 31px;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674461620560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,6 +37,14 @@\n .home-icon{\r\n   height: 2em;\r\n }\r\n .reg-col {\r\n-  margin: 0 31px;\r\n+  margin: 0 5px;\r\n+}\r\n+.row {\r\n+  display: flex;\r\n+  flex-direction: row;\r\n+  align-items: center;\r\n+  align-content: space-between;\r\n+  width: 541px;\r\n+  margin: 10px auto;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674461626636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,12 +39,11 @@\n }\r\n .reg-col {\r\n   margin: 0 5px;\r\n }\r\n-.row {\r\n+.reg-row {\r\n   display: flex;\r\n   flex-direction: row;\r\n   align-items: center;\r\n   align-content: space-between;\r\n-  width: 541px;\r\n   margin: 10px auto;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674461725618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,6 +44,5 @@\n   display: flex;\r\n   flex-direction: row;\r\n   align-items: center;\r\n   align-content: space-between;\r\n-  margin: 10px auto;\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1673212773540,

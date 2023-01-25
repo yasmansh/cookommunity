@@ -1,0 +1,54 @@
+{
+    "sourceFile": "frontend/src/Components/Navbar-second/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1674197933278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674200078118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,11 +39,8 @@\n             <NavItem>\r\n               <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>\r\n             </NavItem>\r\n           </NavMenu>\r\n-          <NavBtn>\r\n-            <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n-          </NavBtn>\r\n         </NavBarContainer>\r\n       </Nav>\r\n     </>\r\n   );\r\n"
+                },
+                {
+                    "date": 1674201749766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,27 +21,34 @@\n       setScrolNav(false);\r\n     }\r\n   };\r\n   useEffect(() => {\r\n-    window.addEventListener(\"scroll\", changeNav)\r\n+    window.addEventListener(\"scroll\", changeNav);\r\n   }, []);\r\n   const toggleHome = () => {\r\n     scroll.scrollToTop();\r\n-  }\r\n+  };\r\n   return (\r\n     <>\r\n       <Nav scrolNav={scrolNav}>\r\n         <NavBarContainer>\r\n-          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>Youngman</NavLogo>\r\n+          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+            Youngman\r\n+          </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n             <NavItem>\r\n-              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>\r\n+              <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+                خانه\r\n+              </NavLogo>\r\n             </NavItem>\r\n           </NavMenu>\r\n         </NavBarContainer>\r\n+        <NavBtn>\r\n+          <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n+        </NavBtn>\r\n       </Nav>\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1674201759168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n             <NavItem>\r\n-              <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n                 خانه\r\n-              </NavLogo>\r\n+              </NavLinks>\r\n             </NavItem>\r\n           </NavMenu>\r\n         </NavBarContainer>\r\n         <NavBtn>\r\n"
+                },
+                {
+                    "date": 1674201774401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n             <NavItem>\r\n-              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+              <NavBtnLink to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n                 خانه\r\n-              </NavLinks>\r\n+              </NavBtnLink>\r\n             </NavItem>\r\n           </NavMenu>\r\n         </NavBarContainer>\r\n         <NavBtn>\r\n"
+                },
+                {
+                    "date": 1674201781907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,11 +38,11 @@\n             <FaBars />\r\n           </MobileIcon>\r\n           <NavMenu>\r\n             <NavItem>\r\n-              <NavBtnLink to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n                 خانه\r\n-              </NavBtnLink>\r\n+              </NavLinks>\r\n             </NavItem>\r\n           </NavMenu>\r\n         </NavBarContainer>\r\n         <NavBtn>\r\n"
+                },
+                {
+                    "date": 1674201985344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,8 @@\n             <NavItem>\r\n               <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n                 خانه\r\n               </NavLinks>\r\n-            </NavItem>\r\n           </NavMenu>\r\n         </NavBarContainer>\r\n         <NavBtn>\r\n           <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n"
+                },
+                {
+                    "date": 1674201995592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,8 @@\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n-          <NavMenu>\r\n-            <NavItem>\r\n               <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n                 خانه\r\n               </NavLinks>\r\n           </NavMenu>\r\n"
+                },
+                {
+                    "date": 1674202015842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,12 +36,11 @@\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n-              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>\r\n+              <NavLinks  smooth duration={1000} spy>\r\n                 خانه\r\n               </NavLinks>\r\n-          </NavMenu>\r\n         </NavBarContainer>\r\n         <NavBtn>\r\n           <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n         </NavBtn>\r\n"
+                },
+                {
+                    "date": 1674202060389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           </NavLogo>\r\n           <MobileIcon onClick={toggle}>\r\n             <FaBars />\r\n           </MobileIcon>\r\n-              <NavLinks  smooth duration={1000} spy>\r\n+              <NavLinks >\r\n                 خانه\r\n               </NavLinks>\r\n         </NavBarContainer>\r\n         <NavBtn>\r\n"
+                }
+            ],
+            "date": 1674197933278,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport { animateScroll as scroll } from \"react-scroll\";\r\nimport {\r\n  Nav,\r\n  NavBarContainer,\r\n  NavLogo,\r\n  MobileIcon,\r\n  NavMenu,\r\n  NavItem,\r\n  NavLinks,\r\n  NavBtn,\r\n  NavBtnLink,\r\n} from \"./NavbarElements\";\r\nimport { FaBars } from \"react-icons/fa\";\r\nconst Navbar = ({ toggle }) => {\r\n  const [scrolNav, setScrolNav] = useState(false);\r\n  const changeNav = () => {\r\n    if (window.scrollY >= 80) {\r\n      setScrolNav(+true);\r\n    } else {\r\n      setScrolNav(false);\r\n    }\r\n  };\r\n  useEffect(() => {\r\n    window.addEventListener(\"scroll\", changeNav)\r\n  }, []);\r\n  const toggleHome = () => {\r\n    scroll.scrollToTop();\r\n  }\r\n  return (\r\n    <>\r\n      <Nav scrolNav={scrolNav}>\r\n        <NavBarContainer>\r\n          <NavLogo to=\"/\" onClick={toggleHome} smooth duration={1000} spy>Youngman</NavLogo>\r\n          <MobileIcon onClick={toggle}>\r\n            <FaBars />\r\n          </MobileIcon>\r\n          <NavMenu>\r\n            <NavItem>\r\n              <NavLinks to=\"/\" onClick={toggleHome} smooth duration={1000} spy>خانه</NavLinks>\r\n            </NavItem>\r\n          </NavMenu>\r\n          <NavBtn>\r\n            <NavBtnLink to=\"/login\">ورود</NavBtnLink>\r\n          </NavBtn>\r\n        </NavBarContainer>\r\n      </Nav>\r\n    </>\r\n  );\r\n};\r\n\r\nexport default Navbar;\r\n"
+        }
+    ]
+}

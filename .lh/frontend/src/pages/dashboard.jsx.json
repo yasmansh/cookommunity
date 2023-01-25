@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1673509835272,
@@ -12,6 +12,14 @@
                 {
                     "date": 1673509860192,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import DashboardForm from \"../Components/Dashboard\";\r\n \r\n-const Dashboard = (removeAuth) => {\r\n-  return <DashboardForm />;\r\n+const Dashboard = ({removeAuth}) => {\r\n+  return <DashboardForm removeAuth/>;\r\n };\r\n \r\n export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1674144178501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import DashboardForm from \"../Components/Dashboard\";\r\n \r\n-const Dashboard = ({removeAuth}) => {\r\n-  return <DashboardForm removeAuth/>;\r\n+const Dashboard = ({removeAuth2}) => {\r\n+  return <DashboardForm removeAuth={removeAuth}/>;\r\n };\r\n \r\n export default Dashboard;\r\n"
+                },
+                {
+                    "date": 1674453410343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from \"react\";\r\n import DashboardForm from \"../Components/Dashboard\";\r\n \r\n-const Dashboard = ({removeAuth2}) => {\r\n-  return <DashboardForm removeAuth={removeAuth}/>;\r\n+const Dashboard = ({removeAuth}) => {\r\n+  return <DashboardForm removeAuth3={removeAuth2}/>;\r\n };\r\n \r\n export default Dashboard;\r\n"
                 }
             ],
             "date": 1673509835272,

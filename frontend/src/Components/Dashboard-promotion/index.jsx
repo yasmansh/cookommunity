@@ -8,11 +8,11 @@ const DashPromotionComponent = () => {
     <Container>
       <DashboardSidebar />
       <DashboardHeader />
-      <div class="content-edit">
-      <p class="content-promotion"> سلام علی به سایت ما خوش آمدی</p>
-      <h2 class="content-promotion">درخواست ارتقای حساب کاربری</h2>
-      <p class="content-promotion"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>
-        <div class="d-button"><button type="button" class="f-button">ثبت نام</button></div>
+      <div className="content-edit">
+      <p className="content-promotion"> سلام علی به سایت ما خوش آمدی</p>
+      <h2 className="content-promotion">درخواست ارتقای حساب کاربری</h2>
+      <p className="content-promotion"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>
+        <div className="d-button"><button type="button" className="f-button">ثبت نام</button></div>
         </div>
     </Container>
   );

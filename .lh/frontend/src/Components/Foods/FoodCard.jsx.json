@@ -1,0 +1,30 @@
+{
+    "sourceFile": "frontend/src/Components/Foods/FoodCard.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1674539210996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674539224848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n-function MovieCard({ movie }) {\r\n+function FoodCard({ movie }) {\r\n   return (\r\n     <div className=\"movie-card\">\r\n       <img className=\"card-img\" src={movie.imageUrl} alt=\"\" />\r\n       <div className=\"card-body\">\r\n@@ -13,5 +13,5 @@\n     </div>\r\n   );\r\n }\r\n \r\n-export default MovieCard;\r\n+export default FoodCard;\r\n"
+                },
+                {
+                    "date": 1674539231645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n-function FoodCard({ movie }) {\r\n+function FoodCard({ movie: food }) {\r\n   return (\r\n     <div className=\"movie-card\">\r\n-      <img className=\"card-img\" src={movie.imageUrl} alt=\"\" />\r\n+      <img className=\"card-img\" src={food.imageUrl} alt=\"\" />\r\n       <div className=\"card-body\">\r\n-        <Link to={`/movies/${movie.id}`}>\r\n-          <h2 className=\"card-title\">{movie.title}</h2>\r\n+        <Link to={`/movies/${food.id}`}>\r\n+          <h2 className=\"card-title\">{food.title}</h2>\r\n         </Link>\r\n-        <p className=\"card-description\">{movie.short_description}</p>\r\n+        <p className=\"card-description\">{food.short_description}</p>\r\n       </div>\r\n     </div>\r\n   );\r\n }\r\n"
+                },
+                {
+                    "date": 1674539249528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n-function FoodCard({ movie: food }) {\r\n+function FoodCard({ food }) {\r\n   return (\r\n-    <div className=\"movie-card\">\r\n+    <div className=\"food-card\">\r\n       <img className=\"card-img\" src={food.imageUrl} alt=\"\" />\r\n       <div className=\"card-body\">\r\n         <Link to={`/movies/${food.id}`}>\r\n           <h2 className=\"card-title\">{food.title}</h2>\r\n"
+                }
+            ],
+            "date": 1674539210996,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nfunction MovieCard({ movie }) {\r\n  return (\r\n    <div className=\"movie-card\">\r\n      <img className=\"card-img\" src={movie.imageUrl} alt=\"\" />\r\n      <div className=\"card-body\">\r\n        <Link to={`/movies/${movie.id}`}>\r\n          <h2 className=\"card-title\">{movie.title}</h2>\r\n        </Link>\r\n        <p className=\"card-description\">{movie.short_description}</p>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default MovieCard;\r\n"
+        }
+    ]
+}

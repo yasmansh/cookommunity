@@ -1,0 +1,22 @@
+{
+    "sourceFile": "frontend/src/Components/Dashboard-ticket/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1674150269724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674472543580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,13 @@\n   return (\r\n     <Container>\r\n       <DashboardSidebar />\r\n       <DashboardHeader />\r\n-      <div class=\"content-edit\">\r\n-      <p class=\"content-promotion\">  علی به سایت ما خوش آمدی</p>\r\n-      <h2 class=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n-      <p class=\"content-promotion\"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>\r\n-        <div class=\"d-button\"><button type=\"button\" class=\"f-button\">ثبت نام</button></div>\r\n+      <div className=\"content-edit\">\r\n+      <p className=\"content-promotion\"> DD علی به سایت ما خوش آمدی</p>\r\n+      <h2 className=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n+      <p className=\"content-promotion\"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>\r\n+        <div className=\"d-button\"><button type=\"button\" className=\"f-button\">ثبت نام</button></div>\r\n         </div>\r\n     </Container>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1674150269724,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Container} from \"./Dash-promotion\";\r\nimport DashboardSidebar from \"../Dashboard/Dash-sidebar\";\r\nimport DashboardHeader from \"../Dashboard/Dash-header\";\r\nimport \"./dash-promotion.css\";\r\nconst DashPromotionComponent = () => {\r\n  return (\r\n    <Container>\r\n      <DashboardSidebar />\r\n      <DashboardHeader />\r\n      <div class=\"content-edit\">\r\n      <p class=\"content-promotion\">  علی به سایت ما خوش آمدی</p>\r\n      <h2 class=\"content-promotion\">درخواست ارتقای حساب کاربری</h2>\r\n      <p class=\"content-promotion\"> در صورت درخواست هزینه 100 هزار تومن از حساب شما کسر شده و جزو اعضای ویژه ی سایت قرار خواهید گرفت</p>\r\n        <div class=\"d-button\"><button type=\"button\" class=\"f-button\">ثبت نام</button></div>\r\n        </div>\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default DashPromotionComponent;\r\n"
+        }
+    ]
+}

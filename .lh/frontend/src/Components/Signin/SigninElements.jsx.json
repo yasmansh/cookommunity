@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1672663656961,
@@ -60,6 +60,18 @@
                 {
                     "date": 1673446249464,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -95,5 +95,6 @@\n   color: #fff;\r\n   font-size: 20px;\r\n   text-align: center;\r\n   margin-top: 24px;\r\n+  text-decoration: none;\r\n `;\r\n"
+                },
+                {
+                    "date": 1674455817015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   }\r\n `;\r\n export const Icon = styled(Link)`\r\n   margin-left: 32px;\r\n-  margin-top: 32px;\r\n+  margin: 32px;\r\n   text-decoration: none;\r\n   color: #fff;\r\n   font-weight: 700;\r\n   font-size: 32px;\r\n"
+                },
+                {
+                    "date": 1674455823435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,9 @@\n     height: 80%;\r\n   }\r\n `;\r\n export const Icon = styled(Link)`\r\n-  margin-left: 32px;\r\n-  margin: 32px;\r\n+  margin: 32px,auto;\r\n   text-decoration: none;\r\n   color: #fff;\r\n   font-weight: 700;\r\n   font-size: 32px;\r\n"
+                },
+                {
+                    "date": 1674455855118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,8 @@\n export const Icon = styled(Link)`\r\n   margin: 32px,auto;\r\n   text-decoration: none;\r\n   color: #fff;\r\n-  font-weight: 700;\r\n-  font-size: 32px;\r\n   @media screen and (max-width: 480px) {\r\n     margin-left: 16px;\r\n     margin-top: 8px;\r\n   }\r\n"
                 }
             ],
             "date": 1672663656961,

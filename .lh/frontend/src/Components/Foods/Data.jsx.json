@@ -1,0 +1,66 @@
+{
+    "sourceFile": "frontend/src/Components/Foods/Data.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1674539412704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674539448449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,31 @@\n-[\r\n-    {\r\n-      \"id\": 1,\r\n-      \"title\": \"Fight Club\",\r\n-      \"imageUrl\": \"http://localhost:9000/images/fight-club.jpg\",\r\n-      \"short_description\": \"An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.\"\r\n-    },\r\n-    {\r\n-      \"id\": 2,\r\n-      \"title\": \"Forrest Gump\",\r\n-      \"imageUrl\": \"http://localhost:9000/images/forrest-gump.jpg\",\r\n-      \"short_description\": \"The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events...\"\r\n-    },\r\n-    {\r\n-      \"id\": 3,\r\n-      \"title\": \"The Shawshank Redemption\",\r\n-      \"imageUrl\": \"http://localhost:9000/images/the-shawshank-redemption.jpg\",\r\n-      \"short_description\": \"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.\"\r\n-    }\r\n-  ]\r\n+export const homeObject = {\r\n+    id: \"About1\",\r\n+    lightBg: 0,\r\n+    topLine: \"درباره سایت ما\",\r\n+    heading: \"تیم مهندسی نرم افزار\",\r\n+    description:\"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n+    imgStart: false,\r\n+    img: require(\"../../images/image_(1).svg\").default,\r\n+    alt: \"Youngman\",\r\n+  };\r\n+  export const homeObjectTwo = {\r\n+    id: \"Cheif\",\r\n+    lightBg: 1,\r\n+    topLine: \"ایجاد شغل\",\r\n+    heading: \"کسب در آمد از خانه\",\r\n+    description:\"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند\",\r\n+    imgStart: 1,\r\n+    img: require(\"../../images/image_(2).svg\").default,\r\n+    alt: \"Youngman\",\r\n+  };\r\n+  export const homeObjectThree = {\r\n+    id: \"Blog\",\r\n+    lightBg: 0,\r\n+    topLine: \"بلاگ\",\r\n+    heading: \"هر روز یک غذا\",\r\n+    description:\"اگر علاقه به این که بدانید هر غذا از کجا آمده و همچنین به طور کامل با بهترین دستور پختش آشنا بشوید این بخش  می تواند دانش غذایی شما را ارتقا بدهد\",\r\n+    imgStart: 0,\r\n+    img: require(\"../../images/image_(3).svg\").default,\r\n+    alt: \"blog\",\r\n+  };\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1674539480632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     topLine: \"درباره سایت ما\",\r\n     heading: \"تیم مهندسی نرم افزار\",\r\n     description:\"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n     imgStart: false,\r\n-    img: require(\"../../images/image_(1).svg\").default,\r\n+    imgUrl: require(\"../../images/image_(1).svg\").default,\r\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectTwo = {\r\n     id: \"Cheif\",\r\n"
+                },
+                {
+                    "date": 1674539495112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n export const homeObject = {\r\n-    id: \"About1\",\r\n+    id: \"1\",\r\n     lightBg: 0,\r\n     topLine: \"درباره سایت ما\",\r\n     heading: \"تیم مهندسی نرم افزار\",\r\n     description:\"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n"
+                },
+                {
+                    "date": 1674539500392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     imgUrl: require(\"../../images/image_(1).svg\").default,\r\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectTwo = {\r\n-    id: \"Cheif\",\r\n+    id: \"2\",\r\n     lightBg: 1,\r\n     topLine: \"ایجاد شغل\",\r\n     heading: \"کسب در آمد از خانه\",\r\n     description:\"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند\",\r\n"
+                },
+                {
+                    "date": 1674539508578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     img: require(\"../../images/image_(2).svg\").default,\r\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectThree = {\r\n-    id: \"Blog\",\r\n+    id: \"3\",\r\n     lightBg: 0,\r\n     topLine: \"بلاگ\",\r\n     heading: \"هر روز یک غذا\",\r\n     description:\"اگر علاقه به این که بدانید هر غذا از کجا آمده و همچنین به طور کامل با بهترین دستور پختش آشنا بشوید این بخش  می تواند دانش غذایی شما را ارتقا بدهد\",\r\n"
+                },
+                {
+                    "date": 1674539516463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,20 +9,16 @@\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectTwo = {\r\n     id: \"2\",\r\n-    lightBg: 1,\r\n-    topLine: \"ایجاد شغل\",\r\n     heading: \"کسب در آمد از خانه\",\r\n     description:\"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند\",\r\n     imgStart: 1,\r\n     img: require(\"../../images/image_(2).svg\").default,\r\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectThree = {\r\n     id: \"3\",\r\n-    lightBg: 0,\r\n-    topLine: \"بلاگ\",\r\n     heading: \"هر روز یک غذا\",\r\n     description:\"اگر علاقه به این که بدانید هر غذا از کجا آمده و همچنین به طور کامل با بهترین دستور پختش آشنا بشوید این بخش  می تواند دانش غذایی شما را ارتقا بدهد\",\r\n     imgStart: 0,\r\n     img: require(\"../../images/image_(3).svg\").default,\r\n"
+                },
+                {
+                    "date": 1674539530569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n export const homeObject = {\r\n     id: \"1\",\r\n-    lightBg: 0,\r\n-    topLine: \"درباره سایت ما\",\r\n-    heading: \"تیم مهندسی نرم افزار\",\r\n+    title: \"تیم مهندسی نرم افزار\",\r\n     description:\"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n     imgStart: false,\r\n     imgUrl: require(\"../../images/image_(1).svg\").default,\r\n     alt: \"Youngman\",\r\n"
+                },
+                {
+                    "date": 1674539549318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n export const homeObject = {\r\n     id: \"1\",\r\n     title: \"تیم مهندسی نرم افزار\",\r\n+    short_description:\r\n     description:\"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n     imgStart: false,\r\n     imgUrl: require(\"../../images/image_(1).svg\").default,\r\n     alt: \"Youngman\",\r\n"
+                },
+                {
+                    "date": 1674539573348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n export const homeObject = {\r\n     id: \"1\",\r\n     title: \"تیم مهندسی نرم افزار\",\r\n-    short_description:\r\n+    short_description:\"An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.\",\r\n     description:\"۴ دانشجو ترم ۹ دانشکده کامپیوتر پروژه ای در قالب اسکرام و با ایده ای خلاقانه برای  دستور غذا تلاش کردیم تا با فراهم کردن دستور غذا های متفاوت دیگر دانشجویان را از دست غذا های سلف راحت کنیم \",\r\n     imgStart: false,\r\n     imgUrl: require(\"../../images/image_(1).svg\").default,\r\n     alt: \"Youngman\",\r\n"
+                },
+                {
+                    "date": 1674539586269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectTwo = {\r\n     id: \"2\",\r\n-    heading: \"کسب در آمد از خانه\",\r\n+    title: \"کسب در آمد از خانه\",\r\n     description:\"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند\",\r\n     imgStart: 1,\r\n     img: require(\"../../images/image_(2).svg\").default,\r\n     alt: \"Youngman\",\r\n"
+                },
+                {
+                    "date": 1674539592236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     alt: \"Youngman\",\r\n   };\r\n   export const homeObjectThree = {\r\n     id: \"3\",\r\n-    heading: \"هر روز یک غذا\",\r\n+    title: \"هر روز یک غذا\",\r\n     description:\"اگر علاقه به این که بدانید هر غذا از کجا آمده و همچنین به طور کامل با بهترین دستور پختش آشنا بشوید این بخش  می تواند دانش غذایی شما را ارتقا بدهد\",\r\n     imgStart: 0,\r\n     img: require(\"../../images/image_(3).svg\").default,\r\n     alt: \"blog\",\r\n"
+                },
+                {
+                    "date": 1674539600988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,8 @@\n   export const homeObjectTwo = {\r\n     id: \"2\",\r\n     title: \"کسب در آمد از خانه\",\r\n     short_description:\"An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.\",\r\n-\r\n     description:\"هر فرد می تواند با کسب حداقل امتیاز مورد نیاز به عنوان یک سر آشپز در سایت استخدام شود و کسب در آمد کند\",\r\n     imgStart: 1,\r\n     img: require(\"../../images/image_(2).svg\").default,\r\n     alt: \"Youngman\",\r\n"
+                }
+            ],
+            "date": 1674539412704,
+            "name": "Commit-0",
+            "content": "[\r\n    {\r\n      \"id\": 1,\r\n      \"title\": \"Fight Club\",\r\n      \"imageUrl\": \"http://localhost:9000/images/fight-club.jpg\",\r\n      \"short_description\": \"An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"title\": \"Forrest Gump\",\r\n      \"imageUrl\": \"http://localhost:9000/images/forrest-gump.jpg\",\r\n      \"short_description\": \"The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events...\"\r\n    },\r\n    {\r\n      \"id\": 3,\r\n      \"title\": \"The Shawshank Redemption\",\r\n      \"imageUrl\": \"http://localhost:9000/images/the-shawshank-redemption.jpg\",\r\n      \"short_description\": \"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.\"\r\n    }\r\n  ]\r\n  "
+        }
+    ]
+}

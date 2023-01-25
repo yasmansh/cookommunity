@@ -1,0 +1,50 @@
+{
+    "sourceFile": "frontend/src/Components/Foods/Foods.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1674538950589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674538956242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React, { useEffect, useState } from \"react\";\r\n import MovieList from \"./MovieList\";\r\n \r\n-function Movies() {\r\n+function Foods() {\r\n   const [movies, setMovies] = useState([]);\r\n \r\n   useEffect(() => {\r\n     fetch(\"http://localhost:9000/movies\")\r\n"
+                },
+                {
+                    "date": 1674538965436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useEffect, useState } from \"react\";\r\n-import MovieList from \"./MovieList\";\r\n+import MovieList from \"./FoodList\";\r\n \r\n function Foods() {\r\n   const [movies, setMovies] = useState([]);\r\n \r\n"
+                },
+                {
+                    "date": 1674538974586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useEffect, useState } from \"react\";\r\n-import MovieList from \"./FoodList\";\r\n+import FoodList from \"./FoodList\";\r\n \r\n function Foods() {\r\n   const [movies, setMovies] = useState([]);\r\n \r\n"
+                },
+                {
+                    "date": 1674538981559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,13 @@\n \r\n function Foods() {\r\n   const [movies, setMovies] = useState([]);\r\n \r\n-  useEffect(() => {\r\n-    fetch(\"http://localhost:9000/movies\")\r\n-      .then((res) => res.json())\r\n-      .then((movies) => setMovies(movies));\r\n-  }, []);\r\n+//   useEffect(() => {\r\n+//     fetch(\"http://localhost:9000/movies\")\r\n+//       .then((res) => res.json())\r\n+//       .then((movies) => setMovies(movies));\r\n+//   }, []);\r\n \r\n   return (\r\n     // <p>alllllllll</p>\r\n     <div className=\"container\">\r\n"
+                },
+                {
+                    "date": 1674538990850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useEffect, useState } from \"react\";\r\n import FoodList from \"./FoodList\";\r\n \r\n function Foods() {\r\n-  const [movies, setMovies] = useState([]);\r\n+  const [foods, setMovies] = useState([]);\r\n \r\n //   useEffect(() => {\r\n //     fetch(\"http://localhost:9000/movies\")\r\n //       .then((res) => res.json())\r\n"
+                },
+                {
+                    "date": 1674539014556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useEffect, useState } from \"react\";\r\n import FoodList from \"./FoodList\";\r\n \r\n function Foods() {\r\n-  const [foods, setMovies] = useState([]);\r\n+  const [foods, setFoods] = useState([]);\r\n \r\n //   useEffect(() => {\r\n //     fetch(\"http://localhost:9000/movies\")\r\n //       .then((res) => res.json())\r\n@@ -13,9 +13,9 @@\n   return (\r\n     // <p>alllllllll</p>\r\n     <div className=\"container\">\r\n       {/* <p>hello</p> */}\r\n-      <MovieList movies={movies} />\r\n+      <FoodList movies={movies} />\r\n     </div>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1674539023978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   return (\r\n     // <p>alllllllll</p>\r\n     <div className=\"container\">\r\n       {/* <p>hello</p> */}\r\n-      <FoodList movies={movies} />\r\n+      <FoodList foods={foods} />\r\n     </div>\r\n   );\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1674539031859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,5 @@\n     </div>\r\n   );\r\n }\r\n \r\n-export default Movies;\r\n+export default Foods;\r\n"
+                }
+            ],
+            "date": 1674538950589,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport MovieList from \"./MovieList\";\r\n\r\nfunction Movies() {\r\n  const [movies, setMovies] = useState([]);\r\n\r\n  useEffect(() => {\r\n    fetch(\"http://localhost:9000/movies\")\r\n      .then((res) => res.json())\r\n      .then((movies) => setMovies(movies));\r\n  }, []);\r\n\r\n  return (\r\n    // <p>alllllllll</p>\r\n    <div className=\"container\">\r\n      {/* <p>hello</p> */}\r\n      <MovieList movies={movies} />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Movies;\r\n"
+        }
+    ]
+}

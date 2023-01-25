@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1673465242788,
@@ -36,6 +36,10 @@
                 {
                     "date": 1673507500926,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n function App() {\r\n   const [isAuthenticated, setIsAuthenticated] = useState(false);\r\n   const setAuth = (value) => {\r\n     setIsAuthenticated(value);\r\n-    con\r\n+    co\r\n   };\r\n   return (\r\n     <Router className=\"App\">\r\n       <Routes>\r\n"
+                },
+                {
+                    "date": 1674539861297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n       <Routes>\r\n         <Route path=\"/\" element={<Home />} exact />\r\n         <Route path=\"/search\" element={<SearchPage />} exact />\r\n         <Route path=\"/food\" element={<Foods />} exact />\r\n-        <Route path=\"/movies/{movie_id}\" element={< />} exact />\r\n+        <Route path=\"/movies/{movie_id}\" element={<F />} exact />\r\n         {/* <Route\r\n           path=\"/login\"\r\n           element={<Dashboard removeAuth2={removeAuth1} />}\r\n           exact\r\n"
                 }
             ],
             "date": 1673465242788,

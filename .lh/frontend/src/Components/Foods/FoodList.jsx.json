@@ -1,0 +1,42 @@
+{
+    "sourceFile": "frontend/src/Components/Foods/FoodList.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1674539126535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674539144032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import React from 'react'\r\n-import MovieCard from './MovieCard'\r\n+import FoodCard from './MovieCard'\r\n \r\n function MovieList({ movies }) {\r\n   return (\r\n     <div className=\"card-list container\">\r\n       {movies.map((movie) => (\r\n-        <MovieCard key={movie.id} movie={movie} />\r\n+        <FoodCard key={movie.id} movie={movie} />\r\n       ))}\r\n     </div>\r\n   )\r\n }\r\n"
+                },
+                {
+                    "date": 1674539153188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react'\r\n import FoodCard from './MovieCard'\r\n \r\n-function MovieList({ movies }) {\r\n+function FoodList({ movies }) {\r\n   return (\r\n     <div className=\"card-list container\">\r\n       {movies.map((movie) => (\r\n         <FoodCard key={movie.id} movie={movie} />\r\n@@ -10,5 +10,5 @@\n     </div>\r\n   )\r\n }\r\n \r\n-export default MovieList\r\n+export default FoodList\r\n"
+                },
+                {
+                    "date": 1674539163380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import React from 'react'\r\n import FoodCard from './MovieCard'\r\n \r\n-function FoodList({ movies }) {\r\n+function FoodList({ movies: foods }) {\r\n   return (\r\n     <div className=\"card-list container\">\r\n-      {movies.map((movie) => (\r\n+      {foods.map((movie) => (\r\n         <FoodCard key={movie.id} movie={movie} />\r\n       ))}\r\n     </div>\r\n   )\r\n"
+                },
+                {
+                    "date": 1674539180461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import React from 'react'\r\n import FoodCard from './MovieCard'\r\n \r\n-function FoodList({ movies: foods }) {\r\n+function FoodList({foods }) {\r\n   return (\r\n     <div className=\"card-list container\">\r\n-      {foods.map((movie) => (\r\n-        <FoodCard key={movie.id} movie={movie} />\r\n+      {foods.map((food) => (\r\n+        <FoodCard key={food.id} movie={food} />\r\n       ))}\r\n     </div>\r\n   )\r\n }\r\n"
+                },
+                {
+                    "date": 1674539627343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function FoodList({foods }) {\r\n   return (\r\n     <div className=\"card-list container\">\r\n       {foods.map((food) => (\r\n-        <FoodCard key={food.id} movie={food} />\r\n+        <FoodCard key={food.id} food={food} />\r\n       ))}\r\n     </div>\r\n   )\r\n }\r\n"
+                },
+                {
+                    "date": 1674541715294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react'\r\n-import FoodCard from './MovieCard'\r\n+import FoodCard from './FoodCard'\r\n \r\n function FoodList({foods }) {\r\n   return (\r\n     <div className=\"card-list container\">\r\n"
+                }
+            ],
+            "date": 1674539126535,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport MovieCard from './MovieCard'\r\n\r\nfunction MovieList({ movies }) {\r\n  return (\r\n    <div className=\"card-list container\">\r\n      {movies.map((movie) => (\r\n        <MovieCard key={movie.id} movie={movie} />\r\n      ))}\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default MovieList\r\n"
+        }
+    ]
+}

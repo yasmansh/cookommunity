@@ -10,6 +10,8 @@ import SearchPage from "./pages/search";
 import TicketsPage from "./pages/ticket";
 import { useState } from "react";
 import axios from "axios";
+import Foods from "./Components/Foods/Food";
+import FoodDetail from "./Components/Foods/FoodDetail";
 function App() {
   let isLogin = localStorage.getItem("isLogin") === "true";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -23,6 +25,7 @@ function App() {
   const removeAuth = () => {
     let username = localStorage.getItem("username")
     let useObject={"username":username};
+    //window.location.reload()
     axios
     .put("http://127.0.0.1:8000/api/accounts/logout/", JSON.stringify(useObject), {
       headers: {
@@ -39,10 +42,13 @@ function App() {
   //atom globally
 
   return (
+    //import redirect with navigate
     <Router className="App">
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/search" element={<SearchPage />} exact />
+        {/* <Route path="/food" element={<Foods />} exact />
+        <Route path="/movies/{movie_id}" element={<FoodDetail />} exact /> */}
         {/* <Route
           path="/login"
           element={<Dashboard removeAuth2={removeAuth1} />}

@@ -5,13 +5,13 @@ from .enums import *
 import os
 from django.utils.deconstruct import deconstructible
 
+
 class SystemUser(AbstractUser):
     USERNAME_FIELD = 'username'
-    role = models.IntegerField(choices=Role.choices(), default=Role.PUBLIC, verbose_name=('نقش'))
-    email = models.EmailField(verbose_name=('ایمیل'), unique=True)
-    first_name = models.TextField(verbose_name=('نام'))
-    last_name = models.TextField(verbose_name=('نام خانوادگی'))
-    bio = models.CharField(verbose_name=('زندگینامه'), max_length=500, null=True)
+    role = models.IntegerField(choices=Role.choices(), default=Role.PUBLIC, verbose_name='نقش')
+    email = models.EmailField(verbose_name='ایمیل', unique=True)
+    first_name = models.TextField(verbose_name='نام')
+    last_name = models.TextField(verbose_name='نام خانوادگی')
     objects = SystemUserManager()
 
     def __init__(self, *args, **kwargs):
@@ -30,7 +30,7 @@ class SystemUser(AbstractUser):
 
 class Chief(models.Model):
     user = models.OneToOneField(SystemUser, on_delete=models.CASCADE)
-    bio = models.CharField(verbose_name=('شرح‌ حال'), max_length=500, null=True)
+    bio = models.CharField(verbose_name='شرح‌ حال', max_length=500, null=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -68,9 +68,16 @@ class Foodstuff(models.Model):
     """
     Model for Foodstuff
     """
-    name = models.CharField(verbose_name=('نام قلم خوراکی'), max_length=100, primary_key=True)
-    price = models.FloatField(verbose_name=('قیمت'))
-    date_created = models.DateTimeField(auto_now=True)
+    name = models.CharField(verbose_name='نام قلم خوراکی', max_length=100, primary_key=True)
+    price = models.FloatField(verbose_name='قیمت')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.data_dict = dict(name=self.name, price=self.price)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        self.data_dict = dict(name=self.name, price=self.price)
 
     def __str__(self) -> str:
         return f"{self.name}"
@@ -80,15 +87,26 @@ class Ingredient(models.Model):
     """
     Model for Ingredient
     """
-    ingredient_key = models.CharField(verbose_name=('نام کلیدی ماده غذایی'), max_length=150, unique=True)
-    foodstuff = models.ForeignKey(Foodstuff, on_delete=models.CASCADE)
-    number =  models.IntegerField()
-    unit = models.IntegerField(choices=UnitType.choices(), default=UnitType.GRAM)
-    date_created = models.DateTimeField(auto_now=True)
+    foodstuff = models.ForeignKey(Foodstuff, on_delete=models.CASCADE, verbose_name='قلم غذایی')
+    amount = models.IntegerField(verbose_name='مقدار')
+    unit = models.IntegerField(choices=UnitType.choices(), default=UnitType.GRAM, verbose_name='واحد')
+
+    class Meta:
+        unique_together = ['foodstuff', 'amount', 'unit']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.data_dict = dict(name=self.foodstuff.name, amount=self.amount, unit=self.unit)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        self.data_dict = dict(name=self.foodstuff.name, amount=self.amount, unit=self.unit)
 
     def __str__(self):
-        return f'{self.number} {self.unit}'
+        return f'{self.amount} {UnitType.get_type(self.unit)} of {self.foodstuff.name}'
 
+    def __repr__(self):
+        return self.__str__()
 
 
 @deconstructible
@@ -99,9 +117,11 @@ class PathRename(object):
 
     def __call__(self, instance, filename):
         ext = filename.split('.')[-1]
-        filename = f'Recipe_{instance.name}.{ext}'
+        if isinstance(instance, Recipe):
+            filename = f'Recipe_{instance.recipe_id}.{ext}'
 
         return os.path.join(self.path, filename)
+
 
 class Recipe(models.Model):
     """
@@ -109,13 +129,10 @@ class Recipe(models.Model):
     """
     recipe_id = models.AutoField(primary_key=True)
     chief = models.ForeignKey(Chief, on_delete=models.CASCADE, verbose_name='آشپز')
-    name = models.CharField(verbose_name='نام', max_length=100)
-
-    name = models.CharField(verbose_name=('نام'), max_length=100, primary_key=True)
-    description = models.TextField(verbose_name=('توضیحات'), max_length=350)
-    ingredients = models.ManyToManyField(Ingredient)
-    categories = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN,
-                                     verbose_name='دسته غذایی')
+    name = models.CharField(verbose_name='نام', unique=True, max_length=100)
+    ingredients = models.ManyToManyField(Ingredient, db_constraint=False)
+    category = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN,
+                                   verbose_name='دسته‌ی غذایی')
     description = models.TextField(verbose_name='توضیحات', max_length=350)
     price = models.IntegerField(verbose_name='هزینه', null=True)
     difficulty = models.IntegerField(choices=DifficultyType.choices(), default=DifficultyType.MEDIUM,
@@ -123,26 +140,19 @@ class Recipe(models.Model):
     preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.MEDIUM,
                                            verbose_name='مدت زمان آماده شدن')
     meal_tags = models.TextField(verbose_name='وعده‌های غذایی', max_length=150)
-    category = models.IntegerField(verbose_name=('دسته غذایی'), choices=FoodCategory.choices(), default=FoodCategory.IRANIAN)
-    price = models.IntegerField(verbose_name=('قیمت'), null=True)
-    difficulty = models.IntegerField(verbose_name=('درجه سختی'), choices=DifficultyType.choices(), default=DifficultyType.MEDIUM)
-    preparation_time = models.IntegerField(verbose_name=('زمان تهیه'), choices=DurationType.choices(), default=DurationType.MEDIUM)
-    meal_tags = models.TextField(verbose_name=('وعده‌های غذایی'), max_length=150)
-    photo = models.FileField(verbose_name=("عکس غذا"), null=True, upload_to = PathRename('recipes/'), default='settings.MEDIA_ROOT/default_recipe.jpg')
+    photo = models.FileField(verbose_name="عکس غذا", null=True, upload_to=PathRename('recipes/'),
+                             default='settings.MEDIA_ROOT/default_recipe.jpg')
     date_created = models.DateTimeField(auto_now=True)
     score = models.FloatField(verbose_name='امتیاز', default=0)
     rate = models.IntegerField(verbose_name='تعداد کاربران امتیاز دهنده', default=0)
 
-    class Meta:
-        unique_together = ['chief', 'name']
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.username, name=self.name, score=self.score,
-                              difficulty=self.difficulty, time=self.preparation_time)
+                              difficulty=self.difficulty, time=self.preparation_time, rate=self.rate)
 
     def __str__(self) -> str:
-        return f"{self.name} / {', '.join(self.category.values_list('name', flat=True))}"
+        return f"{self.name}"
 
 
 class Comment(models.Model):

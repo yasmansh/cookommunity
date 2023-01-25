@@ -37,7 +37,7 @@ class UserUpdateProfileRequest(BaseRequest):
         super().__init__(req, is_post=True)
         self.first_name = self.data['first_name']
         self.last_name = self.data['last_name']
-        self.bio = self.data['bio']
+        self.bio = self.data['bio'] if 'bio' in self.data else None
         self.email = self.data['email']
 
 
@@ -56,25 +56,25 @@ class ModifyTicketRequest(BaseRequest):
         self.status = self.data['status']
 
 
-class FoodstuffInfoRequest(BaseRequest):
+class AddFoodstuffRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req, is_post=True)
         self.name = self.data['name']
         self.price = self.data['price']
 
 
-class IngredientInfoRequest(BaseRequest):
-    def __init__(self, req):
-        super().__init__(req, is_post=True)
-        self.foodstuff_name = self.data['name']
-        self.number = self.data['number']
-        self.unit = self.data['unit']
+class IngredientInfoRequest:
+    def __init__(self, data):
+        self.foodstuff = data['name']
+        self.amount = data['amount']
+        self.unit = data['unit']
 
 
-class RecipeInfoRequest(BaseRequest):
+class CreateRecipeRequest(BaseRequest):
     def __init__(self, req):
         super().__init__(req, is_post=True)
         self.name = self.data['name']
+        self.chief = self.data['chief']
         self.description = self.data['description']
         self.category = self.data['category']
         self.difficulty = self.data['difficulty']
@@ -82,11 +82,6 @@ class RecipeInfoRequest(BaseRequest):
         self.meal_tags = self.data['meal_tags']
         self.ingredients = self.data['ingredients']
 
-class SearchRecipeByNameRequest(BaseRequest):
-    def __init__(self, req):
-        super().__init__(req, is_post=True)
-        self.name = self.data['name']
-        
 
 class SearchRecipeInfoRequest(BaseRequest):
     def __init__(self, req):
@@ -96,18 +91,6 @@ class SearchRecipeInfoRequest(BaseRequest):
         self.preparation_time = self.data['preparation_time']
         self.meal_tags = self.data['meal_tags']
         self.ingredients = self.data['ingredients']
-
-
-class GetDifficultyRequest(BaseRequest):
-    def __init__(self, req):
-        super().__init__(req)
-        self.difficulty = self.data['difficulty']
-
-
-class GetPreparationTimeRequest(BaseRequest):
-    def __init__(self, req):
-        super().__init__(req)
-        self.preparation_time = self.data['preparation_time']
 
 
 class CreateForumRequest(BaseRequest):
@@ -122,5 +105,3 @@ class PostOnForumRequest(BaseRequest):
         super().__init__(req, is_post=True)
         self.sender = self.data['sender']
         self.text = self.data['text']
-
-

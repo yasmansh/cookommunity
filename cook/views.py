@@ -5,7 +5,6 @@ from .models import *
 from .dto.request import *
 from .dto.response import *
 import json
-from django.core import serializers
 from django.db import models
 
 
@@ -46,12 +45,15 @@ def logout_user(request):
 
 @require_http_methods(["GET", "PATCH"])
 def profile(request, username):
+    current_username = request.GET.get('username')
     user: SystemUser = get_object_else('username', username, SystemUser)
     if not user:
         return HttpResponse(ErrorResponse(InternalError.CREDENTIAL_MISMATCH).json)
     chief = None
     if user.role == Role.CHIEF:
         chief = get_object_else('user__username', username, Chief)
+    elif username != current_username:
+        return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
     if request.method == "GET":
         return HttpResponse(ObjectInfoResponse(user, chief).json)
     if request.method == "PATCH":
@@ -70,10 +72,33 @@ def update_profile(request, user, chief):
     user.save()
 
 
+@require_http_methods(["GET"])
+def view_followers(request, jesus_username):
+    user: SystemUser = get_object_else('username', jesus_username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    if user.role != Role.CHIEF.value:
+        return HttpResponse(ErrorResponse(InternalError.NOT_ALLOWED).json)
+    chief: Chief = get_object_else('user__username', jesus_username, Chief)
+    followers = [relationship.disciple for relationship in chief.relationship_set.all()]
+    return HttpResponse(ObjectListResponse(followers).json)
+
+
+@require_http_methods(["GET"])
+def view_following(request, username):
+    user: SystemUser = get_object_else('username', username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    following = [relationship.jesus.user for relationship in user.relationship_set.all()]
+    return HttpResponse(ObjectListResponse(following).json)
+
+
 @require_http_methods(["POST", "GET"])
 def tickets(request):
     if request.method == "GET":
-        view_all_tickets(request)
+        return view_all_tickets(request)
+    if request.method == "POST":
+        return create_ticket(request)
 
 
 def create_ticket(request):
@@ -135,7 +160,7 @@ def upgrade_to_chief(user: SystemUser):
 
 @require_http_methods(["POST"])
 def create_foodstuff(request):
-    request_model = FoodstuffInfoRequest(request)
+    request_model = AddFoodstuffRequest(request)
     if get_object_else('name', request_model.name, Foodstuff, True):
         return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_EXISTS).json)
     foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price)
@@ -143,115 +168,84 @@ def create_foodstuff(request):
     return HttpResponse()
 
 
-@require_http_methods(["POST"])
-def create_ingredient(request):
-    request_model = IngredientInfoRequest(request)
-    if Foodstuff.objects.filter(name=request_model.foodstuff_name).exists() is False:
-        return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
-    key = request_model.foodstuff_name + '-' + request_model.number + '-' + request_model.unit
-    if Ingredient.objects.filter(ingredient_key=key).exists():
-        return HttpResponse(ErrorResponse(InternalError.INGREDIENT_EXISTS).json)
-    foodstuff = Foodstuff.objects.get(name=request_model.foodstuff_name)
-    ingredient = Ingredient.objects.create(ingredient_key=key, foodstuff=foodstuff, number=request_model.number, unit=request_model.unit)
-    ingredient.save()
-    return HttpResponse()
+@require_http_methods(["POST", "GET"])
+def recipes(request):
+    if request.method == "GET":
+        return view_all_recipes(request)
+    if request.method == "POST":
+        return create_recipe(request)
 
 
-@require_http_methods(["POST"])
 def create_recipe(request):
-    request_model = RecipeInfoRequest(request)
+    request_model = CreateRecipeRequest(request)
     if get_object_else('name', request_model.name, Recipe, True):
         return HttpResponse(ErrorResponse(InternalError.RECIPE_EXIST).json)
-
-    ingredients = request_model.ingredients.split(",")
-    for ingredient_key in ingredients:
-        if Ingredient.objects.filter(ingredient_key=ingredient_key).exists() is False:
-            return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
-
-    recipe = Recipe.objects.create(name=request_model.name, description=request_model.description,
-        category=request_model.category, difficulty=request_model.difficulty,
-        preparation_time=request_model.preparation_time, meal_tags=request_model.meal_tags)
+    chief: Chief = get_object_else('user__username', request_model.chief, Chief)
+    if not chief:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    recipe = Recipe.objects.create(name=request_model.name, chief=chief, description=request_model.description,
+                                   category=request_model.category, difficulty=request_model.difficulty,
+                                   preparation_time=request_model.preparation_time, meal_tags=request_model.meal_tags)
+    ingredients = [IngredientInfoRequest(ingredient) for ingredient in request_model.ingredients]
+    for item in ingredients:
+        ingredient: Ingredient = get_object_else(('foodstuff__name', 'amount', 'unit'),
+                                                 (item.foodstuff, item.amount, item.unit), Ingredient)
+        if not ingredient:
+            foodstuff: Foodstuff = get_object_else('name', item.foodstuff, Foodstuff)
+            if not foodstuff:
+                return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
+            ingredient = Ingredient(foodstuff=foodstuff, amount=item.amount, unit=item.unit)
+            ingredient.save()
+        recipe.ingredients.add(ingredient)
     recipe.save()
+    return HttpResponse(ObjectInfoResponse(recipe).json)
 
-    for ingredient_key in ingredients:
-        recipe.ingredients.add(Ingredient.objects.get(ingredient_key=ingredient_key))
-    recipe.save()
-    return HttpResponse()
+
+def view_all_recipes(request):
+    recipes = Recipe.objects.all()
+    return HttpResponse(ObjectListResponse(recipes).json)
+
 
 @require_http_methods(["POST"])
-def add_recipe_photo(request, name):
-
-    if Recipe.objects.filter(name=name).exists() is False:
+def add_recipe_photo(request, recipe_id):
+    recipe: Recipe = get_object_else('recipe_id', recipe_id, Recipe)
+    if not recipe:
         return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
-
-    recipe = Recipe.objects.get(name=name)
     recipe.photo = request.FILES['photo']
     recipe.save()
-    return HttpResponse()
+    return HttpResponse(ObjectInfoResponse(recipe).json)
 
 
-@require_http_methods(["POST"])
-def search_recipe_by_name(request):
-    request_model = SearchRecipeByNameRequest(request)
-    result_set = Recipe.objects.all().filter(name__contains=request_model.name)
-    serializedData = [ json.dumps({'name': r.name,
-                                    'description': r.description,
-                                    'category': r.category,
-                                    'difficulty': r.difficulty,
-                                    'preparation_time': r.preparation_time,
-                                    'meal_tags': r.meal_tags,
-                                    'ingredients': [ {'foodstuff': i.ingredient_key.split('-')[0],
-                                                    'number': i.number,
-                                                    'unit': i.unit
-                                                      } for i in Ingredient.objects.filter(recipe__name=r.name)],
-                                    'photo' : r.photo.url
-                                    }) for r in result_set]
-    return HttpResponse(serializedData, content_type="application/json")
+@require_http_methods(["GET"])
+def filter_recipe(request):
+    criterion = request.GET.get('criterion')
+    value = request.GET.get(criterion)
+    recipes = Recipe.objects.filter(**{criterion: value}).all()
+    return HttpResponse(RecipeDetailedResponse(recipes).json)
 
 
-@require_http_methods(["POST"])
-def advanced_search_recipe(request):
+@require_http_methods(["GET"])
+def advanced_filter_recipe(request):
     request_model = SearchRecipeInfoRequest(request)
-    ingredients = request_model.ingredients.split(",")
-    for ingredient_key in ingredients:
-        if Ingredient.objects.filter(ingredient_key=ingredient_key).exists() is False:
+    ingredients = [IngredientInfoRequest(ingredient) for ingredient in request_model.ingredients]
+    for item in ingredients:
+        ingredient: Ingredient = get_object_else(('foodstuff__name', 'amount', 'unit'),
+                                                 (item.foodstuff, item.amount, item.unit), Ingredient)
+        if not ingredient:
             return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
 
-    result_set = Recipe.objects.all()
-    if (request_model.category != ''):
-        result_set = result_set.filter(category=request_model.category)
-    if (request_model.difficulty != ''):
-        result_set = result_set.filter(difficulty=request_model.difficulty)
-    if (request_model.preparation_time != ''):
-        result_set = result_set.filter(preparation_time=request_model.preparation_time)
-    if (request_model.meal_tags != ''):
-        result_set = result_set.filter(meal_tags__contains=request_model.meal_tags)
+    recipes = Recipe.objects.all()
+    if request_model.category != '':
+        recipes = recipes.filter(category=request_model.category)
+    if request_model.difficulty != '':
+        recipes = recipes.filter(difficulty=request_model.difficulty)
+    if request_model.preparation_time != '':
+        recipes = recipes.filter(preparation_time=request_model.preparation_time)
+    if request_model.meal_tags != '':
+        recipes = recipes.filter(meal_tags__contains=request_model.meal_tags)
     for ingredient_key in ingredients:
-        result_set = result_set.filter(ingredients__ingredient_key=ingredient_key)
-    serializedData = [ json.dumps({'name': r.name,
-                                    'description': r.description,
-                                    'category': r.category,
-                                    'difficulty': r.difficulty,
-                                    'preparation_time': r.preparation_time,
-                                    'meal_tags': r.meal_tags
-                                    }) for r in result_set]
-    return HttpResponse(serializedData, content_type="application/json")
-
-
-@require_http_methods(["POST"])
-def search_recipe_by_difficulty(request):
-    request_model = GetDifficultyRequest(request)
-    result_set = Recipe.objects.filter(difficulty=request_model.difficulty)
-    results = [ob.as_json() for ob in result_set]
-    return HttpResponse(json.dumps(results), content_type="application/json")
-
-
-@require_http_methods(["POST"])
-def search_recipe_by_preparation_time(request):
-    request_model = GetPreparationTimeRequest(request)
-    result_set = Recipe.objects.filter(preparation_time=request_model.preparation_time)
-    results = [ob.as_json() for ob in result_set]
-    return HttpResponse(json.dumps(results), content_type="application/json")
+        recipes = recipes.filter(ingredients__ingredient_key=ingredient_key)
+    return HttpResponse(ObjectListResponse(recipes).json)
 
 
 @require_http_methods(["PUT"])
@@ -426,7 +420,7 @@ def view_forum(request, forum_id):
     if (user.role == Role.CHIEF and forum.owner.user.username != username) \
             or not check_forum_membership(user, forum_id):
         return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
-    return HttpResponse(ForumDetailedResponse(forum, forum.members.all(), forum.forummessage_set.all()).json)
+    return HttpResponse(ForumDetailedResponse(forum).json)
 
 
 def check_forum_membership(user, forum_id=None, banned=False):

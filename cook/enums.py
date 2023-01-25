@@ -1,6 +1,13 @@
 from enum import IntEnum
 
 
+class Authorization(IntEnum):
+    CHIEF = 1
+    ADMIN = 2
+    VIEW = 3
+    EDIT = 4
+
+
 class Role(IntEnum):
     PUBLIC = 1
     CHIEF = 2
@@ -61,6 +68,7 @@ class TicketStatus(IntEnum):
                 return key
         return None
 
+
 class UnitType(IntEnum):
     GRAM = 1
     MILLILITERS = 2
@@ -79,6 +87,7 @@ class UnitType(IntEnum):
             if key.value == id:
                 return key
         return None
+
 
 class DurationType(IntEnum):
     SLOW = 1
@@ -132,8 +141,3 @@ class DifficultyType(IntEnum):
             if key.value == id:
                 return key
         return None
-
-
-
-
-

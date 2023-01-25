@@ -1,4 +1,5 @@
 from enum import Enum
+from cook.models import *
 
 from simplejson import dumps as jw
 
@@ -59,8 +60,19 @@ class ObjectListResponse(BaseResponse):
 
 
 class ForumDetailedResponse(BaseResponse):
-    def __init__(self, forum, members, messages):
+    def __init__(self, forum: Forum):
         self.data = forum.data_dict
-        self.data['members'] = [member.data_dict for member in members]
-        self.data['messages'] = [message.data_dict for message in messages]
+        self.data['members'] = [member.data_dict for member in forum.members.all()]
+        self.data['messages'] = [message.data_dict for message in forum.forummessage_set.all()]
+        super().__init__(self.data)
+
+
+class RecipeDetailedResponse(BaseResponse):
+    def __init__(self, recipes):
+        self.data = []
+        for recipe in recipes:
+            recipe: Recipe
+            r_data = recipe.data_dict
+            r_data['ingredients'] = [ingredient.data_dict for ingredient in recipe.ingredients.all()]
+            self.data.append(r_data)
         super().__init__(self.data)

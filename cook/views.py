@@ -158,7 +158,14 @@ def upgrade_to_chief(user: SystemUser):
     chief.save()
 
 
-@require_http_methods(["POST"])
+@require_http_methods(["POST", "GET"])
+def foodstuffs(request):
+    if request.method == "GET":
+        return view_foodstuffs(request)
+    if request.method == "POST":
+        return create_foodstuff(request)
+
+
 def create_foodstuff(request):
     request_model = AddFoodstuffRequest(request)
     if get_object_else('name', request_model.name, Foodstuff, True):
@@ -166,6 +173,11 @@ def create_foodstuff(request):
     foodstuff = Foodstuff.objects.create(name=request_model.name, price=request_model.price)
     foodstuff.save()
     return HttpResponse()
+
+
+def view_foodstuffs(request):
+    foodstuffs = Foodstuff.objects.all()
+    return HttpResponse(ObjectListResponse(foodstuffs).json)
 
 
 @require_http_methods(["POST", "GET"])
@@ -227,13 +239,6 @@ def filter_recipe(request):
 @require_http_methods(["GET"])
 def advanced_filter_recipe(request):
     request_model = SearchRecipeInfoRequest(request)
-    ingredients = [IngredientInfoRequest(ingredient) for ingredient in request_model.ingredients]
-    for item in ingredients:
-        ingredient: Ingredient = get_object_else(('foodstuff__name', 'amount', 'unit'),
-                                                 (item.foodstuff, item.amount, item.unit), Ingredient)
-        if not ingredient:
-            return HttpResponse(ErrorResponse(InternalError.INGREDIENT_NOT_FOUND).json)
-
     recipes = Recipe.objects.all()
     if request_model.category != '':
         recipes = recipes.filter(category=request_model.category)
@@ -243,8 +248,8 @@ def advanced_filter_recipe(request):
         recipes = recipes.filter(preparation_time=request_model.preparation_time)
     if request_model.meal_tags != '':
         recipes = recipes.filter(meal_tags__contains=request_model.meal_tags)
-    for ingredient_key in ingredients:
-        recipes = recipes.filter(ingredients__ingredient_key=ingredient_key)
+    for foodstuff in request_model.ingredients:
+        recipes = recipes.filter(ingredients__foodstuff__name=foodstuff)
     return HttpResponse(ObjectListResponse(recipes).json)
 
 
@@ -417,8 +422,7 @@ def view_forum(request, forum_id):
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if not forum:
         return HttpResponse(ErrorResponse(InternalError.FORUM_NOT_FOUND).json)
-    if (user.role == Role.CHIEF and forum.owner.user.username != username) \
-            or not check_forum_membership(user, forum_id):
+    if not check_forum_membership(user, forum_id):
         return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
     return HttpResponse(ForumDetailedResponse(forum).json)
 
@@ -433,7 +437,7 @@ def check_forum_membership(user, forum_id=None, banned=False):
     forum: Forum = get_object_else('forum_id', forum_id, Forum)
     if banned:
         return user in forum.banned.all()
-    return user in forum.members.all()
+    return user in forum.members.all() or forum.owner.user.username == user.username
 
 
 def get_object_else(pk_name, pk, entity, check_only: bool = False):

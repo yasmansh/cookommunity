@@ -11,6 +11,8 @@ import {
   HeroH1,
   ImageBg,
   Searchcontainer,
+  ArrowForward,
+  ArrowRight,
 } from "./HeroElements";
 import axios from "axios";
 
@@ -20,10 +22,9 @@ const HeroSectionSearch = () => {
     setHover(!hover);
   };
   const navigate = useNavigate();
-  const search = () => {
-    // removeAuth4();
-    navigate("/search");
-  };
+  const advanced_search = () => {
+    navigate('/advanced_search');
+  }
 
   const { register, handleSubmit } = useForm();
 
@@ -53,7 +54,7 @@ const HeroSectionSearch = () => {
         <ImageBg src={Hero}></ImageBg>
       </HeroBg>
       <HeroContent>
-        <HeroH1>غذای مورد علاقت رو سرچ کن!</HeroH1>
+        <HeroH1>غذای مورد علاقت رو پیدا کن!</HeroH1>
         <Searchcontainer>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
@@ -73,9 +74,13 @@ const HeroSectionSearch = () => {
             </div>
           </form>
         </Searchcontainer>
+        <br/>
         <div>
-          
+            <Button onClick={advanced_search} primary={+true} onMouseEnter={onHover} onMouseLeave={onHover} dark={+true}>
+                جستجوی پیشرفته{hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
         </div>
+
       </HeroContent>
     </HeroContainer>
   );

@@ -1,0 +1,16 @@
+id,app_label,model
+11,admin,logentry
+13,auth,group
+12,auth,permission
+14,contenttypes,contenttype
+2,cook,chief
+9,cook,comment
+3,cook,foodstuff
+4,cook,forum
+8,cook,forummessage
+5,cook,ingredient
+7,cook,recipe
+10,cook,relationship
+1,cook,systemuser
+6,cook,ticket
+15,sessions,session

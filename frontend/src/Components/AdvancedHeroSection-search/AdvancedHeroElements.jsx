@@ -79,12 +79,9 @@ export const HeroP = styled.p`
   }
 `;
 
-export const HeroLink = styled(Link)`
-  color: #fff;
-  font-size: 20px;
-  text-align: center;
-  margin-top: 24px;
-  text-decoration: none;
+export const HeroLi = styled.li`
+  display: inline;
+  padding: 0px 10px 0px 15px;
 `;
 
 export const HeroBtnWrapper = styled.div`
@@ -102,7 +99,7 @@ export const ArrowRight = styled(MdKeyboardArrowLeft)`
   font-size: 20px;
 `;
 export const Searchcontainer = styled.div`
-  width: 82%;
+  width: 100%;
   background: rgb(218, 217, 216);
   border-radius: 28px;
   margin-top: 101px;

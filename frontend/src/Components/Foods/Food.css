@@ -22,3 +22,32 @@
 .product-item .product-content {
     padding: 10px 50px 30px;
   }
+  /* .product-items{
+    display: flex;
+  } */
+
+  a {
+    color: #415674;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus,
+  a:visited {
+    text-decoration: none;
+    outline: none;
+  }
+  a:hover {
+    color: #0971d2;
+  }
+  .widget {
+    border-radius: 3px;
+    padding: 35px 33px;
+    border: 1px solid #e9eaeb;
+    margin: 40px 10px;
+    min-width: 300px;
+}

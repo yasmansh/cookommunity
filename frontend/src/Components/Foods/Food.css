@@ -1,94 +1,24 @@
-
-a {
-    text-decoration: none;
-    color: #4183c4;
+.product-image {
+  padding: 30px;
+  min-height: 265px;
 }
-
-h2:first-child {
-    margin-top: 0;
+#m-product-image {
+  width: 300px;
 }
-
-.container {
-    max-width: 900px;
-    margin: 1em auto;
+.product-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: left;
 }
-
-.card-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.product-item {
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 30px;
+  /* -webkit-box-shadow: 10px 0 60px rgba(138, 138, 138, 0.15); */
+  box-shadow: 10px 0 60px rgba(138, 138, 138, 0.15);
 }
-
-.food-card {
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, .125);
-    max-width: 32%;
-    margin: 0 0.5% 1em;
-    min-width: 200px;
-}
-
-.card-img {
-    width: 100%;
-}
-
-.card-body {
-    padding: 1em;
-}
-
-.card-description {
-    text-align: justify;
-}
-
-.card-footer {
-    border-top: 1px solid rgba(0, 0, 0, .125);
-    min-height: 30px;
-}
-
-.movie-banner {
-    width: 100%;
-}
-
-.release-year {
-    margin: 1em;
-    font-size: 0.6em;
-    color: #888888;
-}
-
-.detail-img {
-    max-width: 400px;
-}
-
-.detail-body {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2em;
-    flex-wrap: wrap-reverse;
-}
-
-.detail-body > div:first-child {
-    width: 58%;
-}
-
-.detail-body > .images {
-    text-align: center;
-    width: 40%;
-}
-
-.detail-body > .images > img {
-    width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        margin: 0;
-    }
-    .detail-body > .images {
-        width: 100% !important;
-    }
-
-    .detail-body > div:first-child {
-        width: 100%;
-        margin: 1em;
-    }
-}
+.product-item .product-content {
+    padding: 10px 50px 30px;
+  }

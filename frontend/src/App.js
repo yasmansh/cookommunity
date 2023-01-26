@@ -49,8 +49,8 @@ function App() {
         <Route path="/" element={<Home />} exact />
         <Route path="/search" element={<SearchPage />} exact />
         <Route path="/advanced_search" element={<AdvancedSearchPage />} exact />
-        {/* <Route path="/food" element={<Foods />} exact />
-        <Route path="/movies/{movie_id}" element={<FoodDetail />} exact /> */}
+        <Route path="/foods" element={<Foods />} exact />
+        <Route path="/foods/:food_id" element={<FoodDetail />} exact />
         {/* <Route
           path="/login"
           element={<Dashboard removeAuth2={removeAuth1} />}

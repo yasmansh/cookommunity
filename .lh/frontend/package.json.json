@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1673212067934,
@@ -12,6 +12,10 @@
                 {
                     "date": 1673212075556,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n     \"web-vitals\": \"^2.1.4\"\r\n   },\r\n   \"scripts\": {\r\n     \"start\": \"set PORT=3000 && react-scripts start\",\r\n-    \"build\": \"react-scripts --openssl-legacy-provider build\",\r\n+    \"build\": \"react-scripts build\",\r\n     \"test\": \"react-scripts test\",\r\n     \"eject\": \"react-scripts eject\"\r\n   },\r\n   \"eslintConfig\": {\r\n"
+                },
+                {
+                    "date": 1674750303850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,20 @@\n+\r\n {\r\n   \"name\": \"project3\",\r\n   \"version\": \"0.1.0\",\r\n   \"private\": true,\r\n   \"dependencies\": {\r\n     \"@emotion/react\": \"^11.10.5\",\r\n     \"@emotion/styled\": \"^11.10.5\",\r\n+    \"@material-ui/core\": \"^4.12.4\",\r\n     \"@mui/icons-material\": \"^5.10.16\",\r\n     \"@mui/material\": \"^5.10.16\",\r\n     \"@svgr/webpack\": \"^6.5.1\",\r\n     \"@testing-library/jest-dom\": \"^5.16.5\",\r\n     \"@testing-library/react\": \"^13.4.0\",\r\n     \"@testing-library/user-event\": \"^13.5.0\",\r\n+    \"@types/react-select\": \"^5.0.1\",\r\n     \"axios\": \"^1.2.2\",\r\n     \"react\": \"^18.2.0\",\r\n     \"react-dom\": \"^18.2.0\",\r\n     \"react-hook-form\": \"^7.41.5\",\r\n@@ -23,9 +26,9 @@\n     \"styled-components\": \"^5.3.5\",\r\n     \"web-vitals\": \"^2.1.4\"\r\n   },\r\n   \"scripts\": {\r\n-    \"start\": \"set PORT=3000 && react-scripts start\",\r\n+    \"start\": \"react-scripts start\",\r\n     \"build\": \"react-scripts build\",\r\n     \"test\": \"react-scripts test\",\r\n     \"eject\": \"react-scripts eject\"\r\n   },\r\n"
                 }
             ],
             "date": 1673212067934,

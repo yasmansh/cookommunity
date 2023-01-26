@@ -1,0 +1,22 @@
+{
+    "sourceFile": "frontend/src/Components/Foods/Food.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1674751601809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1674751610370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n   return (\r\n     // <p>alllllllll</p>\r\n     <div className=\"container\">\r\n-      <p>hello</p>\r\n+      {/* <p>hello</p> */}\r\n       <FoodList foods={foods} />\r\n     </div>\r\n   );\r\n }\r\n"
+                }
+            ],
+            "date": 1674751601809,
+            "name": "Commit-0",
+            "content": "import React, { useEffect, useState } from \"react\";\r\nimport FoodList from \"./FoodList\";\r\n\r\nfunction Foods() {\r\n  const [foods, setFoods] = useState([]);\r\n\r\n//   useEffect(() => {\r\n//     fetch(\"http://localhost:9000/movies\")\r\n//       .then((res) => res.json())\r\n//       .then((movies) => setMovies(movies));\r\n//   }, []);\r\n\r\n  return (\r\n    // <p>alllllllll</p>\r\n    <div className=\"container\">\r\n      <p>hello</p>\r\n      <FoodList foods={foods} />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Foods;\r\n"
+        }
+    ]
+}

@@ -38,6 +38,12 @@ export const HeroBg = styled.div`
   height: 100%;
   overflow: hidden;
 `;
+
+export const HeroLabel = styled.label`
+  color: darkslategray;
+  font-weight: bold;
+  float: right;
+`;
 export const ImageBg = styled.img`
   width: 100%;
   height: 100%;

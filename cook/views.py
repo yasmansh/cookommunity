@@ -177,7 +177,8 @@ def create_foodstuff(request):
 
 def view_foodstuffs(request):
     foodstuffs = Foodstuff.objects.all()
-    return HttpResponse(json.dumps([f.name for f in foodstuffs]), content_type="application/json")
+    return HttpResponse(ObjectListResponse(foodstuffs).json)
+   # return HttpResponse(json.dumps([f.name for f in foodstuffs]), content_type="application/json")
 
 
 @require_http_methods(["POST", "GET"])

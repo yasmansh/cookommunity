@@ -21,7 +21,6 @@ const HeroSection = () => {
   };
   const navigate = useNavigate();
   const search = () => {
-    // removeAuth4();
     navigate('/search');
   }
   return (

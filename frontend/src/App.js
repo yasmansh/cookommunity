@@ -7,6 +7,9 @@ import Dashboard from "./pages/dashboard";
 import DashEditProfile from "./pages/editProfile";
 import DashPromotion from "./pages/dashPromotion";
 import SearchPage from "./pages/search";
+import AdvancedSearchPage from "./pages/advanced_search";
+import CreateRecipePage from "./pages/create_recipe";
+import ChiefProfilePage from  "./pages/chief_profile";
 import TicketsPage from "./pages/ticket";
 import { useState } from "react";
 import axios from "axios";
@@ -47,6 +50,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/search" element={<SearchPage />} exact />
+        <Route path="/advanced_search" element={<AdvancedSearchPage />} exact />
+        <Route path="/create_recipe" element={<CreateRecipePage />} exact />
+        <Route path="/chief_profile" element={<ChiefProfilePage />} exact />
         {/* <Route path="/food" element={<Foods />} exact />
         <Route path="/movies/{movie_id}" element={<FoodDetail />} exact /> */}
         {/* <Route

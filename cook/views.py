@@ -177,7 +177,11 @@ def create_foodstuff(request):
 
 def view_foodstuffs(request):
     foodstuffs = Foodstuff.objects.all()
-    return HttpResponse(ObjectListResponse(foodstuffs).json)
+    serializedData = json.dumps([{'label': f.name, 
+                                    'value':f.name,
+                                    } for f in foodstuffs])
+    return HttpResponse(serializedData, content_type="application/json")
+    #return HttpResponse(ObjectListResponse(foodstuffs).json)
 
 
 @require_http_methods(["POST", "GET"])
@@ -205,6 +209,7 @@ def create_recipe(request):
         if not ingredient:
             foodstuff: Foodstuff = get_object_else('name', item.foodstuff, Foodstuff)
             if not foodstuff:
+                recipe.delete()
                 return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
             ingredient = Ingredient(foodstuff=foodstuff, amount=item.amount, unit=item.unit)
             ingredient.save()

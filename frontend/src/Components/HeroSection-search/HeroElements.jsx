@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { MdArrowForward, MdKeyboardArrowLeft } from "react-icons/md";
+import { Link } from "react-router-dom";
+
 export const HeroContainer = styled.div`
   background: #0c0c0c;
   display: flex;
@@ -76,6 +78,15 @@ export const HeroP = styled.p`
     font-size: 32px;
   }
 `;
+
+export const HeroLink = styled(Link)`
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 24px;
+  text-decoration: none;
+`;
+
 export const HeroBtnWrapper = styled.div`
   margin-top: 32px;
   display: flex;

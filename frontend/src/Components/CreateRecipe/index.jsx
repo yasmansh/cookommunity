@@ -322,7 +322,7 @@ const CreateRecipe = () => {
 
           <div className="d-button">
             <button type="submit" className="f-button">
-            پیدا کن!
+          بساز !
             </button>
           </div>
         </form>

@@ -49,9 +49,11 @@ export const ChiefH1 = styled.h1`
 export const ChiefH2 = styled.h2`
   font-size: 2rem;
   margin-bottom: 10px;
+  direction: rtl;
 `;
 export const ChiefP = styled.p`
   font-size: 1rem;
   text-align: center;
   color: indigo;
+  direction: rtl;
 `;

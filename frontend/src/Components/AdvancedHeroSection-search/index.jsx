@@ -219,7 +219,7 @@ const HeroSectionSearch = () => {
           },
         }
       )
-      .then((response) => {
+      .then((response) => { //لیست غذاها
         console.log(response.data); //results
       })
       .catch((error) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FoodList from "./FoodList";
-import element from "../../images/logo-3.png";
+import element from "../../images/nodel-ba-panir.jpg";
 import Rating from "@mui/material/Rating";
 import Grid from "@mui/material/Grid";
 import "./Food.css";
@@ -26,47 +26,52 @@ function Foods() {
         <Grid container item spacing={2} xs={12} sm={12} md={3}>
           <Grid item xs={12} sm={12} md={12}>
             <div className="widget widget-menu wow fadeInUp delay-0-4s">
-              <h4 className="widget-title">Category</h4>
+              <h4 className="widget-title">دسته بندی ها</h4>
               <ul>
                 <li>
-                  <Link href="/course-list">
-                    <a>Business Coach </a>
+                  <Link to="/course-list">
+                    <a>دسته ی اول </a>
                   </Link>{" "}
                   <span>(25)</span>
                 </li>
                 <li>
-                  <Link href="/course-list">
-                    <a>Life Coach </a>
+                  <Link to="/course-list">
+                  <a>دسته ی دوم </a>
                   </Link>{" "}
                   <span>(07)</span>
                 </li>
                 <li>
-                  <Link href="/course-list">
-                    <a>Health Coach </a>
+                  <Link to="/course-list">
+                  <a>دسته ی سوم </a>
+
                   </Link>{" "}
                   <span>(12)</span>
                 </li>
                 <li>
-                  <Link href="/course-list">
-                    <a>Web Design </a>
+                  <Link to="/course-list">
+                  <a>دسته ی چهارم </a>
+
                   </Link>{" "}
                   <span>(55)</span>
                 </li>
                 <li>
-                  <Link href="/course-list">
-                    <a>Web Development </a>
+                  <Link to="/course-list">
+                  <a>دسته ی چهارم </a>
+
                   </Link>{" "}
                   <span>(14)</span>
                 </li>
                 <li>
-                  <Link href="/course-list">
-                    <a>SEO Optimizations </a>
+                  <Link to="/course-list">
+                  <a>دسته ی چهارم </a>
+
                   </Link>{" "}
                   <span>(30)</span>
                 </li>
                 <li>
-                  <Link href="/course-list">
-                    <a>Digital Analysis </a>
+                  <Link to="/course-list">
+                  <a>دسته ی چهارم </a>
+
                   </Link>{" "}
                   <span>(18)</span>
                 </li>
@@ -79,16 +84,12 @@ function Foods() {
             <div className="product-item">
               <div className="product-image">
                 <img id="m-product-image" src={element} alt="Products" />
-                <br />
-                <Link href="/contact">
-                  <a className="cart-btn">add to cart</a>
-                </Link>
               </div>
               <div className="product-content">
                 <h6>
-                  <Link href="/product-details">PSD Book Mockup</Link>
+                  <Link to="/foods/3">لازانیا با پنیر</Link>
                 </h6>
-                <span className="category">Medical Equipment</span>
+                <span className="category">فست فود</span>
                 <div className="ratting">
                   <Rating name="read-only" value={4} readOnly />
                 </div>
@@ -102,15 +103,12 @@ function Foods() {
             <div className="product-item">
               <div className="product-image">
                 <img id="m-product-image" src={element} alt="Products" />
-                <Link href="/contact">
-                  <a className="cart-btn">add to cart</a>
-                </Link>
               </div>
               <div className="product-content">
                 <h6>
-                  <Link href="/product-details">PSD Book Mockup</Link>
+                  <Link to="/foods/3">لازانیا با پنیر</Link>
                 </h6>
-                <span className="category">Medical Equipment</span>
+                <span className="category">فست فود</span>
                 <div className="ratting">
                   <Rating name="read-only" value={4} readOnly />
                 </div>
@@ -124,16 +122,12 @@ function Foods() {
             <div className="product-item">
               <div className="product-image">
                 <img id="m-product-image" src={element} alt="Products" />
-                <br />
-                <Link href="/contact">
-                  <a className="cart-btn">add to cart</a>
-                </Link>
               </div>
               <div className="product-content">
                 <h6>
-                  <Link href="/product-details">PSD Book Mockup</Link>
+                  <Link to="/foods/3">لازانیا با پنیر</Link>
                 </h6>
-                <span className="category">Medical Equipment</span>
+                <span className="category">فست فود</span>
                 <div className="ratting">
                   <Rating name="read-only" value={4} readOnly />
                 </div>

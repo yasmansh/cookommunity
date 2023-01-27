@@ -10,7 +10,7 @@ import axios from "axios";
 const EditProfile = () => {
   const { register, handleSubmit } = useForm();
   let username = localStorage.getItem("username");
-  var userDetail={};
+  var userDetail = {};
   const onSubmit = (data) => {
     axios
       .post(
@@ -41,7 +41,7 @@ const EditProfile = () => {
       .catch((error) => {
         // handle error
       });
-  },[]);
+  }, []);
   return (
     <Container>
       <DashboardSidebar />
@@ -100,12 +100,16 @@ const EditProfile = () => {
               <br />
               <input
                 type="text"
-                placeholder="user"
+                placeholder="کاربر"
                 className="f-input"
                 {...register("role")}
               />
             </div>
-            <input type="submit" className="f-button" />
+            <div className="d-button">
+              <button type="button" className="f-button">
+                ویرایش
+              </button>
+            </div>
           </form>
         </div>
       </div>

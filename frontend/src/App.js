@@ -13,6 +13,9 @@ import { useState } from "react";
 import axios from "axios";
 import Foods from "./Components/Foods/Food";
 import FoodDetail from "./Components/Foods/FoodDetail";
+import Forum from "./Components/Forum/Forum";
+import ForumProfile from "./Components/Forum/ForumProfile";
+import ForumDetail from "./Components/Forum/ForumDetail";
 function App() {
   let isLogin = localStorage.getItem("isLogin") === "true";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,6 +54,9 @@ function App() {
         <Route path="/advanced_search" element={<AdvancedSearchPage />} exact />
         <Route path="/foods" element={<Foods />} exact />
         <Route path="/foods/:food_id" element={<FoodDetail />} exact />
+        <Route path="/forum-profile/:chiefId/forumList/:forumId" element={<ForumDetail />} exact />
+        <Route path="/forum-profile/:chiefId/forumList" element={<Forum />} exact />
+        <Route path="/forum-profile/:chiefId" element={<ForumProfile />} exact />
         {/* <Route
           path="/login"
           element={<Dashboard removeAuth2={removeAuth1} />}

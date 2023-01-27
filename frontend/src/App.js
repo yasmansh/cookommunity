@@ -8,6 +8,8 @@ import DashEditProfile from "./pages/editProfile";
 import DashPromotion from "./pages/dashPromotion";
 import SearchPage from "./pages/search";
 import AdvancedSearchPage from "./pages/advanced_search";
+import CreateRecipePage from "./pages/create_recipe";
+import ChiefProfilePage from  "./pages/chief_profile";
 import TicketsPage from "./pages/ticket";
 import { useState } from "react";
 import axios from "axios";
@@ -57,6 +59,8 @@ function App() {
         <Route path="/forum-profile/:chiefId/forumList/:forumId" element={<ForumDetail />} exact />
         <Route path="/forum-profile/:chiefId/forumList" element={<Forum />} exact />
         <Route path="/forum-profile/:chiefId" element={<ForumProfile />} exact />
+        <Route path="/create_recipe" element={<CreateRecipePage />} exact />
+        <Route path="/chief_profile" element={<ChiefProfilePage />} exact />
         {/* <Route
           path="/login"
           element={<Dashboard removeAuth2={removeAuth1} />}

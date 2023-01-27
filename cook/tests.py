@@ -4,6 +4,7 @@ from simplejson import loads as jr, dumps as jw
 from .dto.response import *
 from .enums import *
 
+
 def check_internal_error(test_model: TestCase, response, error=None):
     response_str = response.content.decode("utf-8")
     if error is None:
@@ -21,12 +22,14 @@ class AccountViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         sys_user = SystemUser.objects.create(username='user1', first_name='fn1', last_name='ln1',
-                                  email='user1@gmail.com')
+                                             email='user1@gmail.com')
         sys_user.set_password('pw1')
         sys_user.save()
         foodstuff1 = Foodstuff.objects.create(name='Foodstuff1', price=10)
         foodstuff1.save()
-        recipe = Recipe.objects.create(name='Recipe1', description='test', category=FoodCategory.KEBAB, difficulty=DifficultyType.MEDIUM, preparation_time=DurationType.MEDIUM, meal_tags='#test')
+        recipe = Recipe.objects.create(name='Recipe1', description='test', category=FoodCategory.KEBAB,
+                                       difficulty=DifficultyType.MEDIUM, preparation_time=DurationType.MEDIUM,
+                                       meal_tags='#test')
         recipe.save()
 
     def test_url_admin_exists(self):
@@ -136,9 +139,10 @@ class AccountViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.FOODSTUFF_NOT_FOUND)
 
-
     def test_existing_recipe_create(self):
-        request = dict(name='Recipe1', description='test', category=FoodCategory.FAST_FOOD.value, difficulty=DifficultyType.HARD.value, preparation_time=DurationType.FAST.value, meal_tags='#test', ingredients='beef1-200-1,beef2-100-1')
+        request = dict(name='Recipe1', description='test', category=FoodCategory.FAST_FOOD.value,
+                       difficulty=DifficultyType.HARD.value, preparation_time=DurationType.FAST.value,
+                       meal_tags='#test', ingredients='beef1-200-1,beef2-100-1')
         response = self.client.post('/api/recipe/create/', request)
         self.assertEqual(response.status_code, 200)
         check_internal_error(self, response, InternalError.RECIPE_EXIST)

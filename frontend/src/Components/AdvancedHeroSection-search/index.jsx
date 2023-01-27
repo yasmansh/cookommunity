@@ -17,6 +17,8 @@ import {
 } from "./AdvancedHeroElements";
 import axios from "axios";
 import Select from 'react-select';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { MultiSelect } from "react-multi-select-component";
 
 
 // Enum: FoodCategory
@@ -117,15 +119,12 @@ const PreparationTime = () => {
   );
 };
 
-const IngredientOptions = [
-  { value: "beef", label: 'beef' },
-  { value: "rice", label: 'برنج' },
-];
-//$('#Ingredients div>div>div').textContent
+
+//Selected Ingredients : {JSON.stringify(selectedIngredients)}
 const Ingredients = () => {
-  const [selectedIngredients, setSelectedIngredients] = useState(null);
-  
-  const url = 'http://127.0.0.1:8000/api/foodstuffs/';
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+ 
+  const url = 'http://127.0.0.1:8000/api/foodstuffs/';  //View Foodstuffs
   const [ingredientList, setingredientList] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   useEffect(() => {
@@ -138,31 +137,61 @@ const Ingredients = () => {
 
   return (
     <div>
-
       {isLoading ? (
         <div className='spinner-border text-primary' role='status'>
           {' '}
           <span className='sr-only'>در حال دریافت اطلاعات...</span>{' '}
         </div>
-      ) : (
-				ingredientList.map(item => {
-         // Convert and add ingredientList item to IngredientOption
-    })
+        ) : (
+          <div></div>
+        )
+      }
 
-      )}
-
-      
-      <label>مواد غذایی: </label>
+      <HeroLabel>مواد غذایی: </HeroLabel>
       <br/>
-      <Select
+      <div style={{maxWidth: '330px', margin: 'auto'}}>
+        <MultiSelect
+          value={selectedIngredients}
+          onChange={setSelectedIngredients}
+          options={ingredientList}
+          labelledBy="انتخاب کنید"
+          hasSelectAll={false}
+          style={{borderRadius: '35px', textAlign: 'center', fontSize: '16px'}}
+        />
+      </div>
+      {/* <DropdownButton
+      alignRight
+      Multiselect
+      title="مواد غذایی"
+      id="Ingredients"
+      name="Ingredients"
+      onSelect={handleSelect}
+        >
+              <Dropdown.Item eventKey="" active>همه</Dropdown.Item>
+              <Dropdown.Divider />
+              {ingredientList.map((data, key) => {
+                return(
+                  <Dropdown.Item eventKey={data.name}>{data.name}</Dropdown.Item>
+                );
+              })}
+      </DropdownButton>
+      <p>You selected {value}</p> */}
+
+      {/* <Select
         id="Ingredients"
+        name="Ingredients"
         placeholder="انتخاب کنید"
-        defaultValue={selectedIngredients}
-        onChange={setSelectedIngredients}
-        options={IngredientOptions}
+        value={selectedIngredients}
+        onChange={handleChange}
+        options=
+          {ingredientList.map((data, key) => {
+            return(
+              <option value="{data.name}">{data.name}</option>
+            );
+          })}
         isSearchable
         isMulti 
-      />
+      /> */}
     </div>
   );
 };
@@ -180,7 +209,6 @@ const HeroSectionSearch = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    debugger;
     axios
       .post(
         `http://127.0.0.1:8000/api/recipes/advanced_filter/`,
@@ -198,7 +226,7 @@ const HeroSectionSearch = () => {
         console.log("error in filter by name");
       });
   };
-//TODO
+
   return (
     <HeroContainer>
       <HeroBg>

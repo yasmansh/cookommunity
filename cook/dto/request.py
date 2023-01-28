@@ -105,3 +105,18 @@ class PostOnForumRequest(BaseRequest):
         super().__init__(req, is_post=True)
         self.sender = self.data['sender']
         self.text = self.data['text']
+
+
+class PostCommentRequest(BaseRequest):
+    def __init__(self, req):
+        super().__init__(req, is_post=True)
+        self.username = self.data['username']
+        self.text = self.data['text']
+        self.recipe_id = self.data['recipe_id']
+
+
+class RateRecipeRequest(BaseRequest):
+    def __init__(self, req):
+        super().__init__(req)
+        self.username = self.data['username']
+        self.score = self.data['score']

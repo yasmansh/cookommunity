@@ -22,6 +22,9 @@ class InternalError(Enum):
     NOT_ALLOWED = (405, "عملیات مجاز نیست.")
     FORUM_NOT_FOUND = (404, "چنین فورومی ایجاد نشده است.")
     BANNED_USER = (405, "شما از پیوستن به این فوروم بازداشته‌ شده‌اید.")
+    COMMENT_NOT_FOUND = (404, "چنین نظری ثبت نشده‌است.")
+    CANNOT_RATE_SELF = (405, "شما نمی‌توانید به دستور خود امتیاز دهید")
+    RATING_TWICE = (405, "شما نمی‌توانید دوبار به یک دستور امتیاز دهید")
 
     def get_code(self):
         return self.value[0]

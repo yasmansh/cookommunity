@@ -130,7 +130,7 @@ class Recipe(models.Model):
     recipe_id = models.AutoField(primary_key=True)
     chief = models.ForeignKey(Chief, on_delete=models.CASCADE, verbose_name='آشپز')
     name = models.CharField(verbose_name='نام', unique=True, max_length=100)
-    ingredients = models.ManyToManyField(Ingredient, db_constraint=False)
+    ingredients = models.ManyToManyField(Ingredient, verbose_name='مواد لازم')
     category = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN,
                                    verbose_name='دسته‌ی غذایی')
     description = models.TextField(verbose_name='توضیحات', max_length=1200)
@@ -144,25 +144,44 @@ class Recipe(models.Model):
                              default='settings.MEDIA_ROOT/default_recipe.jpg')
     date_created = models.DateTimeField(auto_now=True)
     score = models.FloatField(verbose_name='امتیاز', default=0)
+    rated_users = models.ManyToManyField(SystemUser, verbose_name='کاربران رای داده')
     rate = models.IntegerField(verbose_name='تعداد کاربران امتیاز دهنده', default=0)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.username, name=self.name, score=self.score,
-                              difficulty=self.difficulty, time=self.preparation_time, rate=self.rate)
+        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.username, description=self.description,
+                              name=self.name, score=self.score, difficulty=self.difficulty, time=self.preparation_time,
+                              rate=self.rate)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.username, description=self.description,
+                              name=self.name, score=self.score, difficulty=self.difficulty, time=self.preparation_time,
+                              rate=self.rate)
 
     def __str__(self) -> str:
         return f"{self.name}"
 
 
 class Comment(models.Model):
+    comment_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(SystemUser, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     text = models.TextField()
     date_posted = models.DateTimeField(auto_now=True)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.data_dict = dict(id=self.comment_id, user_first_name=self.user.first_name,
+                              user_last_name=self.user.last_name, text=self.text, date=str(self.date_posted))
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        self.data_dict = dict(id=self.comment_id, user_first_name=self.user.first_name,
+                              user_last_name=self.user.last_name, text=self.text, date=str(self.date_posted))
+
     def __str__(self) -> str:
-        return f"{self.user} on {self.recipe.name}: {self.text}"
+        return f"{self.user.first_name} {self.user.last_name} on {self.recipe.name}: {self.text}"
 
 
 class Forum(models.Model):

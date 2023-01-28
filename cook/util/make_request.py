@@ -2,6 +2,7 @@ import sys
 from typing import IO
 
 from json import load as jr
+from json import dumps as jw
 import requests
 
 BASE_API = "http://127.0.0.1:8000/api/"
@@ -20,7 +21,7 @@ def make_recipes_request(data_file: IO):
     data_list = jr(data_file)
     for data in data_list:
         print(data['name'])
-        requests.post(api, data=data)
+        requests.post(api, data=jw(data))
 
 
 if __name__ == "__main__":

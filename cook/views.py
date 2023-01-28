@@ -177,11 +177,11 @@ def create_foodstuff(request):
 
 def view_foodstuffs(request):
     foodstuffs = Foodstuff.objects.all()
-    serializedData = json.dumps([{'label': f.name, 
-                                    'value':f.name,
-                                    } for f in foodstuffs])
+    serializedData = json.dumps([{'label': f.name,
+                                  'value': f.name,
+                                  } for f in foodstuffs])
     return HttpResponse(serializedData, content_type="application/json")
-    #return HttpResponse(ObjectListResponse(foodstuffs).json)
+    # return HttpResponse(ObjectListResponse(foodstuffs).json)
 
 
 @require_http_methods(["POST", "GET"])
@@ -209,10 +209,12 @@ def create_recipe(request):
         if not ingredient:
             foodstuff: Foodstuff = get_object_else('name', item.foodstuff, Foodstuff)
             if not foodstuff:
+                print(item.foodstuff)
                 recipe.delete()
                 return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
             ingredient = Ingredient(foodstuff=foodstuff, amount=item.amount, unit=item.unit)
             ingredient.save()
+        recipe.price += ingredient.amount * ingredient.foodstuff.price
         recipe.ingredients.add(ingredient)
     recipe.save()
     return HttpResponse(ObjectInfoResponse(recipe).json)
@@ -230,6 +232,15 @@ def add_recipe_photo(request, recipe_id):
         return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
     recipe.photo = request.FILES['photo']
     recipe.save()
+    return HttpResponse(ObjectInfoResponse(recipe).json)
+
+
+@require_http_methods(["DELETE"])
+def remove_recipe(request, recipe_id):
+    recipe: Recipe = get_object_else('recipe_id', recipe_id, Recipe)
+    if not recipe:
+        return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
+    recipe.delete()
     return HttpResponse(ObjectInfoResponse(recipe).json)
 
 
@@ -430,6 +441,71 @@ def view_forum(request, forum_id):
     if not check_forum_membership(user, forum_id):
         return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
     return HttpResponse(ForumDetailedResponse(forum).json)
+
+
+@require_http_methods(["POST", "GET"])
+def comments(request):
+    if request.method == "POST":
+        return post_comment(request)
+    if request.method == "GET":
+        return view_comments(request)
+
+
+def post_comment(request):
+    request_model = PostCommentRequest(request)
+    user: SystemUser = get_object_else('username', request_model.username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    recipe: Recipe = get_object_else('recipe_id', request_model.recipe_id, Recipe)
+    if not recipe:
+        return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
+    comment = Comment(user=user, recipe=recipe, text=request_model.text)
+    comment.save()
+    return HttpResponse(ObjectListResponse(recipe.comment_set.all()).json)
+
+
+def view_comments(request):
+    recipe: Recipe = get_object_else('recipe_id', request.GET.get('recipe_id'), Recipe)
+    if not recipe:
+        return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
+    return HttpResponse(ObjectListResponse(recipe.comment_set.all()).json)
+
+
+@require_http_methods(["DELETE"])
+def delete_comment(request, comment_id):
+    username = request.GET.get('username')
+    comment: Comment = get_object_else('comment_id', comment_id, Comment)
+    if not comment:
+        return HttpResponse(ErrorResponse(InternalError.COMMENT_NOT_FOUND).json)
+    if comment.user.username != username:
+        return HttpResponse(ErrorResponse(InternalError.UNAUTHORIZED).json)
+    user: SystemUser = get_object_else('username', username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    recipe = comment.recipe
+    comment.delete()
+    return HttpResponse(ObjectListResponse(recipe.comment_set.all()).json)
+
+
+@require_http_methods(["PATCH"])
+def rate_recipe(request, recipe_id):
+    request_model = RateRecipeRequest(request)
+    recipe: Recipe = get_object_else('recipe_id', recipe_id, Recipe)
+    if not recipe:
+        return HttpResponse(ErrorResponse(InternalError.RECIPE_NOT_FOUND).json)
+    username = request_model.username
+    if username == recipe.chief.user.username:
+        return HttpResponse(ErrorResponse(InternalError.CANNOT_RATE_SELF).json)
+    user: SystemUser = get_object_else('username', username, SystemUser)
+    if not user:
+        return HttpResponse(ErrorResponse(InternalError.ACCOUNT_NOT_FOUND).json)
+    if user in recipe.rated_users.all():
+        return HttpResponse(ErrorResponse(InternalError.RATING_TWICE).json)
+    recipe.rated_users.add(user)
+    recipe.score = (recipe.score * recipe.rate + request_model.score) / (recipe.rate + 1)
+    recipe.rate += 1
+    recipe.save()
+    return HttpResponse(ObjectInfoResponse(recipe).json)
 
 
 def check_forum_membership(user, forum_id=None, banned=False):

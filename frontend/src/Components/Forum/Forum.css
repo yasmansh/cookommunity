@@ -14,3 +14,48 @@
   .MuiDataGrid-root {
     height: 700px !important;
   }
+  .input-group{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+width: 100%;
+margin-bottom: 45px;
+  }
+  .btn {
+    position: relative;
+    background: #4c4cf1;
+    width: 80px;
+    padding: 0;
+    border: none;
+    color: #fff;
+    text-align: center;
+    border-top-left-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+  }
+  .btn:hover{
+    background: #4c4cf1;
+    color: #fff;
+  }
+  .mbtn{
+    position: relative;
+    background: #fab209;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+  .mbtn2{
+    position: relative;
+    background: #b658ed;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+  .MuiTableCell-root {
+    text-align: right !important;
+  }

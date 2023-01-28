@@ -12,12 +12,12 @@ import CreateRecipePage from "./pages/create_recipe";
 import ChiefProfilePage from  "./pages/chief_profile";
 import TicketsPage from "./pages/ticket";
 import { useState } from "react";
-import axios from "axios";
 import Foods from "./Components/Foods/Food";
 import FoodDetail from "./Components/Foods/FoodDetail";
 import Forum from "./Components/Forum/Forum";
 import ForumProfile from "./Components/Forum/ForumProfile";
 import ForumDetail from "./Components/Forum/ForumDetail";
+
 function App() {
   let isLogin = localStorage.getItem("isLogin") === "true";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,28 +26,17 @@ function App() {
   console.log(fetchFood);
   };
   const setAuth = (value) => {
-    // console.log(value);
-    localStorage.setItem("username", value);
+    localStorage.setItem("username", value.username);
+    localStorage.setItem("role", value.role);
     localStorage.setItem("isLogin", true);
     isLogin = true;
   };
 
   const removeAuth = () => {
-    let username = localStorage.getItem("username")
-    let useObject={"username":username};
-    //window.location.reload()
-    axios
-    .put("http://127.0.0.1:8000/api/accounts/logout/", JSON.stringify(useObject), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then((response) => {
-      console.log("removeAuth");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    localStorage.setItem("isLogin", false);
+    isLogin = false;
+    localStorage.clear(); 
+
   };
   //atom globally
 
@@ -60,9 +49,9 @@ function App() {
         <Route path="/advanced_search" element={<AdvancedSearchPage setFoods={setFoods} />} exact />
         <Route path="/foods" element={<Foods fetchFood={fetchFood}/>} exact />
         <Route path="/foods/:food_id" element={<FoodDetail />} exact />
-        <Route path="/forum-profile/:chiefId/forumList/:forumId" element={<ForumDetail />} exact />
-        <Route path="/forum-profile/:chiefId/forumList" element={<Forum />} exact />
-        <Route path="/forum-profile/:chiefId" element={<ForumProfile />} exact />
+        <Route path="/forum-profile/:chiefName/forumList/:forumName" element={<ForumDetail />} exact />
+        <Route path="/forum-profile/:chiefName/forumList" element={<Forum />} exact />
+        <Route path="/forum-profile/:chiefName" element={<ForumProfile />} exact />
         <Route path="/create_recipe" element={<CreateRecipePage />} exact />
         <Route path="/chief_profile" element={<ChiefProfilePage />} exact />
         {/* <Route

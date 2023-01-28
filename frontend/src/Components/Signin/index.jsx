@@ -30,7 +30,8 @@ const SigninForm = ({ setAuth }) => {
         },
       })
       .then((response) => {
-        setAuth(data.username);
+        setAuth(response.data);
+        console.log(response.data);
         navigate("/dashboard");
       })
       .catch((error) => {

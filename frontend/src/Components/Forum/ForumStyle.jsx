@@ -3,8 +3,7 @@ export const ChiefContainer = styled.div`
   height: 850px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   background-color: #35334d;
 `;
 export const ChiefWrapper = styled.div`
@@ -41,8 +40,12 @@ export const ChiefImage = styled.img`
 export const ChiefH1 = styled.h3`
   color: #fff;
   margin-bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-export const ChiefH2 = styled.h4`
+export const ChiefH2 = styled.h5`
   margin-bottom: 10px;
   text-align: center;
 `;

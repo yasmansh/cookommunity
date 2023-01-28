@@ -3,15 +3,33 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
-import {useNavigate}  from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
+import axios from "axios";
 import url_img from "./../../images/1.jpg";
-const DashboardHeader = ({removeAuth}) => {
+const DashboardHeader = ({ removeAuth }) => {
   const navigate = useNavigate();
   const logout = () => {
-    removeAuth();
-    navigate('/');
-  }
+    let username = localStorage.getItem("username")
+    let useObject={"username":username}
+    axios
+      .put(
+        "http://127.0.0.1:8000/api/accounts/logout/",
+        JSON.stringify(useObject),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        removeAuth();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="web-header">
       <div className="element">

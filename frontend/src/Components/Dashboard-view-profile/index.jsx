@@ -15,7 +15,7 @@ const ViewProfile = ({removeAuth}) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        console.log()
+        console.log(username)
         axios
             .get(BASE_API + `accounts/${username}/profile/?username=${username}`)
             .then((response) => {

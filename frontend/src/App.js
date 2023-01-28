@@ -56,7 +56,7 @@ function App() {
     <Router className="App">
       <Routes>
         <Route path="/" element={<Home />} exact />
-        <Route path="/search" element={<SearchPage />} exact />
+        <Route path="/search" element={<SearchPage setFoods={setFoods}/>} exact />
         <Route path="/advanced_search" element={<AdvancedSearchPage setFoods={setFoods} />} exact />
         <Route path="/foods" element={<Foods fetchFood={fetchFood}/>} exact />
         <Route path="/foods/:food_id" element={<FoodDetail />} exact />

@@ -1,0 +1,16 @@
+.forum_body_area {
+    height: 100%;
+    background: #fff;
+    padding: 50px 40px 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 30px 60px 0 rgba(2, 2, 48, 0.08);
+  }
+  .MuiTablePagination-toolbar {
+    display: none !important;
+  }
+  .MuiTable-root{
+    size:medium;
+  }
+  .MuiDataGrid-root {
+    height: 700px !important;
+  }

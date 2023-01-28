@@ -16,7 +16,7 @@ import {
 } from "./HeroElements";
 import axios from "axios";
 
-const HeroSectionSearch = () => {
+const HeroSectionSearch = ({setFoods}) => {
   const [hover, setHover] = useState(false);
   const onHover = () => {
     setHover(!hover);
@@ -30,7 +30,7 @@ const HeroSectionSearch = () => {
 
   const onSubmit = (data) => {
     axios
-      .post(
+      .get(
         //api/recipes/filter/?criterion=name__contains&name__contains=کباب
         `http://127.0.0.1:8000/api/recipes/filter/?criterion=name__contains&name__contains=${data.name__contains}`,
         JSON.stringify(data),
@@ -41,7 +41,8 @@ const HeroSectionSearch = () => {
         }
       )
       .then((response) => {
-        console.log(response.data); //results
+        setFoods(response.data); //results
+        navigate("/foods");
       })
       .catch((error) => {
         console.log("error in filter by name");

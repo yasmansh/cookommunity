@@ -8,18 +8,9 @@ import "./Food.css";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-function Foods() {
-  const [foods, setFoods] = useState([]);
-
-  //   useEffect(() => {
-  //     fetch("http://localhost:9000/movies")
-  //       .then((res) => res.json())
-  //       .then((movies) => setMovies(movies));
-  //   }, []);
-
+function Foods({ fetchFood }) {
   return (
     <>
-      {/* <FoodList foods={foods} /> */}
       <Sidebar />
       <Navbar />
       <Grid container spacing={2}>
@@ -30,48 +21,43 @@ function Foods() {
               <ul>
                 <li>
                   <Link to="/course-list">
-                    <a>دسته ی اول </a>
+                    <a>همه </a>
                   </Link>{" "}
                   <span>(25)</span>
                 </li>
                 <li>
                   <Link to="/course-list">
-                  <a>دسته ی دوم </a>
+                    <a>آسیایی </a>
                   </Link>{" "}
                   <span>(07)</span>
                 </li>
                 <li>
                   <Link to="/course-list">
-                  <a>دسته ی سوم </a>
-
+                    <a>دریایی</a>
                   </Link>{" "}
                   <span>(12)</span>
                 </li>
                 <li>
                   <Link to="/course-list">
-                  <a>دسته ی چهارم </a>
-
+                    <a>گیاهی</a>
                   </Link>{" "}
                   <span>(55)</span>
                 </li>
                 <li>
                   <Link to="/course-list">
-                  <a>دسته ی چهارم </a>
-
+                    <a>کباب</a>
                   </Link>{" "}
                   <span>(14)</span>
                 </li>
                 <li>
                   <Link to="/course-list">
-                  <a>دسته ی چهارم </a>
-
+                    <a>ایرانی</a>
                   </Link>{" "}
                   <span>(30)</span>
                 </li>
                 <li>
                   <Link to="/course-list">
-                  <a>دسته ی چهارم </a>
-
+                    <a>فود</a>
                   </Link>{" "}
                   <span>(18)</span>
                 </li>
@@ -80,63 +66,7 @@ function Foods() {
           </Grid>
         </Grid>
         <Grid container item spacing={2} xs={12} sm={12} md={9}>
-          <Grid item xs={12} sm={6} md={4}>
-            <div className="product-item">
-              <div className="product-image">
-                <img id="m-product-image" src={element} alt="Products" />
-              </div>
-              <div className="product-content">
-                <h6>
-                  <Link to="/foods/3">لازانیا با پنیر</Link>
-                </h6>
-                <span className="category">فست فود</span>
-                <div className="ratting">
-                  <Rating name="read-only" value={4} readOnly />
-                </div>
-                <span className="price">
-                  <span>53.56</span>
-                </span>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <div className="product-item">
-              <div className="product-image">
-                <img id="m-product-image" src={element} alt="Products" />
-              </div>
-              <div className="product-content">
-                <h6>
-                  <Link to="/foods/3">لازانیا با پنیر</Link>
-                </h6>
-                <span className="category">فست فود</span>
-                <div className="ratting">
-                  <Rating name="read-only" value={4} readOnly />
-                </div>
-                <span className="price">
-                  <span>53.56</span>
-                </span>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <div className="product-item">
-              <div className="product-image">
-                <img id="m-product-image" src={element} alt="Products" />
-              </div>
-              <div className="product-content">
-                <h6>
-                  <Link to="/foods/3">لازانیا با پنیر</Link>
-                </h6>
-                <span className="category">فست فود</span>
-                <div className="ratting">
-                  <Rating name="read-only" value={4} readOnly />
-                </div>
-                <span className="price">
-                  <span>53.56</span>
-                </span>
-              </div>
-            </div>
-          </Grid>
+          <FoodList foods={fetchFood} />
         </Grid>
       </Grid>
     </>

@@ -241,7 +241,7 @@ def filter_recipe(request):
     return HttpResponse(RecipeDetailedResponse(recipes).json)
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 def advanced_filter_recipe(request):
     request_model = SearchRecipeInfoRequest(request)
     recipes = Recipe.objects.all()

@@ -3,11 +3,12 @@ import FoodCard from './FoodCard'
 
 function FoodList({foods }) {
   return (
-    <div className="card-list container">
+    <>
       {foods.map((food) => (
         <FoodCard key={food.id} food={food} />
       ))}
-    </div>
+      {console.log(foods)}
+    </>
   )
 }
 

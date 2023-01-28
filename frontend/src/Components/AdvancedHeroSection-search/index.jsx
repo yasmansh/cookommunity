@@ -18,6 +18,7 @@ import {
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MultiSelect } from "react-multi-select-component";
+import FoodList from "../Foods/FoodList";
 
 const FoodCategoryOptions = [
   {
@@ -50,8 +51,7 @@ const FoodCategoryOptions = [
   },
 ];
 
-
-const HeroSectionSearch = () => {
+const HeroSectionSearch = ({setFoods}) => {
   const [hover, setHover] = useState(false);
   const onHover = () => {
     setHover(!hover);
@@ -66,28 +66,27 @@ const HeroSectionSearch = () => {
   const [tag, setTag] = useState("");
   const [preparation_time, setPreparation_time] = useState("");
   const [ingredients, setIngredients] = useState([]);
- 
+  const [fetchData, setfetchData] = useState([]);
   const onSubmit = (data) => {
-    let mingredients={ingredients.label,ingredients.value}
-    data.ingredients=ingredients;
-    console.log(JSON.stringify(mingredients));
+    let mingredients = ingredients.map((resDataItem) => resDataItem.value);
+    data.ingredients = mingredients;
     axios
-    .get(
-      `http://127.0.0.1:8000/api/recipes/advanced_filter/`,
-      JSON.stringify(data),
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-    .then((response) => {
-      console.log(response);
-      console.log("DD");
-    })
-    .catch((error) => {
-      console.log("NDD");
-    });
+      .post(
+        `http://127.0.0.1:8000/api/recipes/advanced_filter/`,
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        setFoods(response.data);
+        navigate("/foods");
+      })
+      .catch((error) => {
+        console.log("NDD");
+      });
   };
 
   const [ingredientList, setingredientList] = useState([]);
@@ -259,7 +258,6 @@ const HeroSectionSearch = () => {
                   }}
                 />
               </div>
-          
             </div>
 
             <div className="d-button">
@@ -282,6 +280,7 @@ const HeroSectionSearch = () => {
           </Button>
         </div>
       </HeroContent>
+      {fetchData && <FoodList foods={fetchData}/>}
     </HeroContainer>
   );
 };

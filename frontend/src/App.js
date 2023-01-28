@@ -21,6 +21,10 @@ import ForumDetail from "./Components/Forum/ForumDetail";
 function App() {
   let isLogin = localStorage.getItem("isLogin") === "true";
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [fetchFood, setfetchFood] = useState([]);
+  const setFoods = (value) => {setfetchFood(value)
+  console.log(fetchFood);
+  };
   const setAuth = (value) => {
     // console.log(value);
     localStorage.setItem("username", value);
@@ -53,8 +57,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/search" element={<SearchPage />} exact />
-        <Route path="/advanced_search" element={<AdvancedSearchPage />} exact />
-        <Route path="/foods" element={<Foods />} exact />
+        <Route path="/advanced_search" element={<AdvancedSearchPage setFoods={setFoods} />} exact />
+        <Route path="/foods" element={<Foods fetchFood={fetchFood}/>} exact />
         <Route path="/foods/:food_id" element={<FoodDetail />} exact />
         <Route path="/forum-profile/:chiefId/forumList/:forumId" element={<ForumDetail />} exact />
         <Route path="/forum-profile/:chiefId/forumList" element={<Forum />} exact />

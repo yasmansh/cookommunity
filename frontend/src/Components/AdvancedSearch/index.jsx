@@ -3,13 +3,13 @@ import Navbar from "../Navbar-second";
 import AdvancedHeroSectionSearch from "../AdvancedHeroSection-search";
 import { Container } from "./AdvancedSearchFood";
 
-const AdvancedSearchFood = () => {
+const AdvancedSearchFood = ({setFoods}) => {
   return (
     <Container>
       <>
         <Sidebar/>
         <Navbar />
-        <AdvancedHeroSectionSearch />
+        <AdvancedHeroSectionSearch setFoods={setFoods}/>
       </>
     </Container>
   );

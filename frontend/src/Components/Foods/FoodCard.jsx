@@ -1,16 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Rating from "@mui/material/Rating";
+import Grid from "@mui/material/Grid";
+import element from "../../images/nodel-ba-panir.jpg";
 function FoodCard({ food }) {
   return (
-    <div className="food-card">
-      <img className="card-img" src={food.imageUrl} alt="" />
-      <div className="card-body">
-        <Link to={`/foods/${food.id}`}>
-          <h2 className="card-title">{food.title}</h2>
-        </Link>
-        <p className="card-description">{food.short_description}</p>
-      </div>
-    </div>
+    <Grid item xs={12} sm={6} md={4}>
+            <div className="product-item">
+              <div className="product-image">
+                <img id="m-product-image" src={element} alt="Products" />
+              </div>
+              <div className="product-content">
+                <h6>
+                  <Link to={`/foods/${ food.id }`}>{ food.name }</Link>
+                </h6>
+                <span className="category">{ food.cheif }</span>
+                <div className="ratting">
+                  <Rating name="read-only" value={food.score} readOnly />
+                </div>
+                <span className="price">
+                  <span>53.56</span>
+                </span>
+              </div>
+            </div>
+          </Grid>
   );
 }
 

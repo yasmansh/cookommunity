@@ -20,6 +20,7 @@ import Forum from "./Components/Forum/Forum";
 import ForumProfile from "./Components/Forum/ForumProfile";
 import ForumDetail from "./Components/Forum/ForumDetail";
 
+
 export const BASE_API = "http://127.0.0.1:8000/api/"
 export const ROLES = {1: "کاربر", 2: "آشپز"}
 
@@ -29,6 +30,18 @@ export function check_error(response) {
 
 
 function App() {
+  let isLogin = localStorage.getItem("isLogin") === "true";
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [fetchFood, setfetchFood] = useState([]);
+  const setFoods = (value) => {setfetchFood(value)
+  console.log(fetchFood);
+  };
+  const setAuth = (value) => {
+    localStorage.setItem("username", value.username);
+    localStorage.setItem("role", value.role);
+    localStorage.setItem("isLogin", true);
+    isLogin = true;
+  };
     let isLogin = localStorage.getItem("isLogin") === "true";
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [fetchFood, setfetchFood] = useState([]);
@@ -43,6 +56,29 @@ function App() {
         isLogin = true;
     };
 
+  const removeAuth = () => {
+    localStorage.setItem("isLogin", false);
+    isLogin = false;
+    localStorage.clear();
+
+  };
+  //atom globally
+
+  return (
+    //import redirect with navigate
+    <Router className="App">
+      <Routes>
+        <Route path="/" element={<Home />} exact />
+        <Route path="/search" element={<SearchPage setFoods={setFoods}/>} exact />
+        <Route path="/advanced_search" element={<AdvancedSearchPage setFoods={setFoods} />} exact />
+        <Route path="/foods" element={<Foods fetchFood={fetchFood}/>} exact />
+        <Route path="/foods/:food_id" element={<FoodDetail />} exact />
+        <Route path="/forum-profile/:chiefName/forumList/:forumName" element={<ForumDetail />} exact />
+        <Route path="/forum-profile/:chiefName/forumList" element={<Forum />} exact />
+        <Route path="/forum-profile/:chiefName" element={<ForumProfile />} exact />
+        <Route path="/create_recipe" element={<CreateRecipePage />} exact />
+        <Route path="/chief_profile" element={<ChiefProfilePage />} exact />
+        {/* <Route
     const removeAuth = () => {
         let username = JSON.parse(localStorage.getItem("username"))
         let useObject = {"username": username};
@@ -88,7 +124,7 @@ function App() {
           element={<Dashboard removeAuth2={removeAuth1} />}
           exact
         /> */}
-                {/* {!isLogin && (
+        {/* {!isLogin && (
           <>
             
           </>

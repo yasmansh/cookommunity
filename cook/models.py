@@ -149,15 +149,15 @@ class Recipe(models.Model):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.username, description=self.description,
+        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.data_dict, description=self.description,
                               name=self.name, score=self.score, difficulty=self.difficulty, time=self.preparation_time,
-                              rate=self.rate)
+                              rate=self.rate, price=self.price)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         super().save(force_insert, force_update, using, update_fields)
-        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.username, description=self.description,
+        self.data_dict = dict(id=self.recipe_id, chief=self.chief.user.data_dict, description=self.description,
                               name=self.name, score=self.score, difficulty=self.difficulty, time=self.preparation_time,
-                              rate=self.rate)
+                              rate=self.rate, price=self.price)
 
     def __str__(self) -> str:
         return f"{self.name}"

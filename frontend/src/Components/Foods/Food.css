@@ -123,7 +123,7 @@ a:hover {
   color: #204ecf;
   margin-right: 10px;
 }
-.ratting {
+.rating {
   display: flex;
   align-items: center;
   align-content: center;
@@ -171,6 +171,9 @@ a:hover {
   font-size: 18px;
 }
 .product-item .product-content .category {
+  font-size: 15px;
+}
+.product-item .product-content .chief {
   font-size: 15px;
 }
 .card-description {

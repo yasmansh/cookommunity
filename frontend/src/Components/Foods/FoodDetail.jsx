@@ -26,7 +26,7 @@ function FoodDetail() {
             <img src={author} alt="author" />
             <h6>آشپز رضا</h6>
           </div>
-          <div className="ratting">
+          <div className="rating">
             <Rating name="read-only" value={4} readOnly />
             <span className="price">59.58</span>
           </div>

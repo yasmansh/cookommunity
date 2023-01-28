@@ -19,12 +19,14 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
+import {BASE_API} from "../../App";
+
 const SigninForm = ({ setAuth }) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
     axios
-      .post("http://127.0.0.1:8000/api/accounts/login/", JSON.stringify(data), {
+      .post(BASE_API + "accounts/login/", JSON.stringify(data), {
         headers: {
           "Content-Type": "application/json",
         },

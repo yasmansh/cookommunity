@@ -3,11 +3,11 @@ import { Container} from "./Dash-promotion";
 import DashboardSidebar from "../Dashboard/Dash-sidebar";
 import DashboardHeader from "../Dashboard/Dash-header";
 import "./dash-promotion.css";
-const DashPromotionComponent = () => {
+const DashPromotionComponent = ({removeAuth}) => {
   return (
     <Container>
       <DashboardSidebar />
-      <DashboardHeader />
+      <DashboardHeader removeAuth={removeAuth}/>
       <div className="content-edit">
       <p className="content-promotion"> سلام علی به سایت ما خوش آمدی</p>
       <h2 className="content-promotion">درخواست ارتقای حساب کاربری</h2>

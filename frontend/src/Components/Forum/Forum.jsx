@@ -89,7 +89,7 @@ function Forum() {
                   <Link to="/Forums/3">PSD Book Mockup</Link>
                 </h6>
                 <span className="category">Medical Equipment</span>
-                <div className="ratting">
+                <div className="rating">
                   <Rating name="read-only" value={4} readOnly />
                 </div>
                 <span className="price">
@@ -111,7 +111,7 @@ function Forum() {
                   <Link to="/Forums/3">PSD Book Mockup</Link>
                 </h6>
                 <span className="category">Medical Equipment</span>
-                <div className="ratting">
+                <div className="rating">
                   <Rating name="read-only" value={4} readOnly />
                 </div>
                 <span className="price">
@@ -134,7 +134,7 @@ function Forum() {
                   <Link to="Forums/3">PSD Book Mockup</Link>
                 </h6>
                 <span className="category">Medical Equipment</span>
-                <div className="ratting">
+                <div className="rating">
                   <Rating name="read-only" value={4} readOnly />
                 </div>
                 <span className="price">

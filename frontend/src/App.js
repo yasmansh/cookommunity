@@ -30,18 +30,6 @@ export function check_error(response) {
 
 
 function App() {
-  let isLogin = localStorage.getItem("isLogin") === "true";
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [fetchFood, setfetchFood] = useState([]);
-  const setFoods = (value) => {setfetchFood(value)
-  console.log(fetchFood);
-  };
-  const setAuth = (value) => {
-    localStorage.setItem("username", value.username);
-    localStorage.setItem("role", value.role);
-    localStorage.setItem("isLogin", true);
-    isLogin = true;
-  };
     let isLogin = localStorage.getItem("isLogin") === "true";
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [fetchFood, setfetchFood] = useState([]);

@@ -134,7 +134,7 @@ class Recipe(models.Model):
     category = models.IntegerField(choices=FoodCategory.choices(), default=FoodCategory.IRANIAN,
                                    verbose_name='دسته‌ی غذایی')
     description = models.TextField(verbose_name='توضیحات', max_length=1200)
-    price = models.IntegerField(verbose_name='هزینه', null=True)
+    price = models.IntegerField(verbose_name='هزینه', default=0)
     difficulty = models.IntegerField(choices=DifficultyType.choices(), default=DifficultyType.MEDIUM,
                                      verbose_name='درجه سختی')
     preparation_time = models.IntegerField(choices=DurationType.choices(), default=DurationType.MEDIUM,

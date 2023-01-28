@@ -214,6 +214,7 @@ def create_recipe(request):
                 return HttpResponse(ErrorResponse(InternalError.FOODSTUFF_NOT_FOUND).json)
             ingredient = Ingredient(foodstuff=foodstuff, amount=item.amount, unit=item.unit)
             ingredient.save()
+        recipe.price += ingredient.amount * ingredient.foodstuff.price
         recipe.ingredients.add(ingredient)
     recipe.save()
     return HttpResponse(ObjectInfoResponse(recipe).json)

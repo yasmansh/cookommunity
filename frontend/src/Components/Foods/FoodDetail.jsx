@@ -6,7 +6,7 @@ import Rating from "@mui/material/Rating";
 import PageBanner from "../Banner/PageBanner.js";
 function FoodDetail() {
   const [food, setFood] = useState({});
-  const { FoodID } = useParams();
+  const { food_id } = useParams();
   // useEffect(() => {
   //   // fetch("http://localhost:9000/movies")
   //   //   .then((res) => res.json())

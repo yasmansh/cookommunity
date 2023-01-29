@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Container,
-  Form,
+  Form as form,
   FormButton,
   FormContent,
   FormH1,
@@ -54,7 +54,7 @@ const RegisterForm = () => {
           </Stack>
         </div>
         <FormContent>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <form className="f-reg" onSubmit={handleSubmit(onSubmit)}>
             <FormH1>ساخت حساب کاربری</FormH1>
             <div className="reg-row ">
               <div className="creg-col">
@@ -84,7 +84,7 @@ const RegisterForm = () => {
             </div>
             <FormButton type="submit">ساخت حساب</FormButton>
             <LoginLink to="/login">ورود</LoginLink>
-          </Form>
+          </form>
         </FormContent>
       </FormWrap>
     </Container>

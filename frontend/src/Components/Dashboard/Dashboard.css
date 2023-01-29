@@ -3,7 +3,6 @@
   top: 0;
   bottom: 0;
   right: 0;
-  padding-right: 270px;
   z-index: 9 !important;
   background: #ffffff;
   padding-top: 0.75rem;
@@ -48,4 +47,19 @@ li {
 }
 .logout{
   cursor: pointer;
+}
+.ticket_body_area{
+  height: 100%;
+background: #fff;
+padding: 50px 40px 30px 40px;
+  padding-top: 50px;
+border-radius: 10px;
+box-shadow: 0 30px 60px 0 rgba(2, 2, 48, 0.08);
+padding-top: 100px;
+}
+.side-container{
+  background: #dadada;
+  border-radius: 10px;
+  padding: 30px;
+  width: 78%;
 }

@@ -18,22 +18,21 @@
   border-radius: 50%;
   width: 160px;
 }
-form {
+.edit_profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .row {
   display: flex;
   flex-direction: row;
   align-items: center;
   align-content: space-between;
-  width: 541px;
   margin: 10px auto;
 }
-.col1 {
-  margin: 0 31px;
-}
+
 .f-input,.f-button {
   padding: 13px 20px;
   border-radius: 10px;

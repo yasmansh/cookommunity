@@ -14,17 +14,18 @@ export const Container = styled.div`
 `;
 
 export const Sidebar = styled.div`
+display: flex;
+padding-top: 100px;
   text-align: center;
-  color: #fff;
+  justify-content: center;
+  height: 500px;
   font-size: 14px;
-  width: 270px;
-  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
-  color: #282f53;
+  color: #35334d;
   z-index: 99;
-  background: #fff;
+  background: #35334d;
 `;
 export const Image = styled.img`
   text-align: center;

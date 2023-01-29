@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  min-height: 800px;
+  height: 100%;
   position: flex;
   bottom: 0;
   left: 0;
@@ -10,6 +10,7 @@ export const Container = styled.div`
   top: 0;
   z-index: 0;
   overflow: hidden;
+  display: flex;
   background: #35334d;
 `;
 export const FormWrap = styled.div`

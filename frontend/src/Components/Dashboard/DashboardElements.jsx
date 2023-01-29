@@ -14,27 +14,28 @@ export const Container = styled.div`
 `;
 
 export const Sidebar = styled.div`
-display: flex;
-padding-top: 100px;
   text-align: center;
-  justify-content: center;
-  height: 500px;
+  padding-top: 100px;
+  color: #fff;
   font-size: 14px;
+  width: 250px;
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
-  color: #35334d;
+  color: #fff;
   z-index: 99;
-  background: #35334d;
+  background: #282f53;
 `;
 export const Image = styled.img`
   text-align: center;
   margin: 0 auto !important;
 `;
 export const Mbutton = styled(Link)`
-  color: #010606;
+  color: white;
   font-size: 16px;
   outline: none;
   cursor: pointer;
   text-decoration: none;
+  justify-content: center;
 `;

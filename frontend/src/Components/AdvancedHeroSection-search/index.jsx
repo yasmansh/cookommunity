@@ -105,7 +105,7 @@ const HeroSectionSearch = ({setFoods}) => {
       <HeroContent>
         <HeroH1>جست و جوی پیشرفته!</HeroH1>
         <Searchcontainer>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className="f-form" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <br />
               <div>

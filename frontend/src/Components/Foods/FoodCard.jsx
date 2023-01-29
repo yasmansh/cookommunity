@@ -16,13 +16,14 @@ function FoodCard({ food }) {
                   <Link to={`/foods/${ food.id }`}>{ food.name }</Link>
                 </h6>
                 <span className="chief">
-                    <Link to={`/chief_profile/${food.chief.username}`}>{food.chief.first_name} {food.chief.last_name}</Link>
+                    <Link to={`/forum-profile/${food.chief.username}`}>{food.chief.first_name} {food.chief.last_name}</Link>
                 </span>
                 <div className="rating">
                   <Rating value={food.score}/>
                 </div>
                 <span className="price">
                   <span>{food.price}</span>
+                  <span>تومن</span>
                 </span>
               </div>
             </div>

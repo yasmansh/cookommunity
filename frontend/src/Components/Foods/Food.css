@@ -194,3 +194,6 @@ a:hover {
 .breadcrumb-item a{
   color: #e9eaeb;
 }
+.price span{
+  margin-right: 5px;
+}
